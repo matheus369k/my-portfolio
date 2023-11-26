@@ -14,8 +14,26 @@
 .container_footer svg {
     margin-top: 10px;
     font-size: 1.2em;
+
+    position: relative;
+    top: auto;
+    left: auto;
 }
 
 .container_footer p {
     font-size: .8em;
+}
+
+@media (max-width: 893px) {
+    .container_footer {
+        width: 100%;
+        margin-top: 100px;
+    }
+    
+}
+
+@media (max-width:693px) {
+    .container_footer svg {
+        display: none;
+    }
 }

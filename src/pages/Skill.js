@@ -12,12 +12,36 @@ function Skill() {
             <section className="Skill_Container">
                 <h2>Habilidades</h2>
                 <ul>
-                    <li className="html"><FaHtml5 /></li>
-                    <li className="css"><FaCss3Alt /></li>
-                    <li className="javascript"><IoLogoJavascript /></li>
-                    <li className="react"><FaReact /></li>
-                    <li className="git"><FaGitAlt /></li>
-                    <li className="sass"><FaSass /></li>
+                    <li className="html">
+                        <abbr title="HTML5">
+                            <FaHtml5 />
+                        </abbr>
+                    </li>
+                    <li className="css">
+                        <abbr title="CSS">
+                            <FaCss3Alt />
+                        </abbr>
+                    </li>
+                    <li className="javascript">
+                        <abbr title="JavaScript">
+                            <IoLogoJavascript />
+                        </abbr>
+                    </li>
+                    <li className="react">
+                        <abbr title="React.js">
+                            <FaReact />
+                        </abbr>
+                    </li>
+                    <li className="git">
+                        <abbr title="Git">
+                            <FaGitAlt />
+                        </abbr>
+                    </li>
+                    <li className="sass">
+                        <abbr title="Sass">
+                            <FaSass />
+                        </abbr>
+                    </li>
                 </ul>
             </section>
         </Container>

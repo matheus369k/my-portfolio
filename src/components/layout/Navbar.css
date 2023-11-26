@@ -10,10 +10,10 @@
 
     position: fixed;
 
-    z-index: 3;
+    z-index: 4;
 }
 
-.NavBar_Container span {
+.name {
     height: 50px;
     width: 100%;
 
@@ -24,7 +24,7 @@
     font-weight: bolder;
 }
 
-.NavBar_Container nav {
+.Navbar {
     width: 50%;
 
     display: flex;
@@ -32,10 +32,12 @@
     align-items: center;
 }
 
-.NavBar_Container > nav > li {
+.Navbar li {
     justify-self: right;
 
     padding-bottom: 5px;
+    
+    border-bottom: 2px solid rgba(255, 255, 255, 0);
 
     font-size: 1em;
 
@@ -44,7 +46,37 @@
     cursor: pointer;
 }
 
-.NavBar_Container > nav > li:hover {
-    padding-bottom: 3px;
+.Navbar li:hover {
     border-bottom: 2px solid white;
+}
+
+.Navbar .select {
+    border-bottom: 2px solid white;
+}
+
+@media (max-width:1024px) {
+    .Navbar {
+        width: 100%;
+    }
+
+}
+
+@media (max-width:693px) {
+    .NavBar_Container {
+        padding: 0px 20px;
+
+        height: 100px;
+    }
+
+    .name {
+        text-align: center;
+    }
+
+    .Navbar {
+        position: absolute;
+        top: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        align-items: end;
+    }
 }

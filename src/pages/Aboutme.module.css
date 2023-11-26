@@ -4,7 +4,7 @@
     width: 100%;
 
     margin: 0 auto;
-    padding: 150px 5% 0px 5%;
+    padding: 200px 5% 0px 5%;
 
     display: grid;
     grid-template-columns: 60% 40%;
@@ -45,4 +45,45 @@
 
 .AboutMe_Container > h2 > span {
     font-size: 1.5em;
+}
+
+@media (max-width:1124px) {
+    .AboutMe_Container {
+        grid-template-columns: 50% 50%;
+        
+    }
+}
+
+@media (max-width:893px) {
+    .AboutMe_Container {
+        display: flex;
+        flex-direction: column; 
+
+        margin-bottom: 100px;
+    }
+
+    .AboutMe_Container > h2 {
+        grid-column: 1;
+        grid-row: 1;
+
+        margin-bottom: 100px;
+    }
+    .AboutMe_Container > h2 > span {
+        font-size: 1em;
+    }
+    .AboutMe_Container > h1 {
+        grid-row: 2;
+        
+        align-self: flex-start;
+    }
+    .AboutMe_Container > p {
+        width: 100%;
+        grid-row: 3;
+    }
+}
+
+@media (max-width: 493px) {
+    .AboutMe_Container > h2 {
+        font-size: 2.2em;
+    }
 }
