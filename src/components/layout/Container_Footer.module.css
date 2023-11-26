@@ -1,0 +1,21 @@
+.container_footer {
+    width: 100vw;
+    height: 50px;
+
+    background-color: rgb(0, 0, 0);
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.container_footer svg {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+.container_footer p {
+    font-size: .8em;
+}

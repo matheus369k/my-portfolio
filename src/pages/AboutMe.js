@@ -9,7 +9,9 @@ function AboutMe() {
         <Container classCustom="Container_Aboutme">
             <section className={style.AboutMe_Container}>
                 <h1>Sobre mim</h1>
-                <p>hello, my name is matheus gomes de melo nice to meet you, a'm like tecnology, anime, series, filmes, and games.hello, my name is matheus gomes de melo nice to meet you, a'm like tecnology, anime, series, filmes, and games.hello, my name is matheus gomes de melo nice to meet you, a'm like tecnology, anime, series, filmes, and games.</p>
+                <p>
+                    Ola, me chamo Matheus Gomes, tenho 19 anos e sou <strong>Desenvolvedor web junior</strong>, sou um dev curioso sempre buscando me aprimorar meus conhecimentos, gosto de desenhar assistir series, filmes, animes e games. tenho varios projetos criados utilizando: <strong>HTML5</strong>, <strong>CSS3</strong>, <strong>JavaScript</strong>, <strong>React.js</strong> e <strong>Sass</strong>, tendo o sass como ferramanta mais atual aderida, utilizo o <strong>git</strong> como sistema de controle de versão, contudo posso me adapatar a outro se for necessario.
+                </p>
                 <h2>Desenvolvedor <span>Web</span></h2>
             </section>
         </Container>

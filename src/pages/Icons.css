@@ -17,13 +17,28 @@
     fill: rgb(255, 88, 116);
 }
 .githube svg:hover {
-    fill: rgb(0, 0, 0);
+    fill: rgb(121, 121, 121);
 }
 .linkedin svg:hover {
     fill: rgb(32, 32, 250);
 }
+.repositorio a svg {
+    border: 1px solid rgb(69, 69, 69);
+}
+.repositorio a svg:hover {
+    color: rgb(69, 69, 69);
+    border: 1px solid rgba(255, 255, 255, 0.65);
+}
+.site a svg {
+    border-radius: 50%;
+}
+.site a svg:hover {
+    color: purple;
+}
 
 svg {
+    color: white;
     fill: white;
     transition: .4s;
 }
+

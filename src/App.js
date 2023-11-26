@@ -5,6 +5,7 @@ import AboutMe from './pages/AboutMe';
 import Skill from './pages/Skill';
 import Projects from './pages/Projects';
 import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Container_Footer';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <AboutMe />
       <Skill />
       <Projects />
+      <Footer />
     </Fragment>
   );
 }
