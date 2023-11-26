@@ -1,0 +1,34 @@
+.Skill_Container {
+    max-width: 90%;
+    height: 100%;
+
+    margin: 0 auto;
+    padding-bottom: 150px;
+
+    text-align: center;
+    
+    color: white;
+}
+
+.Skill_Container h2 {
+    font-size: 3em;
+    margin-bottom: 80px;
+}
+
+.Skill_Container ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 80px 50px;
+}
+
+svg {
+    font-size: 5em;
+}
+
+svg:hover {
+    transition: .8s;
+    transform: scale(1.1);
+}

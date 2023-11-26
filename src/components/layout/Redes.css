@@ -1,0 +1,21 @@
+.Redes_container {
+    width: min-content;
+
+    display: flex;
+    align-items: center;
+
+    column-gap: 20px;
+
+    margin-right: 20px;
+}
+
+.Redes_container svg {
+    font-size: 2em;
+
+    cursor: pointer;
+}
+
+.Redes_container svg:hover {
+    transition: .5s;
+    transform: scale(1.1);
+}

@@ -1,0 +1,11 @@
+.Container {
+    max-width: 1124px;
+    margin: 0 auto;
+}
+
+.Container.NavBar_Container  {
+    display: flex;
+    flex-direction: row;
+
+    padding: 0px 20px;
+}

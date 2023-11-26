@@ -1,0 +1,29 @@
+.html svg:hover {
+    fill: rgb(255, 123, 0);
+}
+.css svg:hover {
+    fill: rgb(0, 110, 153);
+}
+.javascript svg:hover {
+    fill: yellow;
+}
+.react svg:hover {
+    fill: aqua;
+}
+.git svg:hover {
+    fill: orangered;
+}
+.sass svg:hover {
+    fill: rgb(255, 88, 116);
+}
+.githube svg:hover {
+    fill: rgb(0, 0, 0);
+}
+.linkedin svg:hover {
+    fill: rgb(32, 32, 250);
+}
+
+svg {
+    fill: white;
+    transition: .4s;
+}

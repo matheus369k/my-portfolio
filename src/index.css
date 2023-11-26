@@ -1,0 +1,39 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+
+  list-style: none;
+
+  text-decoration: none;
+}
+
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;700&display=swap');
+
+html, body {
+  height: 100vh;
+  width: 100vw;
+
+    
+
+  background: center center no-repeat fixed;
+  background-size: cover;
+  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.874), rgba(18, 18, 18, 0.792)), url(./images/bg.png);
+
+  overflow-x: hidden;
+  font-family: 'Hind', sans-serif;
+}
+
+p {
+  font-weight: 300;
+  font-size: 1em;
+
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.622);
+}
+
+strong {
+  font-weight: 700;
+}

@@ -1,0 +1,42 @@
+.NavBar_Container {
+    width: 100%;
+    display: flex;
+
+    padding: 0px 50px;
+
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 244, 244);
+}
+
+.NavBar_Container span {
+    height: 50px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+.NavBar_Container nav {
+    width: 50%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.NavBar_Container li {
+    justify-self: right;
+}
+
+.NavBar_Container a {
+    font-size: 1.1em;
+
+    color: rgb(255, 255, 255);
+}
+
+.NavBar_Container a:hover {
+    border-bottom: 2px solid white;
+}
