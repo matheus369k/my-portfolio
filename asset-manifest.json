@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/my-portfolio/static/css/main.e0be0603.css",
+    "main.js": "/my-portfolio/static/js/main.221848c9.js",
+    "static/media/bg.png": "/my-portfolio/static/media/bg.cc88592af8d4f8739064.png",
+    "static/media/Project-login.PNG": "/my-portfolio/static/media/Project-login.9ee2df372c4f8bad9215.PNG",
+    "static/media/Project-sagaTransformers.PNG": "/my-portfolio/static/media/Project-sagaTransformers.23360612492426e8c5cb.PNG",
+    "static/media/Project-space.PNG": "/my-portfolio/static/media/Project-space.51bf95a9f4cf698733d4.PNG",
+    "static/media/Project-homePage.PNG": "/my-portfolio/static/media/Project-homePage.0fd38d06e632f90deec4.PNG",
+    "static/media/Project-pokedex.PNG": "/my-portfolio/static/media/Project-pokedex.f2b07d6866b8ca053c1b.PNG",
+    "static/media/Project-ecommerc.PNG": "/my-portfolio/static/media/Project-ecommerc.ccb566a8f16129c3cb22.PNG",
+    "index.html": "/my-portfolio/index.html",
+    "main.e0be0603.css.map": "/my-portfolio/static/css/main.e0be0603.css.map",
+    "main.221848c9.js.map": "/my-portfolio/static/js/main.221848c9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e0be0603.css",
+    "static/js/main.221848c9.js"
+  ]
+}
