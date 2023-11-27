@@ -28,7 +28,7 @@ function App() {
 
           navList.childNodes[0].classList.add("select")
 
-      } else if (scrollY < 1050) {
+      } else if (scrollY < 1150) {
 
           navList.childNodes[1].classList.add("select")
 

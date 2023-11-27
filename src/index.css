@@ -67,6 +67,12 @@ strong {
   font-weight: 700;
 }
 
+@media (max-width: 1024px) {
+  body::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 @media (max-width:693px) {
   body::-webkit-scrollbar-button {
     height: 100px;
