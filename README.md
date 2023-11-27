@@ -11,7 +11,7 @@ __Nota__: O Projeto e o meu portfolio que apresenta meus projetos de maneira mai
 - CSS
 
 ## ⚙️Desenvolvimento 
-Na criação do projeto foara utilizado pouca logica de programação, ele fora mais focado na estilização com o css, sendo responsivo com css MediaQuerys.
+Na criação do projeto foara utilizado pouca logica de programação, ele fora mais focado na estilização com o css, sendo responsivo com css MediaQuerys. 
 
 ## 📃Licença
 ( MIT ) - veja [LICENSE](./LICENSE)
