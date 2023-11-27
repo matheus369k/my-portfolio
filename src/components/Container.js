@@ -6,7 +6,7 @@ function Container(props) {
             {props.children}
         </div>
     )
-    
+
 }
 
 export default Container

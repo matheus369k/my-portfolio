@@ -8,34 +8,34 @@ import Footer from './components/layout/Container_Footer';
 
 function App() {
 
-  const [scrollY, setScrollY]=useState(0)
+  const [scrollY, setScrollY] = useState(0)
 
-  const handleScroll=(c)=>{
-      document.body.scroll(0, c)
-      setScrollY(document.body.scrollTop)
+  const handleScroll = (c) => {
+    document.body.scroll(0, c)
+    setScrollY(document.body.scrollTop)
   }
-  
-  document.body.addEventListener("scroll", ()=>{
-      setScrollY(document.body.scrollTop)
+
+  document.body.addEventListener("scroll", () => {
+    setScrollY(document.body.scrollTop)
   })
 
-  useEffect(()=>{
-      const navList = document.querySelector("nav.Navbar")
+  useEffect(() => {
+    const navList = document.querySelector("nav.Navbar")
 
-      document.querySelector(".select").classList.remove("select")
+    document.querySelector(".select").classList.remove("select")
 
-      if (scrollY < 450) {
+    if (scrollY < 450) {
 
-          navList.childNodes[0].classList.add("select")
+      navList.childNodes[0].classList.add("select")
 
-      } else if (scrollY < 1150) {
+    } else if (scrollY < 1150) {
 
-          navList.childNodes[1].classList.add("select")
+      navList.childNodes[1].classList.add("select")
 
-      } else{
+    } else {
 
-          navList.childNodes[2].classList.add("select")
-      }
+      navList.childNodes[2].classList.add("select")
+    }
 
   }, [scrollY])
 

@@ -184,13 +184,13 @@
     .Projects_container h2 {
         grid-row: 1;
         grid-column: 1/3;
-        
+
         position: relative;
         left: 50vw;
         transform: translateX(-55vw);
     }
 
-    .Projects_container p {    
+    .Projects_container p {
         text-align: center;
     }
 

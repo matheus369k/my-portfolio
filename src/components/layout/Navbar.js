@@ -1,4 +1,4 @@
-import"./Navbar.css"
+import "./Navbar.css"
 import Redes from "./Redes"
 
 function Navbar({ handleScroll }) {
@@ -7,9 +7,9 @@ function Navbar({ handleScroll }) {
             <Redes />
             <span className="name">Matheus</span>
             <nav className="Navbar">
-                <li className="select" onClick={(c)=>handleScroll(0)}>Sobre min</li>
-                <li onClick={(c)=>handleScroll(650)}>Habilidades</li>
-                <li onClick={(c)=>handleScroll(1250)}>Projetos</li>
+                <li className="select" onClick={(c) => handleScroll(0)}>Sobre min</li>
+                <li onClick={(c) => handleScroll(750)}>Habilidades</li>
+                <li onClick={(c) => handleScroll(1350)}>Projetos</li>
             </nav>
         </header>
     )

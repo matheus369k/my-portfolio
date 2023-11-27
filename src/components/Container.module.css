@@ -3,7 +3,7 @@
     margin: 0 auto;
 }
 
-.Container.NavBar_Container  {
+.Container.NavBar_Container {
     display: flex;
     flex-direction: row;
 
