@@ -1,9 +1,16 @@
 .Skill_Container {
     max-width: 90%;
     height: 100%;
+    min-height: 400px;
 
     margin: 0 auto;
-    padding: 50px 0 200px;
+
+    padding: 25% 5%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 
     text-align: center;
     

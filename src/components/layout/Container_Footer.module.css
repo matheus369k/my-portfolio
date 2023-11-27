@@ -20,7 +20,8 @@
     left: auto;
 }
 
-.container_footer p {
+.container_footer p {    
+    font-family: 'Orbitron', sans-serif;
     font-size: .8em;
 }
 
