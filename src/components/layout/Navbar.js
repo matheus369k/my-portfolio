@@ -8,7 +8,7 @@ function Navbar({ handleScroll }) {
             <span className="name">Matheus</span>
             <nav className="Navbar">
                 <li className="select" onClick={(c)=>handleScroll(0)}>Sobre min</li>
-                <li onClick={(c)=>handleScroll(550)}>Habilidades</li>
+                <li onClick={(c)=>handleScroll(650)}>Habilidades</li>
                 <li onClick={(c)=>handleScroll(1250)}>Projetos</li>
             </nav>
         </header>
