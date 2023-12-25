@@ -20,17 +20,17 @@
 
 
 
-.repositorio a svg { border: 1px solid rgb(69, 69, 69);}
+.repositorio svg { border: 1px solid rgb(69, 69, 69);}
 
-.repositorio:hover a svg { 
+.repositorio:hover svg { 
     color: rgb(69, 69, 69);    
     border: 1px solid rgba(255, 255, 255, 0.65);
 }
 
 
-.site a svg { border-radius: 50%;}
+.site svg { border-radius: 50%;}
 
-.site:hover a svg { color: purple;}
+.site:hover svg { color: purple;}
 
 svg {
     color: white;
