@@ -1,51 +1,36 @@
-.html svg:hover {
-    fill: rgb(255, 123, 0);
-}
+.html:hover svg { fill: rgb(255, 123, 0);}
 
-.css svg:hover {
-    fill: rgb(0, 110, 153);
-}
+.css:hover svg { fill: rgb(0, 110, 153);}
 
-.javascript svg:hover {
-    fill: yellow;
-}
+.javascript:hover svg { fill: yellow;}
 
-.react svg:hover {
-    fill: aqua;
-}
+.react:hover svg { fill: aqua;}
 
-.git svg:hover {
-    fill: orangered;
-}
+.git:hover svg { fill: orangered;}
 
-.sass svg:hover {
-    fill: rgb(255, 88, 116);
-}
+.sass:hover svg { fill: rgb(255, 88, 116);}
 
-.githube svg:hover {
-    fill: rgb(121, 121, 121);
-}
+.jquery:hover svg { fill:blue}
 
-.linkedin svg:hover {
-    fill: rgb(32, 32, 250);
-}
 
-.repositorio a svg {
-    border: 1px solid rgb(69, 69, 69);
-}
 
-.repositorio a svg:hover {
-    color: rgb(69, 69, 69);
+.githube:hover svg { fill: rgb(121, 121, 121);}
+
+.linkedin:hover svg { fill: rgb(32, 32, 250);}
+
+
+
+.repositorio a svg { border: 1px solid rgb(69, 69, 69);}
+
+.repositorio:hover a svg { 
+    color: rgb(69, 69, 69);    
     border: 1px solid rgba(255, 255, 255, 0.65);
 }
 
-.site a svg {
-    border-radius: 50%;
-}
 
-.site a svg:hover {
-    color: purple;
-}
+.site a svg { border-radius: 50%;}
+
+.site:hover a svg { color: purple;}
 
 svg {
     color: white;

@@ -4,6 +4,7 @@ import "./Skill.css"
 import "./Icons.css"
 
 import { FaHtml5, FaCss3Alt, FaReact, FaSass, FaGitAlt } from "react-icons/fa";
+import { SiJquery } from "react-icons/si";
 import { IoLogoJavascript } from "react-icons/io5";
 
 function Skill() {
@@ -35,6 +36,11 @@ function Skill() {
                     <li className="git">
                         <abbr title="Git">
                             <FaGitAlt />
+                        </abbr>
+                    </li>
+                    <li className="jquery">
+                        <abbr title="JQuery">
+                            <SiJquery />
                         </abbr>
                     </li>
                     <li className="sass">
