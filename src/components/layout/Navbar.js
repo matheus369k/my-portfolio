@@ -5,46 +5,47 @@ import { useEffect, useState } from 'react';
 
 function Navbar() {
 
-  const [scrollY, setScrollY] = useState(0)
+  const handleScroll = (c, scroll='auto') => {
 
-  const handleScroll = (c) => {
-    document.body.scroll(0, c)
+    if (scroll === 'auto') {
+
+      document.body.scroll(0, c)
+    }
+    
+    const navList = document.querySelector(".Navbar")
+
+    let scrolltop = document.body.scrollTop
+
+    if (scrolltop < 500 && !navList.children[0].classList.contains('select')) {
+
+      document.querySelector(".select").classList.remove("select")
+
+      navList.childNodes[0].classList.add("select")
+
+    } else if (scrolltop > 500 && scrolltop < 1250 && !navList.children[1].classList.contains('select')) {
+
+      document.querySelector(".select").classList.remove("select")
+
+      navList.childNodes[1].classList.add("select")
+
+    } else if (scrolltop > 1250 && !navList.children[2].classList.contains('select')) {
+
+      document.querySelector(".select").classList.remove("select")
+
+      navList.childNodes[2].classList.add("select")
+    }
   }
 
   document.body.addEventListener("scroll", () => {
 
-    if (document.body.scrollTop === 750) {
+    handleScroll(document.body.scrollTop, 'scrollmanual')
 
-      setScrollY(document.body.scrollTop)
-
-    } else if (document.body.scrollTop === 1450) {
-
-
-      setScrollY(document.body.scrollTop)
-
-    }
   })
   
 
   console.log('render navbar')
 
   useEffect(() => {
-    const navList = document.querySelector("nav.Navbar")
-
-    document.querySelector(".select").classList.remove("select")
-
-    if (scrollY < 450) {
-
-      navList.childNodes[0].classList.add("select")
-
-    } else if (scrollY < 1150) {
-
-      navList.childNodes[1].classList.add("select")
-
-    } else {
-
-      navList.childNodes[2].classList.add("select")
-    }
 
   }, [])
 
@@ -55,7 +56,7 @@ function Navbar() {
       <nav className="Navbar">
         <li className="select" onClick={(c) => handleScroll(0)}>Sobre min</li>
         <li onClick={(c) => handleScroll(750)}>Habilidades</li>
-        <li onClick={(c) => handleScroll(1450)}>Projetos</li>
+        <li onClick={(c) => handleScroll(1650)}>Projetos</li>
       </nav>
     </header>
   )

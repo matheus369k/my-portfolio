@@ -1,16 +1,18 @@
+:root {
+    --color-border: #002e3a;
+    --color-border-hover: #00a7d1;
+    --width-border: 4px;
+    --type-border: groove;
+}
+
 .Skill_Container {
-    max-width: 90%;
+    width: 100%;
     height: 100%;
-    min-height: 400px;
 
     margin: 0 auto;
 
-    padding: 25% 5%;
-
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
 
     text-align: center;
 
@@ -25,17 +27,179 @@
 .Skill_Container ul {
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
 
-    gap: 80px 50px;
+    position: relative;
+
+    gap: 25px;
 }
 
-svg {
-    font-size: 5em;
+.softskills {
+    width: 250px;
+    height: 250px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    row-gap: 25px;
+
+    backdrop-filter: blur(20px);
+
+    border: 1px solid gray;
 }
 
-svg:hover {
-    transition: .8s;
-    transform: scale(1.1);
+.softskills:hover {
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.softskills_description {
+    padding: 10px;
+
+    max-height: 100px;
+
+    overflow-y: scroll;
+
+    color: gray;
+
+    background-image: linear-gradient(180deg,#002e3a69, black ,rgba(0, 46, 58, 0.642));
+
+    border-top: var(--width-border) var(--type-border) var(--color-border);
+
+    border-bottom: var(--width-border) var(--type-border) var(--color-border);
+
+    text-align: justify;
+
+    transition: .7s ease-in-out;
+
+    font-size: .8em;
+    font-weight: bold;
+}
+
+.softskills_description::-webkit-scrollbar {
+    background-color: transparent;
+
+    width: 8px;
+}
+.softskills_description::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+
+    background-image: linear-gradient(90deg,var(--color-border-hover), black ,var(--color-border-hover));
+}
+
+.softskills_description::before {
+    content: '';
+
+    position: absolute;
+    top: 80px;
+    right: 60px;
+
+    width: 20px;
+    height: 30px;
+    
+    border-right: var(--width-border) var(--type-border) var(--color-border);
+    border-top: var(--width-border) var(--type-border) var(--color-border);
+    border-bottom: var(--width-border) var(--type-border) var(--color-border);
+
+    transition: .7s ease-in-out;
+}
+
+.softskills:hover .softskills_description::before {
+    border-right: var(--width-border) var(--type-border) var(--color-border-hover);
+    border-top: var(--width-border) var(--type-border) var(--color-border-hover);
+    border-bottom: var(--width-border) var(--type-border) var(--color-border-hover);
+}
+
+.softskills_description::after {
+    content: '';
+
+    position: absolute;
+    top: 114px;
+    left: 20px;
+
+    width: 140px;
+    height: 20px;
+    
+    border-left: var(--width-border) var(--type-border) var(--color-border);
+    border-top: var(--width-border) var(--type-border) var(--color-border);
+
+    transition: .7s ease-in-out;
+}
+
+.softskills:hover .softskills_description::after {
+    border-left: var(--width-border) var(--type-border) var(--color-border-hover);
+    border-top: var(--width-border) var(--type-border) var(--color-border-hover);
+}
+
+.softskills:hover .softskills_description {
+    border-top: var(--width-border) var(--type-border) var(--color-border-hover);
+
+    border-bottom: var(--width-border) var(--type-border) var(--color-border-hover);
+    
+    color:  white;
+}
+
+.softskills_icons::before {
+    content: '';
+
+    position: absolute;
+    top: 0px;
+    right: 58px;
+
+    width: 38px;
+    height: 60px;
+    
+    border-right: var(--width-border) var(--type-border) var(--color-border);
+    border-bottom: var(--width-border) var(--type-border) var(--color-border);
+
+    transition: .7s ease-in-out;
+}
+
+.softskills:hover .softskills_icons::before {
+    border-right: var(--width-border) var(--type-border) var(--color-border-hover);
+    border-bottom: var(--width-border) var(--type-border) var(--color-border-hover);
+
+}
+
+.softskills_icons::after {
+    content: '';
+
+    position: absolute;
+    top: 0px;
+    left: 58px;
+
+    width: 38px;
+    height: 60px;
+    
+    border-left: var(--width-border) var(--type-border) var(--color-border);
+    border-bottom: var(--width-border) var(--type-border) var(--color-border);  
+
+    transition: .7s ease-in-out;
+}
+
+.softskills:hover .softskills_icons::after {  
+    border-left: var(--width-border) var(--type-border) var(--color-border-hover);
+    border-bottom: var(--width-border) var(--type-border) var(--color-border-hover);
+
+}
+
+.Skill_Container svg {
+    font-size: 6em;
+
+    position: relative;
+    background-color: black;
+
+    border: 1px solid gray;
+    border-radius: 10px;
+
+    padding: 10px;
+
+    transition: .7s ease-in-out;
+
+    z-index: 4;
+}
+
+.softskills:hover svg {
+    border: 1px solid var(--color-border-hover);
 }

@@ -95,13 +95,13 @@ function Projects() {
 
                                         <li key={"repositorio:"+project.id}  className="repositorio">
 
-                                            <a href={project.links.repositorio}> <CgRemote /> </a>
+                                            <a href={project.links.repositorio} target="_blank"> <CgRemote /> </a>
 
                                         </li>
 
                                         <li key={"deploy:"+project.id}  className="site">
 
-                                            <a href={project.links.deploy}> <CgMediaLive /> </a>
+                                            <a href={project.links.deploy} target="_blank"> <CgMediaLive /> </a>
 
                                         </li>
 

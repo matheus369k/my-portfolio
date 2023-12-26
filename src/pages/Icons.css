@@ -1,16 +1,16 @@
-.html:hover svg { fill: rgb(255, 123, 0);}
+li:hover .html svg { fill: rgb(255, 123, 0);}
 
-.css:hover svg { fill: rgb(0, 110, 153);}
+li:hover .css svg { fill: rgb(0, 110, 153);}
 
-.javascript:hover svg { fill: yellow;}
+li:hover .javascript svg { fill: yellow;}
 
-.react:hover svg { fill: aqua;}
+li:hover .react svg { fill: aqua;}
 
-.git:hover svg { fill: orangered;}
+li:hover .git svg { fill: orangered;}
 
-.sass:hover svg { fill: rgb(255, 88, 116);}
+li:hover .sass svg { fill: rgb(255, 88, 116);}
 
-.jquery:hover svg { fill:blue}
+li:hover .jquery svg { fill:blue}
 
 
 
@@ -22,7 +22,7 @@
 
 .repositorio svg { border: 1px solid rgb(69, 69, 69);}
 
-.repositorio:hover svg { 
+li:hover .repositorio svg { 
     color: rgb(69, 69, 69);    
     border: 1px solid rgba(255, 255, 255, 0.65);
 }
@@ -30,10 +30,10 @@
 
 .site svg { border-radius: 50%;}
 
-.site:hover svg { color: purple;}
+li:hover .site svg { color: purple;}
 
 svg {
     color: white;
     fill: white;
-    transition: .4s;
+    transition: .7s ease-in-out;
 }

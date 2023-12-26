@@ -7,52 +7,68 @@ import { FaHtml5, FaCss3Alt, FaReact, FaSass, FaGitAlt } from "react-icons/fa";
 import { SiJquery } from "react-icons/si";
 import { IoLogoJavascript } from "react-icons/io5";
 
+import { useEffect } from "react";
+import { useState } from "react";
+import axios from "axios";
+
 function Skill() {
+
+    const [softskills, setSoftskills] = useState([])
+
+    const url = 'https://matheus369k.github.io/Data/portfolio.json'
+
+    const SkillList = {
+        "html": <FaHtml5 />,
+        "css": <FaCss3Alt />,
+        "javascript": <IoLogoJavascript />,
+        "react": <FaReact />,
+        "jquery": <SiJquery />,
+        "sass": <FaSass />,
+        "git": <FaGitAlt />
+    }
+
+    useEffect(() => {
+
+        if (softskills.length === 0) {
+            axios(url)
+                .then((resp) => {
+
+                    setSoftskills(resp.data['softskill'])
+
+                }).catch((err) => console.log(err))
+        }
+    })
+
+    const renderskills = () => {
+
+        let listskill = []
+
+        listskill.push(
+            softskills.map((softskill) => (
+
+                <li key={"SoftSkill:"+softskill.id} className="softskills">
+                    <i className={`softskills_icons ${Object.keys(SkillList)[parseInt(softskill.id)-1]}`}>
+                        {Object.values(SkillList)[parseInt(softskill.id)-1]}
+                    </i>
+                    <p className="softskills_description">{softskill.description}</p>
+                </li>
+
+
+            ))
+        )
+
+        return listskill
+    }
+
     return (
         <Container>
             <section className="Skill_Container">
                 <h2>Habilidades</h2>
-                <ul>
-                    <li className="html">
-                        <abbr title="HTML5">
-                            <FaHtml5 />
-                        </abbr>
-                    </li>
-                    <li className="css">
-                        <abbr title="CSS">
-                            <FaCss3Alt />
-                        </abbr>
-                    </li>
-                    <li className="javascript">
-                        <abbr title="JavaScript">
-                            <IoLogoJavascript />
-                        </abbr>
-                    </li>
-                    <li className="react">
-                        <abbr title="React.js">
-                            <FaReact />
-                        </abbr>
-                    </li>
-                    <li className="git">
-                        <abbr title="Git">
-                            <FaGitAlt />
-                        </abbr>
-                    </li>
-                    <li className="jquery">
-                        <abbr title="JQuery">
-                            <SiJquery />
-                        </abbr>
-                    </li>
-                    <li className="sass">
-                        <abbr title="Sass">
-                            <FaSass />
-                        </abbr>
-                    </li>
-                </ul>
+                <ul>{renderskills()}</ul>
             </section>
         </Container>
     )
-    
+
 }
 
 export default Skill

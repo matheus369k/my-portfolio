@@ -36,8 +36,8 @@
     justify-self: right;
 
     padding-bottom: 5px;
-
-    border-bottom: 2px solid rgba(255, 255, 255, 0);
+    
+    position: relative;
 
     font-size: 1em;
 
@@ -46,12 +46,27 @@
     cursor: pointer;
 }
 
-.Navbar li:hover {
-    border-bottom: 2px solid white;
+.Navbar .select::before,
+.Navbar li::before {
+    content: '';
+
+    transform: translateX(-50%);
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+
+    background-color: white;
+
+    height: 2px;
+    
+    width: 0%;
+
+    transition: .5s ease-in-out;
 }
 
-.Navbar .select {
-    border-bottom: 2px solid white;
+.Navbar .select::before,
+.Navbar li:hover::before{
+    width: 100%;
 }
 
 @media (max-width:1024px) {

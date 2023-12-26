@@ -1,5 +1,7 @@
 :root {
     --color-border: #002e3a;
+    --color-border-hover: #0085a7;
+    --bg-gradient-hover: #004e61;
     --width-border: 4px;
     --type-border: groove;
 }
@@ -15,7 +17,7 @@
 
     margin: 0 auto;
 
-    padding: 50px 0;
+    padding: 25% 0 10% 0;
 
     color: white;
 }
@@ -54,8 +56,15 @@
     position: relative;
 }
 
+.project:hover {
+    border-color: white;
+}
+
 .project_name {
     margin-left: 40px;
+
+    font-weight: bold;
+    font-size: 1.2em;
 
     width: max-content;
 
@@ -68,12 +77,24 @@
 
     background-image: linear-gradient(180deg,#002e3a69, black ,rgba(0, 46, 58, 0.642));
 
+    transition: .7s ease-in-out;
+
     box-shadow: none;
     
     padding: 2px 10px;
 
     z-index: 2;
 }
+
+.project:hover .project_name {
+    border-color:  var(--color-border-hover);
+
+    transition-delay: .5s;
+
+    background-image: linear-gradient(180deg,var(--bg-gradient-hover), black ,var(--bg-gradient-hover));
+
+}
+
 
 .project_name::after {
     content: '';
@@ -89,9 +110,15 @@
     border-right: var(--width-border) var(--type-border) var(--color-border);
     border-bottom: var(--width-border) var(--type-border) var(--color-border);
 
+    transition: .7s ease-in-out;
+
     box-shadow: none;
 
     z-index: 0;
+}
+
+.project:hover .project_name::after {
+    border-color:  var(--color-border-hover);
 }
 
 .project_image {
@@ -102,8 +129,14 @@
 
     border: var(--width-border) var(--type-border) var(--color-border);
 
+    transition: .7s ease-in-out;
+
     background: center center no-repeat;
     background-size: 100% 100%;
+}
+
+.project:hover .project_image {
+    border-color:  var(--color-border-hover);
 }
 
 .project_image::before {
@@ -111,6 +144,8 @@
 
     border-top:  var(--width-border) var(--type-border) var(--color-border);
     border-left:  var(--width-border) var(--type-border) var(--color-border);
+
+    transition: .7s ease-in-out;
 
     width: 42px;
     height: 50px;
@@ -120,9 +155,15 @@
     left: 50px;
 }
 
+.project:hover .project_image::before {
+    border-color:  var(--color-border-hover);
+}
+
 .project_image::after {
     content: '';
     border-left:  var(--width-border) var(--type-border) var(--color-border);
+
+    transition: .7s ease-in-out;
 
     width: 2px;
     height: 27px;
@@ -133,6 +174,9 @@
     transform: translateX(-50%);
 }
 
+.project:hover .project_image::after {
+    border-color:  var(--color-border-hover);
+}
 
 .project_image:hover {
     transition: .6s;
@@ -170,12 +214,27 @@
     background-image: linear-gradient(180deg,#002e3a69, black ,rgba(0, 46, 58, 0.642));
     
     border: var(--width-border) var(--type-border) var(--color-border);
+
+    transition: .7s ease-in-out;
     
     padding: 10px;
 
     text-align: justify;
 
+    color: gray;
+    text-shadow: 1px 1px 2px black;
+
     font-size: 1em;
+    font-weight: bold;
+}
+
+.project:hover .project_description {
+    border-color:  var(--color-border-hover);
+
+    transition-delay: .5s;
+    color: white;
+
+    background-image: linear-gradient(180deg,var(--bg-gradient-hover), black ,var(--bg-gradient-hover));
 }
 
 .project_description::before {
@@ -192,6 +251,12 @@
     border-top: var(--width-border) var(--type-border) var(--color-border);
     border-right: var(--width-border) var(--type-border) var(--color-border);
     border-bottom: var(--width-border) var(--type-border) var(--color-border);
+
+    transition: .7s ease-in-out;
+}
+
+.project:hover .project_description::before {
+    border-color:  var(--color-border-hover);
 }
 
 .project_description::after {
@@ -208,6 +273,12 @@
     border-top: var(--width-border) var(--type-border) var(--color-border);
     border-left: var(--width-border) var(--type-border) var(--color-border);
     border-bottom: var(--width-border) var(--type-border) var(--color-border);
+
+    transition: .7s ease-in-out;
+}
+
+.project:hover .project_description::after {
+    border-color:  var(--color-border-hover);
 }
 
 .project_Container_Skill_links {
@@ -233,6 +304,11 @@
     border-bottom: var(--width-border) var(--type-border) var(--color-border);
 
     border-left: var(--width-border) var(--type-border) var(--color-border);
+
+    transition: .7s ease-in-out;
+}
+.project:hover .project_Container_Skill_links::before {
+    border-color:  var(--color-border-hover);
 }
 
 .project_Container_Skill_links::after {
@@ -248,6 +324,12 @@
     border-bottom: var(--width-border) var(--type-border) var(--color-border);
 
     border-right: var(--width-border) var(--type-border) var(--color-border);
+
+    transition: .7s ease-in-out;
+}
+
+.project:hover .project_Container_Skill_links::after {
+    border-color:  var(--color-border-hover);    
 }
 
 .project_links::after {
@@ -261,6 +343,12 @@
     width: 425px;
 
     border-right: var(--width-border) var(--type-border) var(--color-border);
+
+    transition: .7s ease-in-out;
+}
+
+.project:hover .project_links::after {
+    border-color:  var(--color-border-hover);
 }
 
 .project_links ul {
@@ -278,7 +366,17 @@
 
     background-image: linear-gradient(180deg,#002e3a69, black ,rgba(0, 46, 58, 0.642));
 
+    transition: .7s ease-in-out;
+
     column-gap: 10px;
+}
+.project:hover .project_links ul {
+    border-color:  var(--color-border-hover);
+
+    transition-delay: .5s;
+
+    background-image: linear-gradient(180deg,var(--bg-gradient-hover), black ,var(--bg-gradient-hover));
+
 }
 
 .project_links ul::before {
@@ -296,6 +394,12 @@
     border-right: var(--width-border) var(--type-border) var(--color-border);
 
     border-left: var(--width-border) var(--type-border) var(--color-border);
+
+    transition: .7s ease-in-out;
+}
+
+.project:hover .project_links ul::before {
+    border-color:  var(--color-border-hover);
 }
 
 .project_links ul::after {
@@ -309,6 +413,12 @@
     width: 425px;
 
     border-right: var(--width-border) var(--type-border) var(--color-border);
+
+    transition: .7s ease-in-out;
+}
+
+.project:hover .project_links ul::after {
+    border-color:  var(--color-border-hover);
 }
 
 .project_links svg {
@@ -332,6 +442,14 @@
     padding: 10px;
 
     border: var(--width-border) var(--type-border) var(--color-border);
+
+    transition: .7s ease-in-out;
+}
+
+.project:hover .project_softSkills {
+    border-color:  var(--color-border-hover);
+
+    background-image: linear-gradient(180deg,var(--bg-gradient-hover), black ,var(--bg-gradient-hover));
 }
 
 .project_softSkills::before {
@@ -349,6 +467,12 @@
     border-right: var(--width-border) var(--type-border) var(--color-border);
 
     border-left: var(--width-border) var(--type-border) var(--color-border);
+
+    transition: .7s ease-in-out;
+}
+
+.project:hover .project_softSkills::before {
+    border-color:  var(--color-border-hover);
 }
 
 .project_softSkills::after {
@@ -362,6 +486,12 @@
     width: 50px;
 
     border-top: var(--width-border) var(--type-border) var(--color-border);
+
+    transition: .7s ease-in-out;
+}
+
+.project:hover .project_softSkills::after {
+    border-color:  var(--color-border-hover);
 }
 
 .project_softSkills svg {
