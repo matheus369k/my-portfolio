@@ -39,16 +39,14 @@ svg {
 }
 
 .softskills:hover svg path{
-    animation: animation-icon 2s ease-in-out alternate infinite;
+    animation: animation-icon 1.5s ease-in-out alternate infinite;
 }
 
 @keyframes animation-icon {
     from {
-        transform: translateY(0);
         opacity: 1;
     }
     to {
-        transform: translateY(20px);
-        opacity: .6;
+        opacity: .4;
     }
 }

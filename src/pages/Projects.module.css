@@ -552,7 +552,7 @@
     }
 
     .project_image::after {
-        top: 353px;
+        top: 403px;
     }
 
     .project_links ul::before {
@@ -565,7 +565,7 @@
 
     .project_links ul::after {
         bottom: 0px;
-        right: 300px;
+        right: 400px;
     
         height: 26px;
         width: 0px;
@@ -591,7 +591,7 @@
 
     .project_Container_Skill_links::after,
     .project_Container_Skill_links::before {
-        height: 130px;
+        height: 180px;
     }
 }
 
@@ -633,13 +633,12 @@
     }
 
     .project_image {
-        height: 200px;
+        max-height: 200px;
     }
 
     .project_image::after {
         top: 303px;
     }
-
     
     .project_description::after, 
     .project_description::before {
@@ -659,6 +658,10 @@
 
     .project_links ul {
         width: 120px;
+    }
+
+    .project_links ul::after {
+        right: 300px;
     }
 
     .project_links svg,
