@@ -251,7 +251,7 @@
 
 @media (max-width: 493px) {
     .Skill_Container ul {
-        gap: 0px;
+        gap: 5px;
     }
 
     .softskills {
