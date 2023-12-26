@@ -203,3 +203,71 @@
 .softskills:hover svg {
     border: 1px solid var(--color-border-hover);
 }
+
+@media (max-width: 568px) {
+    .softskills {
+        width: 200px;
+        height: 200px;
+    }
+
+    .softskills_icons {
+        margin-top: 10px;
+    }
+
+    .softskills_icons::before {
+        height: 40px;
+        width: 20px;
+
+        right: 44px;
+
+    }
+    .softskills_icons::after {
+        height: 40px;
+        width: 20px;
+
+        left: 44px;
+    }
+
+    .Skill_Container svg {
+        font-size: 4em;
+    
+        padding: 10px;
+    }
+
+    .softskills_description::before {
+        top: 51px;
+        right: 44px;
+    }
+
+    .softskills_description::after {
+        top: 85px;
+        left: 20px;
+    
+        width: 120px;
+        height: 16px;
+    }
+} 
+
+
+@media (max-width: 493px) {
+    .Skill_Container ul {
+        gap: 0px;
+    }
+
+    .softskills {
+        width: 180px;
+        height: 180px;
+    }
+    .softskills_icons::after {
+        width: 25px;
+        left: 28px;
+    }
+
+    .softskills_description::before,
+    .softskills_icons::before {
+        width: 25px;
+        right: 28px;
+
+    }
+
+}

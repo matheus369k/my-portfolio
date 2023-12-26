@@ -14,6 +14,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
 
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+
+  background: center center no-repeat fixed;
+  background-size: cover;
+  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.897), rgba(18, 18, 18, 0.913)), url(./images/bg.png);
+
+  overflow-x: hidden;
+
+  scroll-behavior: smooth;
+
+  font-family: 'Orbitron', sans-serif;
+}
+
+p {
+  font-family: 'Hind', sans-serif;
+  font-weight: 300;
+
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.622);
+}
+
+strong {
+  font-weight: 700;
+}
+
 body::-webkit-scrollbar {
   background-color: black;
 
@@ -37,41 +64,25 @@ body::-webkit-scrollbar-thumb {
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.563);
 }
 
-body::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-
-html,
-body {
-  height: 100vh;
-  width: 100vw;
-
-
-
-  background: center center no-repeat fixed;
-  background-size: cover;
-  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.874), rgba(18, 18, 18, 0.792)), url(./images/bg.png);
-
-  overflow-x: hidden;
-
-  font-family: 'Orbitron', sans-serif;
-}
-
-p {
-  font-family: 'Hind', sans-serif;
-  font-weight: 300;
-
-  text-shadow: 1px 1px rgba(0, 0, 0, 0.622);
-}
-
-strong {
-  font-weight: 700;
-}
-
-@media (max-width: 1024px) {
+@media (max-width: 1024px ) and (min-height: 1024px ){
   body::-webkit-scrollbar {
     display: none;
   }
+  
+}
+
+@media (max-width: 768px ) and (min-height: 768px ){
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  
+}
+
+@media (max-width: 568px ) and (min-height: 568px ){
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  
 }
 
 @media (max-width:693px) {

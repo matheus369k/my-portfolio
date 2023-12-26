@@ -37,3 +37,18 @@ svg {
     fill: white;
     transition: .7s ease-in-out;
 }
+
+.softskills:hover svg path{
+    animation: animation-icon 2s ease-in-out alternate infinite;
+}
+
+@keyframes animation-icon {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(20px);
+        opacity: .6;
+    }
+}

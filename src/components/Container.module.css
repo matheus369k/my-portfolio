@@ -1,6 +1,22 @@
+@keyframes loading-page {
+    from {
+        opacity: 0.2;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .Container {
-    max-width: 1124px;
+    max-width: 1424px;
     margin: 0 auto;
+
+    padding: 0 50px ;
+
+    animation: loading-page 1.2s ease-in-out;
 }
 
 .Container.NavBar_Container {
@@ -8,4 +24,11 @@
     flex-direction: row;
 
     padding: 10px 20px;
+}
+
+@media (max-width: 668px) {
+    .Container {
+        padding: 0;
+    }
+
 }

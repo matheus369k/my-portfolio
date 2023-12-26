@@ -1,12 +1,27 @@
+:root {
+    --color-navbar: #dedede;
+    --color-navbar-hover: #0099bf;
+}
+
+@keyframes loading-navbar {
+    from {
+        transform: translateY(-80px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
 .NavBar_Container {
     width: 100vw;
 
     display: flex;
 
-    padding: 0px 50px;
+    padding-left: 25px;
+
+    animation: loading-navbar 1.2s ease-in-out;
 
     background-color: rgb(0, 0, 0);
-    color: rgb(255, 244, 244);
 
     position: fixed;
 
@@ -19,6 +34,7 @@
 
     display: flex;
     align-items: center;
+    color: rgb(255, 244, 244);
 
     font-size: 2em;
     font-weight: bolder;
@@ -41,9 +57,14 @@
 
     font-size: 1em;
 
-    color: rgb(255, 255, 255);
+    color: var(--color-navbar);
 
     cursor: pointer;
+}
+
+.Navbar .select,
+.Navbar li:hover {
+    color: var(--color-navbar-hover);
 }
 
 .Navbar .select::before,
@@ -55,7 +76,7 @@
     bottom: 0px;
     left: 50%;
 
-    background-color: white;
+    background-color: var(--color-navbar-hover);
 
     height: 2px;
     
@@ -69,8 +90,14 @@
     width: 100%;
 }
 
-@media (max-width:1024px) {
+@media (max-width:1124px) {
+    .name {
+        width: max-content;
+    }
+
     .Navbar {
+        justify-content: space-evenly;
+
         width: 100%;
     }
 

@@ -1,3 +1,8 @@
+:root {
+    --color-btn: #dedede;
+    --color-btn-hover: #0085a7;
+}
+
 .AboutMe_Container {
     height: 100%;
     min-height: 700px;
@@ -47,46 +52,110 @@
     font-size: 1.5em;
 }
 
-@media (max-width:1124px) {
-    .AboutMe_Container {
-        grid-template-columns: 50% 50%;
+.button_curri {
+    grid-column: 2;
+    grid-row: 3;
 
-    }
+    margin: 0 auto;
+
+    border-radius: 20px;
+
 }
 
-@media (max-width:893px) {
+.button_curri > button {    
+    text-transform: uppercase;
+    text-decoration: none;
+
+    color: var(--color-btn);
+
+    font: 1.2em;
+    font-weight: bold;
+
+    background-color: rgba(0, 0, 0, 0.129);
+    border: 2px solid var(--color-btn);
+
+    border-radius: 20px;
+
+    transition: .7s ease-in-out;
+
+    width: 200px;
+    height: 40px;
+
+    cursor: pointer;
+} 
+
+.button_curri:hover button {
+    background-color: #00a7d12a;
+
+    color: var(--color-btn-hover);
+    border: 2px solid var(--color-btn-hover);
+
+}
+
+@media (max-width:1124px) {
     .AboutMe_Container {
         display: flex;
         flex-direction: column;
 
+        row-gap: 100px;
+
         margin-bottom: 100px;
+
+        grid-template-rows: repeat(4, min-content);
     }
 
     .AboutMe_Container>h2 {
         grid-column: 1;
         grid-row: 1;
-
-        margin-bottom: 100px;
     }
 
     .AboutMe_Container>h2>span {
         font-size: 1em;
     }
 
-    .AboutMe_Container>h1 {
+    .button_curri {
+        grid-column: 1;
         grid-row: 2;
+    }
+
+    .AboutMe_Container>h1 {
+        grid-row: 3;
 
         align-self: flex-start;
+
+        margin-left: 10%;
+        margin-bottom: -100px;
+    }
+
+    .AboutMe_Container>p {
+        width: 80%;
+        grid-row: 4;
+
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 893px) {
+    .AboutMe_Container>h1 {
+        margin-left: 0%;
     }
 
     .AboutMe_Container>p {
         width: 100%;
-        grid-row: 3;
+        text-align: justify;
     }
 }
 
-@media (max-width: 493px) {
-    .AboutMe_Container>h2 {
-        font-size: 2.2em;
+
+
+@media (max-width: 668px) {
+    .AboutMe_Container {
+        padding-left: 20px;
+        padding-right: 20px;
     }
+
+    .AboutMe_Container>h2 {
+        font-size: 2em;
+    }
+
 }
