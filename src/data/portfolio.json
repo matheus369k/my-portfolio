@@ -1,0 +1,152 @@
+{
+    "hardSkill": [
+        {
+            "id": 1,
+            "name":"HTML",
+            "url": "./svg-hard-skill/html-5.svg"
+        },
+        {
+            "id": 2,
+            "name":"CSS",
+            "url": "./svg-hard-skill/css-3.svg"
+        },
+        {
+            "id": 3,
+            "name":"JavaScript",
+            "url": "./svg-hard-skill/javascript.svg"
+        },
+        {
+            "id": 4,
+            "name":"React",
+            "url": "./svg-hard-skill/react.svg"
+        },
+        {
+            "id": 5,
+            "name":"JQuery",
+            "url": "./svg-hard-skill/jquery.svg"
+        },
+        {
+            "id": 6,
+            "name":"Sass",
+            "url": "./svg-hard-skill/sass.svg"
+        },
+        {
+            "id": 7,
+            "name":"Git",
+            "url": "./svg-hard-skill/git.svg"
+        },
+        {
+            "id": 8,
+            "name":"TailwindCSS",
+            "url": "./svg-hard-skill/tailwindcss.svg"
+        },
+        {
+            "id": 9,
+            "name":"TypeScript",
+            "url": "./svg-hard-skill/typescript.svg"
+        },
+        {
+            "id": 10,
+            "name":"jest",
+            "url": "./svg-hard-skill/jest.svg"
+        },
+        {
+            "id": 11,
+            "name":"Vite",
+            "url": "./svg-hard-skill/vite.svg"
+        },
+        {
+            "id": 12,
+            "name":"Webpack",
+            "url": "./svg-hard-skill/webpack.svg"
+        },
+        {
+            "id": 13,
+            "name": "Redux",
+            "url": "./svg-hard-skill/redux.svg"
+        }
+
+    ],
+    "projects": [
+        {
+            "id": 1,
+            "name": "Pokedex",
+            "url": "./project-images/pokedex.png",
+            "description": "Pokédex é um site desenvolvido com o objetivo de apresentar informações dos monstros da série Pokémon, tendo ao todo 905 monstros registrados.",
+            "skills": [
+                { "url": "./svg-hard-skill/react.svg", "name": "react"}, 
+                { "url": "./svg-hard-skill/css-3.svg", "name": "css"}, 
+                { "url": "./svg-hard-skill/jest.svg", "name": "jest"}
+            ],
+            "links": {
+                "repositorio": "https://github.com/matheus369k/pokedex",
+                "deploy": "https://matheus369k.github.io/pokedex/"
+            }
+        },
+        {
+            "id": 2,
+            "name": "Mercado Eletrocado",
+            "url": "./project-images/mercado-eletrocado.png",
+            "description": "Eletrocado é um site que simula uma loja online de vendas de aparelhos eletrônicos.",
+            "skills": [
+                { "url": "./svg-hard-skill/react.svg", "name": "react"}, 
+                {"url": "./svg-hard-skill/vite.svg", "name": "vite"} , 
+                { "url": "./svg-hard-skill/css-3.svg", "name": "css"}, 
+                { "url": "./svg-hard-skill/typescript.svg", "name": "typescript"}, 
+                { "url": "./svg-hard-skill/redux.svg", "name": "redux"}
+            ],
+            "links": {
+                "repositorio": "https://github.com/matheus369k/mercado-eletrocado",
+                "deploy": "https://matheus369k.github.io/mercado-eletrocado/"
+            }
+        },
+        {
+            "id": 3,
+            "name": "Analisar numeros",
+            "url": "./project-images/analisar-numeros.png",
+            "description": "Analisar Números, assim como o nome sugere, analisa uma lista de números e retorna: quantidade, soma, menor, maior e média.",
+            "skills": [
+                {"url": "./svg-hard-skill/html-5.svg", "name": "html"}, 
+                {"url": "./svg-hard-skill/sass.svg", "name": "sass"}, 
+                {"url": "./svg-hard-skill/typescript.svg", "name": "typescript"}, 
+                {"url": "./svg-hard-skill/jest.svg", "name": "jest"}, 
+                {"url": "./svg-hard-skill/webpack.svg", "name": "webpack"}
+            ],
+            "links": {
+                "repositorio": "https://github.com/matheus369k/analisar-numeros",
+                "deploy": "https://matheus369k.github.io/analisar-numeros/"
+            }
+        },
+        {
+            "id": 4,
+            "name": "Todo",
+            "url": "./project-images/todo.png",
+            "description": "Todo é uma página com o foco em anotar tarefas a serem feitas, atribuindo a elas estados de concluída ou não.",
+            "skills": [
+                {"url": "./svg-hard-skill/html-5.svg", "name": "html"}, 
+                {"url": "./svg-hard-skill/tailwindcss.svg", "name": "tailwindcss"}, 
+                {"url": "./svg-hard-skill/javascript.svg", "name": "javascript"}
+            ],
+            "links": {
+                "repositorio": "https://github.com/matheus369k/todo-app",
+                "deploy": "https://matheus369k.github.io/todo-app/"
+            }
+        },
+        {
+            "id": 5,
+            "name": "Manage Landing Page",
+            "url": "./project-images/manager-landing-page.png",
+            "description": "Manage Landing Page. Assim como o nome sugere, essa é uma página de destino, ou seja, a home.",
+            "skills": [
+                {"url": "./svg-hard-skill/html-5.svg", "name": "html"}, 
+                {"url": "./svg-hard-skill/sass.svg", "name": "sass"}, 
+                {"url": "./svg-hard-skill/javascript.svg", "name": "javascript"}, 
+                {"url": "./svg-hard-skill/jquery.svg", "name": "jquery"}
+            ],
+            "links": {
+                "repositorio": "https://github.com/matheus369k/manage-landing-page-master",
+                "deploy": "https://matheus369k.github.io/manage-landing-page-master/"
+            }
+        }
+    ]
+}
