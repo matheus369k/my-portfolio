@@ -1,29 +1,14 @@
-import react from "../../assets/svgs/react.svg"
-import pokedex from "../../assets/project-1.webp"
-import axios from "axios"
 import { useEffect, useState } from "react";
 import { ProjectUseSkill } from "./components/project-use-skill";
-
-interface MyProjects {
-    id: number
-    name: string
-    url: string
-    description: string
-    skills: {url: string, name: string}[]
-    links: { repositorio: string, deploy: string }
-}
+import { Link } from "../components/link";
+import { Button } from "../components/button";
+import { MyProjects } from "../../types/types";
+import { featchJsonApi } from "../../service/get-datas";
 
 export function Projects() {
     const [getProjects, setProjects] = useState<MyProjects[]>();
 
-    useEffect(() => {
-        axios.get("./src/data/portfolio.json")
-            .then((response) => {
-                setProjects(response.data.projects);
-            }, (reject) => {
-                console.log("ERROR:", reject)
-            })
-    }, [])
+    useEffect(() => {featchJsonApi("projects", setProjects)}, []);
 
     return (
         <section id="projects" className="flex flex-col gap-10 mb-20 min-h-screen max-w-[1149px] mx-auto">
@@ -35,7 +20,7 @@ export function Projects() {
                     getProjects.map((project, index) => (
                         <li
                             key={project.name}
-                            className={`flex flex-col gap-8 items-center max-w-[500px] h-auto ${index > 1 ? "hidden": ""}`}
+                            className={`flex flex-col gap-8 items-center max-w-[500px] h-auto ${index > 1 ? "hidden" : ""}`}
                         >
                             <img
                                 src={project.url}
@@ -47,19 +32,19 @@ export function Projects() {
                             <ul className="flex gap-10">
                                 <ProjectUseSkill Skills={project.skills} />
                             </ul>
-                            <div className="flex gap-5 text-2xl leading-8">
-                                <a href={project.links.deploy} target="_blank">
-                                    <button className="bg-white/10 px-10 h-14 border border-white rounded-3xl transition-all hover:bg-white hover:text-black" type="button">Site</button>
-                                </a>
-                                <a href={project.links.repositorio} target="_blank" >
-                                    <button className="bg-white/10 px-10 h-14 border border-white rounded-3xl transition-all hover:bg-white hover:text-black" type="button">Repositorio</button>
-                                </a>
+                            <div className="flex gap-5 text-1xl leading-8">
+                                <Link>
+                                    <Button>Site</Button>
+                                </Link>
+                                <Link>
+                                    <Button>Repositorio</Button>
+                                </Link>
                             </div>
                         </li>
                     ))
                 }
             </ul>
-            <button className="bg-white/10 px-10 w-max m-auto h-14 border border-white rounded-3xl transition-all hover:bg-white hover:text-black" type="button">Mostrar mais</button>
+            <Button moreProjects>Mostrar mais</Button>
         </section>
     )
 }

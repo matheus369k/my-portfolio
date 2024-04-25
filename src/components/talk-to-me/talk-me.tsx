@@ -70,7 +70,7 @@ export function TalkToMe() {
                         title="Enviar"
                         type="submit"
                         value="Enviar"
-                        className="capitalize text-xl w-52 h-12 border border-gray-500 rounded-3xl bg-black cursor-pointer"
+                        className="capitalize text-xl w-52 h-12 bg-white/10 border border-white rounded-3xl transition-all hover:bg-white hover:text-black cursor-pointer"
                     />
                 </div>
                 <Div>

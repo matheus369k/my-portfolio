@@ -13,6 +13,7 @@ import { Header } from "./components/header/header";
 import { Home } from "./components/home/home";
 import { Projects } from "./components/project/projects";
 import { HardSkills } from "./components/skill/hard-skills";
+import { TalkToMe } from "./components/talk-to-me/talk-me";
 
 export function App() {
 
@@ -22,6 +23,7 @@ export function App() {
       <Home />
       <HardSkills />
       <Projects />
+      <TalkToMe />
     </div>
   );
 }

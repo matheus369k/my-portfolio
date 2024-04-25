@@ -1,5 +1,5 @@
-import moon from "../../assets/svgs/moon.svg";
-import sun from "../../assets/svgs/sun.svg";
+import { ButtonMode } from "./components/button-mode";
+import { ListLink } from "./components/list-link";
 
 export function Header() {
     return (
@@ -7,36 +7,16 @@ export function Header() {
             <div className="flex gap-3">
                 <i className="text-xl font-extrabold size-[50px] border border-gray-200 rounded-full text-center pt-2.5">M.G</i>
                 <div className="flex w-24 h-12 border border-gray-800 rounded-3xl bg-gray-950 text-white">
-                    <button title="Dark Themer">
-                        <img
-                            src={moon}
-                            alt="icon dark Themer"
-                            className="size-12"
-                        />
-                    </button>
-                    <button title="Light Themer">
-                        <img
-                            src={sun}
-                            alt="icon light Themer"
-                            className="size-12 invisible"
-                        />
-                    </button>
+                    <ButtonMode themer="dark" visible/>
+                    <ButtonMode themer="light" />
                 </div>
             </div>
-            <nav className="">
+            <nav>
                 <ul className="flex justify-between w-[587px] font-bold text-gray-500">
-                    <li className="text-gray-200">
-                        <a href="#home" target="_parent" rel="noopener noreferrer">Inicio</a>
-                    </li>
-                    <li>
-                        <a href="#hardSkills" target="_parent" rel="noopener noreferrer">Habilidades</a>
-                    </li>
-                    <li>
-                        <a href="#projects" target="_parent" rel="noopener noreferrer">Projetos</a>
-                    </li>
-                    <li>
-                        <a href="#talk-me" target="_parent" rel="noopener noreferrer">Fale Comigo</a>
-                    </li>
+                    <ListLink href="#home" visible>Inicio</ListLink>
+                    <ListLink href="#hardSkills">Habilidades</ListLink>
+                    <ListLink href="#projects">Projetos</ListLink>
+                    <ListLink href="#talk-me">Fale Comigo</ListLink>
                 </ul>
             </nav>
         </header>
