@@ -4,10 +4,12 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: ["class", ".dark"],
   theme: {
     extend: {
       fontFamily: {
-        Orbitron: "Orbitron, sans-serif",
+        ChakraPetch: "Chakra Petch, sans-serif",
+        RedHatDisplay: "Red Hat Display, sans-serif",
       },
     },
   },

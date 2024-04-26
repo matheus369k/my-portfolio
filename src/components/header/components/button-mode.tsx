@@ -7,18 +7,25 @@ interface ButtonModeProps extends ComponentProps<"img"> {
     visible?: boolean
 }
 
-export function ButtonMode({visible ,themer, ...props}: ButtonModeProps) {
+export function ButtonMode({ visible, themer, ...props }: ButtonModeProps) {
     return (
-    <button title={`Themer ${themer}`}>
-        <img
-            {...props}
-            src={themer === "dark" ? moon: sun}
-            alt={`icon ${themer} Themer`}
-            className={`size-12 ${visible 
-                ? "" 
-                : "invisible"}
+        <button
+            className={!visible
+                ? "bg-gray-500 rounded-full"
+                : ""
+            }
+            title={`Themer ${themer}`}
+        >
+            <img
+                id={themer}
+                {...props}
+                src={themer === "dark" ? moon : sun}
+                alt={`icon ${themer} Themer`}
+                className={`size-10 ${visible
+                    ? ""
+                    : "opacity-0"}
             `}
-        />
-    </button>
+            />
+        </button>
     )
 }

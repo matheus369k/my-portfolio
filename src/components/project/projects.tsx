@@ -28,7 +28,7 @@ export function Projects() {
                                 className="max-w-[500px] h-auto"
                             />
                             <h3 className="text-lg font-bold">{project.name}</h3>
-                            <p className="tracking-wider shadow-sm shadow-black/10">{project.description}</p>
+                            <p className="tracking-wide">{project.description}</p>
                             <ul className="flex gap-10">
                                 <ProjectUseSkill Skills={project.skills} />
                             </ul>

@@ -70,7 +70,7 @@ export function TalkToMe() {
                         title="Enviar"
                         type="submit"
                         value="Enviar"
-                        className="capitalize text-xl w-52 h-12 bg-white/10 border border-white rounded-3xl transition-all hover:bg-white hover:text-black cursor-pointer"
+                        className="capitalize text-xl w-52 h-12 bg-black/10 dark:bg-white/10 border border-gray-500 dark:border-white rounded-3xl transition-all  hover:text-white hover:bg-black dark:hover:bg-white dark:hover:text-black shadow shadow-black cursor-pointer"
                     />
                 </div>
                 <Div>
@@ -82,7 +82,7 @@ export function TalkToMe() {
                         rows={5}
                         required
                         placeholder="Digite sua Mensagem..."
-                        className="bg-black text-gray-500 border border-gray-500 rounded-xl p-5 outline-none h-72"
+                        className="bg-gray-500 dark:bg-black placeholder:text-gray-100 dark:placeholder:text-gray-500 border border-gray-500 rounded-xl p-5 outline-none h-72"
                     >
                     </textarea>
                 </Div>

@@ -8,7 +8,7 @@ export function Button({moreProjects, ...props}: ButtonProps) {
     return (
         <button
             {...props}
-            className={`bg-white/10 px-10 h-12 border border-white rounded-3xl transition-all hover:bg-white hover:text-black ${
+            className={`bg-black/10 dark:bg-white/10 font-medium tracking-wider px-10 h-12 border border-gray-500 dark:border-white rounded-3xl transition-all  hover:text-white hover:bg-black dark:hover:bg-white dark:hover:text-black shadow shadow-black ${
                 moreProjects 
                 ? "w-max m-auto" 
                 : ""
