@@ -6,11 +6,17 @@ import { MyProjects } from "../../types/types";
 import { featchJsonApi } from "../../service/get-datas";
 import { SiSitepoint } from "react-icons/si";
 import { MdStorage } from "react-icons/md";
+import { Loading } from "../components/loading";
 
 export function Projects() {
     const [getProjects, setProjects] = useState<MyProjects[]>();
+    const [showAll, setShowAll] = useState<boolean>(false);
 
-    useEffect(() => {featchJsonApi("projects", setProjects)}, []);
+    useEffect(() => { featchJsonApi("projects", setProjects) }, []);
+
+    function showHiddenProjects() {
+        setShowAll(!showAll)
+    }
 
     return (
         <section id="projects" className="flex flex-col py-5 gap-10 mb-20 min-h-screen max-w-[1149px] mx-auto">
@@ -18,15 +24,14 @@ export function Projects() {
                 Projetos
             </h2>
             <ul className="flex flex-col mb-20 w-full gap-24 [&>*:nth-child(even)]:self-end">
-                {getProjects &&
-                    getProjects.map((project, index) => (
+                {getProjects
+                    ? getProjects.map((project, index) => (
                         <li
                             key={project.name}
-                            className={`flex flex-col gap-8 items-center max-w-[500px] h-auto ${
-                                index > 1 
-                                ? "hidden" 
+                            className={`flex flex-col gap-8 items-center max-w-[500px] h-auto animate-pulse ${index > 1 && !showAll
+                                ? "hidden"
                                 : ""
-                            }`}
+                                }`}
                         >
                             <img
                                 src={project.url}
@@ -48,9 +53,14 @@ export function Projects() {
                             </div>
                         </li>
                     ))
+                    : <Loading />
                 }
             </ul>
-            <Button moreProjects>Mostrar mais</Button>
+            <Button 
+                onClick={() => showHiddenProjects()} moreProjects
+            >
+                Mostrar {showAll ? "menos" : "mais"}
+            </Button>
         </section>
     )
 }

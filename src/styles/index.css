@@ -173,6 +173,19 @@
     }
 }
 
+@keyframes header-hidden {
+    from {
+        translate: 0 -80px;
+    }
+    to {
+        translate: 0 0;
+    }
+}
+
+#header-container {
+    animation: header-hidden .7s ease-out;
+}
+
 #title-auto-toggle::after {
     content: "|";
     animation: write-title 45s infinite;
