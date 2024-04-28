@@ -4,6 +4,8 @@ import { Link } from "../components/link";
 import { Button } from "../components/button";
 import { MyProjects } from "../../types/types";
 import { featchJsonApi } from "../../service/get-datas";
+import { SiSitepoint } from "react-icons/si";
+import { MdStorage } from "react-icons/md";
 
 export function Projects() {
     const [getProjects, setProjects] = useState<MyProjects[]>();
@@ -11,7 +13,7 @@ export function Projects() {
     useEffect(() => {featchJsonApi("projects", setProjects)}, []);
 
     return (
-        <section id="projects" className="flex flex-col gap-10 mb-20 min-h-screen max-w-[1149px] mx-auto">
+        <section id="projects" className="flex flex-col py-5 gap-10 mb-20 min-h-screen max-w-[1149px] mx-auto">
             <h2 className="text-5xl mb-32 text-center">
                 Projetos
             </h2>
@@ -20,11 +22,15 @@ export function Projects() {
                     getProjects.map((project, index) => (
                         <li
                             key={project.name}
-                            className={`flex flex-col gap-8 items-center max-w-[500px] h-auto ${index > 1 ? "hidden" : ""}`}
+                            className={`flex flex-col gap-8 items-center max-w-[500px] h-auto ${
+                                index > 1 
+                                ? "hidden" 
+                                : ""
+                            }`}
                         >
                             <img
                                 src={project.url}
-                                alt="tools"
+                                alt={project.name}
                                 className="max-w-[500px] h-auto"
                             />
                             <h3 className="text-lg font-bold">{project.name}</h3>
@@ -34,10 +40,10 @@ export function Projects() {
                             </ul>
                             <div className="flex gap-5 text-1xl leading-8">
                                 <Link>
-                                    <Button>Site</Button>
+                                    <Button type="button" title="Acessar o site"><SiSitepoint className="size-4 mr-1" />Site</Button>
                                 </Link>
                                 <Link>
-                                    <Button>Repositorio</Button>
+                                    <Button type="button" title="Acessar o repositorio"><MdStorage className="size-4 mr-1" />Repositorio</Button>
                                 </Link>
                             </div>
                         </li>

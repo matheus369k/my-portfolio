@@ -3,6 +3,8 @@ import { Input } from "./components/input";
 import { Label } from "./components/label";
 import { Div } from "./components/div";
 import emailjs from "@emailjs/browser";
+import { IoSend } from "react-icons/io5";
+import { Button } from "../components/button";
 
 interface Form {
     email: string
@@ -42,7 +44,7 @@ export function TalkToMe() {
     }
 
     return (
-        <section id="talk-me" className="flex flex-col justify-center items-center pb-5 max-w-[1149px] mx-auto">
+        <section id="talk-me" className="flex flex-col justify-center items-center py-5 max-w-[1149px] mx-auto">
             <h2 className="text-5xl mb-20">
                 Fale Comigo
             </h2>
@@ -66,12 +68,10 @@ export function TalkToMe() {
                             placeholder="Digite seu Nome..."
                         />
                     </Div>
-                    <input
-                        title="Enviar"
+                    <Button
+                        title="Enviar o e-mail"
                         type="submit"
-                        value="Enviar"
-                        className="capitalize text-xl w-52 h-12 bg-black/10 dark:bg-white/10 border border-gray-500 dark:border-white rounded-3xl transition-all  hover:text-white hover:bg-black dark:hover:bg-white dark:hover:text-black shadow shadow-black cursor-pointer"
-                    />
+                    >Enviar <IoSend  className="ml-1"/></Button>
                 </div>
                 <Div>
                     <Label htmlFor="message">Mensagem: </Label>

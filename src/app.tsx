@@ -1,14 +1,3 @@
-/* import Navbar from './components/layout/Navbar';
-import AboutMe from './pages/AboutMe';
-import Skill from './pages/Skill';
-import Projects from './pages/Projects';
-import Footer from './components/layout/Container_Footer';
-<Navbar />
-<AboutMe />
-<Skill />
-<Projects />
-<Footer /> */
-
 import { Header } from "./components/header/header";
 import { Home } from "./components/home/home";
 import { Projects } from "./components/project/projects";

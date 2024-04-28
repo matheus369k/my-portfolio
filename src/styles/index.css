@@ -1,3 +1,173 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes write-title {
+    0.5% {
+        content: "R|";
+    }
+
+    0.6% {
+        content: "Re|";
+    }
+
+    0.7% {
+        content: "Rea|";
+    }
+
+    0.8% {
+        content: "Reac|";
+    }
+
+    0.9% {
+        content: "React";
+    }
+
+    32.4% {
+        content: "React";
+    }
+
+    32.5% {
+        content: "Reac|";
+    }
+
+    32.6% {
+        content: "Rea|";
+    }
+
+    32.7% {
+      content: "Re|";
+    }
+
+    32.8% {
+        content: "R|";
+    }
+
+    32.9% {
+        content: "|";
+    }
+
+    33.4% {
+        content: "W|";
+    }
+
+    33.5% {
+        content: "We|";
+    }
+
+    33.6% {
+        content: "Web";
+    }
+
+    66.6% {
+        content: "Web";
+    }
+
+    66.7% {
+        content: "We|";
+    }
+
+    66.8% {
+        content: "W|";
+    }
+
+    66.9% {
+        content: "|";
+    }
+
+    67.4% {
+        content: "F|";
+    }
+
+    67.5% {
+        content: "Fr|";
+    }
+
+    67.6% {
+        content: "Fro|";
+    }
+
+    67.7% {
+        content: "Fron|";
+    }
+
+    67.8% {
+        content: "Front|";
+    }
+
+    67.9% {
+        content: "Front-|";
+    }
+
+    68.0% {
+        content: "Front-W|";
+    }
+
+    68.1% {
+        content: "Front-We|";
+    }
+
+    68.2% {
+        content: "Front-Web";
+    }
+
+    98.7% {
+        content: "Front-Web";
+    }
+
+    98.8% {
+        content: "Front-We|";
+    }
+
+    98.9% {
+        content: "Front-W|";
+    }
+
+    99.0% {
+        content: "Front-|";
+    }
+
+    99.1% {
+        content: "Front|";
+    }
+
+    99.2% {
+        content: "Fron|";
+    }
+
+    99.3% {
+        content: "Fro|";
+    }
+
+    99.4% {
+        content: "Fr|";
+    }
+
+    99.5% {
+        content: "F|";
+    }
+
+    100% {
+        content: "|";
+    }
+}
+
+@keyframes apear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#title-auto-toggle::after {
+    content: "|";
+    animation: write-title 45s infinite;
+}
+
+div>section:nth-child(1n), section>ul>li:nth-child(1n), section>form:nth-child(1n){
+    animation: apear ease-in-out;
+    animation-timeline: view();
+    animation-range: 0%  20%;
+}

@@ -8,7 +8,7 @@ export function HardSkills() {
     useEffect(() => {featchJsonApi("hardSkill", setHardSkill)}, [])
 
     return (
-        <section id="hardSkills" className="flex flex-col pb-20 justify-center items-center h-screen max-w-[1149px] mx-auto">
+        <section id="hardSkills" className="flex flex-col py-5 pb-20 justify-center items-center h-screen max-w-[1149px] mx-auto">
             <h2 className="text-5xl mb-32">
                 Habilidades Tecnicas
             </h2>
@@ -18,7 +18,8 @@ export function HardSkills() {
                         <li key={hardSkill.name+"-"+hardSkill.id}>
                             <img 
                                 src={hardSkill.url} 
-                                alt="tools"
+                                alt={hardSkill.name}
+                                title={hardSkill.name}
                                 className="size-[100px]"
                             />
                         </li>
