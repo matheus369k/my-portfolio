@@ -161,6 +161,18 @@
     }
 }
 
+@keyframes hide-back-top {
+    0% {
+        visibility: hidden;
+    }
+    99%{
+        visibility: hidden;
+    }
+    100% {
+        visibility: visible;
+    }
+}
+
 #title-auto-toggle::after {
     content: "|";
     animation: write-title 45s infinite;
@@ -169,5 +181,11 @@
 div>section:nth-child(1n), section>ul>li:nth-child(1n), section>form:nth-child(1n){
     animation: apear ease-in-out;
     animation-timeline: view();
-    animation-range: 0%  20%;
+    animation-range: 0%  15%;
+}
+
+#backTop {
+    animation: hide-back-top;
+    animation-timeline: scroll();
+    animation-range: cover 0% cover 5%;
 }
