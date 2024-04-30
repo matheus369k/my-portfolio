@@ -20,8 +20,6 @@ export function Header() {
     function detectedBrowserTheme() {
         const idDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-        console.log(stateControl.darkMode, idDarkMode)
-
         if (stateControl.darkMode === null) {
             setStateControl({
                 ...stateControl,
@@ -79,12 +77,13 @@ export function Header() {
                 </div>
             </div>
             <nav
-                className="bg-[#626262] dark:bg-black flex gap-5 flex-col items-end justify-end rounded-l-lg z-10 max-sm:px-5 max-sm:py-2 max-sm:absolute max-sm:top-0 max-sm:right-0"
+                className="max-sm:bg-[#626262] max-sm:dark:bg-black max-sm:flex max-sm:gap-5 max-sm:flex-col max-sm:items-end max-sm:justify-end max-sm:rounded-l-lg max-sm:z-10 max-sm:px-5 max-sm:py-2 max-sm:absolute max-sm:top-0 max-sm:right-0"
             >
                 <button
                     type="button"
                     title="menu"
                     onClick={() => openCloseMenu()}
+                    className="hidden max-sm:block"
                 >
                     {stateControl.menuOpen
                         ? <GrClose className="hidden max-sm:block size-10" />
