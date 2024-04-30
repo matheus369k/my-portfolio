@@ -1,29 +1,50 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ButtonMode } from "./components/button-mode";
 import { ListLink } from "./components/list-link";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { GrClose } from "react-icons/gr";
 
 interface StateControl {
-    darkMode?: boolean
+    darkMode?: boolean | null
     menuOpen?: boolean
 }
 
 export function Header() {
     const [stateControl, setStateControl] = useState<StateControl>({
-        darkMode: true,
+        darkMode: null,
         menuOpen: false
     });
 
-    function switchThemeMode() {
-        const htmlElememt = document.querySelector("html");
+    useEffect(() => { detectedBrowserTheme() }, [])
+
+    function detectedBrowserTheme() {
+        const idDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+        console.log(stateControl.darkMode, idDarkMode)
+
+        if (stateControl.darkMode === null) {
+            setStateControl({
+                ...stateControl,
+                darkMode: idDarkMode
+            });
+
+        }
+        switchThemeMode(idDarkMode)
+    }
+    function switchThemeMode(isDarkMode: boolean) {
+        const htmlElement = document.querySelector("html");
 
         setStateControl({
             ...stateControl,
-            darkMode: !stateControl.darkMode
+            darkMode: isDarkMode
         });
 
-        htmlElememt.classList.toggle("dark");
+        if(isDarkMode) {
+            htmlElement.classList.add("dark");
+            return;
+        }
+
+        htmlElement.classList.remove("dark");
     }
     function openCloseMenu() {
         setStateControl({
@@ -43,15 +64,15 @@ export function Header() {
                     M.G
                 </i>
                 <div
+                    onClick={() => switchThemeMode(!stateControl.darkMode)}
                     className="flex justify-between w-24 h-12 border border-gray-800 rounded-3xl  bg-gray-950 text-white p-1"
                 >
                     <ButtonMode
-                        onClick={() => switchThemeMode()}
+                        
                         themer="dark"
                         visible={stateControl.darkMode}
                     />
                     <ButtonMode
-                        onClick={() => switchThemeMode()}
                         themer="light"
                         visible={!stateControl.darkMode}
                     />
