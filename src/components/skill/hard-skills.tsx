@@ -9,11 +9,16 @@ export function HardSkills() {
     useEffect(() => { featchJsonApi("hardSkill", setHardSkill) }, [])
 
     return (
-        <section id="hardSkills" className="flex flex-col py-5 pb-20 justify-center items-center h-screen max-w-[1149px] mx-auto">
-            <h2 className="text-5xl mb-32">
+        <section
+            id="hardSkills"
+            className="flex flex-col p-5 my-16 max-md:my-10 justify-center items-center min-h-screen max-w-[1149px] mx-auto"
+        >
+            <h2 className="text-5xl max-sm:text-4xl mb-32 max-sm:mb-20">
                 Habilidades Tecnicas
             </h2>
-            <ul className="flex flex-wrap items-center gap-20 justify-center w-full">
+            <ul
+                className="flex flex-wrap items-center max-md:gap-10 gap-20 justify-center w-full"
+            >
                 {getHardSkill
                     ? getHardSkill.map(hardSkill => (
                         <li key={hardSkill.name + "-" + hardSkill.id}>
@@ -21,7 +26,7 @@ export function HardSkills() {
                                 src={hardSkill.url}
                                 alt={hardSkill.name}
                                 title={hardSkill.name}
-                                className="size-[100px]"
+                                className="size-[100px] max-md:size-[80px]"
                             />
                         </li>
                     ))

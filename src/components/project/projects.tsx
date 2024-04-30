@@ -19,16 +19,21 @@ export function Projects() {
     }
 
     return (
-        <section id="projects" className="flex flex-col py-5 gap-10 mb-20 min-h-screen max-w-[1149px] mx-auto">
-            <h2 className="text-5xl mb-32 text-center">
+        <section
+            id="projects"
+            className="flex flex-col p-5 gap-10 my-16 max-md:my-10 min-h-screen max-w-[1149px] mx-auto"
+        >
+            <h2 className="text-5xl max-sm:text-4xl mb-32 max-sm:mb-20  text-center">
                 Projetos
             </h2>
-            <ul className="flex flex-col mb-20 w-full gap-24 [&>*:nth-child(even)]:self-end">
+            <ul
+                className="flex flex-col mb-20 w-full gap-24 [&>*:nth-child(even)]:self-end"
+            >
                 {getProjects
                     ? getProjects.map((project, index) => (
                         <li
                             key={project.name}
-                            className={`flex flex-col gap-8 items-center max-w-[500px] h-auto animate-pulse ${index > 1 && !showAll
+                            className={`flex flex-col gap-8 max-sm:gap-6 items-center max-w-[500px] w-full h-auto animate-pulse ${index > 1 && !showAll
                                 ? "hidden"
                                 : ""
                                 }`}
@@ -36,7 +41,7 @@ export function Projects() {
                             <img
                                 src={project.url}
                                 alt={project.name}
-                                className="max-w-[500px] h-auto"
+                                className="max-w-[500px] w-full h-auto"
                             />
                             <h3 className="text-lg font-bold">{project.name}</h3>
                             <p className="tracking-wide">{project.description}</p>
@@ -56,8 +61,8 @@ export function Projects() {
                     : <Loading />
                 }
             </ul>
-            <Button 
-                onClick={() => showHiddenProjects()} moreProjects
+            <Button
+                onClick={() => showHiddenProjects()}
             >
                 Mostrar {showAll ? "menos" : "mais"}
             </Button>

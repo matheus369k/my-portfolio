@@ -13,7 +13,9 @@
     "@emailjs/browser": "^4.3.3",
     "axios": "^1.6.8",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.1.0",
+    "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
