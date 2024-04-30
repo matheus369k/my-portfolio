@@ -19,15 +19,19 @@ export function Header() {
 
     function detectedBrowserTheme() {
         const idDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const storageThemeMode = window.localStorage.ThemeMode;
 
-        if (stateControl.darkMode === null) {
+        if (!stateControl.darkMode && !storageThemeMode) {
             setStateControl({
                 ...stateControl,
                 darkMode: idDarkMode
             });
 
+            switchThemeMode(idDarkMode);
+            return;
         }
-        switchThemeMode(idDarkMode)
+
+        switchThemeMode(storageThemeMode === "dark")
     }
     function switchThemeMode(isDarkMode: boolean) {
         const htmlElement = document.querySelector("html");
@@ -36,6 +40,8 @@ export function Header() {
             ...stateControl,
             darkMode: isDarkMode
         });
+
+        window.localStorage.setItem("ThemeMode", isDarkMode ? "dark": "light");
 
         if(isDarkMode) {
             htmlElement.classList.add("dark");
