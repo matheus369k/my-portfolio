@@ -68,11 +68,11 @@ export function Header() {
                     M.G
                 </i>
                 <div
+                    id="toggle-theme"
                     onClick={() => switchThemeMode(!stateControl.darkMode)}
                     className="flex justify-between w-24 h-12 border border-gray-800 rounded-3xl  bg-gray-950 text-white p-1"
                 >
                     <ButtonMode
-                        
                         themer="dark"
                         visible={stateControl.darkMode}
                     />
@@ -88,6 +88,7 @@ export function Header() {
                 <button
                     type="button"
                     title="menu"
+                    id="toggle-menu"
                     onClick={() => openCloseMenu()}
                     className="hidden max-sm:block"
                 >
@@ -97,6 +98,7 @@ export function Header() {
                     }
                 </button>
                 <ul
+                    id="navbar-container"
                     className={`flex gap-5 justify-between max-w-[400px] w-screen font-bold text-gray-400 max-sm:flex-col max-sm:w-max ${stateControl.menuOpen ? "flex" : "max-sm:hidden"}`}
                 >
                     <ListLink href="#home">Inicio</ListLink>
