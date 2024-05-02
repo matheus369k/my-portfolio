@@ -182,6 +182,15 @@
     }
 }
 
+@keyframes change-bar {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0;
+    }
+}
+
 #header-container {
     animation: header-hidden .7s ease-out;
 }
@@ -201,4 +210,17 @@ div>section:nth-child(1n), section>ul>li:nth-child(1n), section>form:nth-child(1
     animation: hide-back-top;
     animation-timeline: scroll();
     animation-range: cover 0% cover 5%;
+}
+
+#alert-message { 
+    animation: apear .4s ease-in-out;
+}
+
+#alert-message::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    animation: change-bar 9s ease;
+    height: 2px;
 }
