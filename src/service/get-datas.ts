@@ -1,17 +1,27 @@
 import axios from "axios";
 import React from "react";
-import { HardSkill, MyProjects } from "../types/types";
+import { HardSkill, MyProjects, PageStatus } from "../types/types";
 
-export function featchJsonApi(
-    pointy: string,
-    setState: React.Dispatch<React.SetStateAction<MyProjects[] | HardSkill[]>>
+export async function fetchJsonApi(
+    pointy: string, 
+    setProjects: React.Dispatch<React.SetStateAction<MyProjects[] | HardSkill[]>>, 
+    setStatusPage: React.Dispatch<React.SetStateAction<PageStatus>>
 ) {
-    const url = "./src/data/portfolio.json";
+    try {
+        const url = "./src/data/portfolio.json";
+        await axios.get(url)
+            .then((response) => {
+                if (response.data[pointy] === undefined) {
+                    throw new Error(`Error ao carregar os dados da seção ${pointy === "projects"
+                        ? "Projetos"
+                        : "Habilidades"
+                        }`);
+                }
 
-    axios.get(url)
-        .then((response) => {
-            setState(response.data[pointy]);
-        }, (reject) => {
-            console.log("ERROR:", reject)
-        })
+                setProjects(response.data[pointy]);
+                setStatusPage({ loadStatus: "compleat", showHide: false })
+            })
+    } catch (error) {
+        setStatusPage({ loadStatus: "error", showHide: false })
+    }
 }

@@ -2,20 +2,27 @@ import { useEffect, useState } from "react";
 import { ProjectUseSkill } from "./components/project-use-skill";
 import { Link } from "../components/link";
 import { Button } from "../components/button";
-import { MyProjects } from "../../types/types";
-import { featchJsonApi } from "../../service/get-datas";
+import { MyProjects, PageStatus } from "../../types/types";
+import { fetchJsonApi } from "../../service/get-datas";
 import { SiSitepoint } from "react-icons/si";
 import { MdStorage } from "react-icons/md";
 import { Loading } from "../components/loading";
+import { Error } from "../components/error";
 
 export function Projects() {
     const [getProjects, setProjects] = useState<MyProjects[]>();
-    const [showAll, setShowAll] = useState<boolean>(false);
+    const [statePage, setStatePage] = useState<PageStatus>({
+        loadStatus: "loading",
+        showHide: false
+    });
 
-    useEffect(() => { featchJsonApi("projects", setProjects) }, []);
+    useEffect(() => { fetchJsonApi("projects", setProjects, setStatePage) }, []);
 
     function showHiddenProjects() {
-        setShowAll(!showAll)
+        setStatePage({
+            ...statePage,
+            showHide: !statePage.showHide
+        })
     }
 
     return (
@@ -26,46 +33,51 @@ export function Projects() {
             <h2 className="text-5xl max-sm:text-4xl mb-32 max-sm:mb-20  text-center">
                 Projetos
             </h2>
-            <ul
-                className="flex flex-col max-sm:items-center mb-20 w-full gap-24 [&>*:nth-child(even)]:self-end max-sm:[&>*:nth-child(even)]:self-center"
-            >
-                {getProjects
-                    ? getProjects.map((project, index) => (
-                        <li
-                            key={project.name}
-                            className={`flex flex-col gap-8 max-sm:gap-6 items-center max-w-[500px] w-full h-auto animate-pulse ${index > 1 && !showAll
-                                ? "hidden"
-                                : ""
-                                }`}
-                        >
-                            <img
-                                src={project.url}
-                                alt={project.name}
-                                className="max-w-[500px] w-full h-auto"
-                            />
-                            <h3 className="text-lg font-bold">{project.name}</h3>
-                            <p className="tracking-wide">{project.description}</p>
-                            <ul className="flex gap-10">
-                                <ProjectUseSkill Skills={project.skills} />
-                            </ul>
-                            <div className="flex gap-5 text-1xl leading-8">
-                                <Link>
-                                    <Button type="button" title="Acessar o site"><SiSitepoint className="size-4 mr-1" />Site</Button>
-                                </Link>
-                                <Link>
-                                    <Button type="button" title="Acessar o repositorio"><MdStorage className="size-4 mr-1" />Repositorio</Button>
-                                </Link>
-                            </div>
-                        </li>
-                    ))
-                    : <Loading />
-                }
-            </ul>
-            <Button
-                onClick={() => showHiddenProjects()}
-            >
-                Mostrar {showAll ? "menos" : "mais"}
-            </Button>
+            {statePage.loadStatus === "compleat" &&
+                <>
+                    <ul
+                        className="flex flex-col max-sm:items-center mb-20 w-full gap-24 [&>*:nth-child(even)]:self-end max-sm:[&>*:nth-child(even)]:self-center"
+                    >
+                        {
+                            getProjects.map((project, index) => (
+                                <li
+                                    key={project.name}
+                                    className={`flex flex-col gap-8 max-sm:gap-6 items-center max-w-[500px] w-full h-auto animate-pulse ${index > 1 && !statePage.showHide
+                                        ? "hidden"
+                                        : ""
+                                        }`}
+                                >
+                                    <img
+                                        src={project.url}
+                                        alt={project.name}
+                                        className="max-w-[500px] w-full h-auto"
+                                    />
+                                    <h3 className="text-lg font-bold">{project.name}</h3>
+                                    <p className="tracking-wide">{project.description}</p>
+                                    <ul className="flex gap-10">
+                                        <ProjectUseSkill Skills={project.skills} />
+                                    </ul>
+                                    <div className="flex gap-5 text-1xl leading-8">
+                                        <Link>
+                                            <Button type="button" title="Acessar o site"><SiSitepoint className="size-4 mr-1" />Site</Button>
+                                        </Link>
+                                        <Link>
+                                            <Button type="button" title="Acessar o repositorio"><MdStorage className="size-4 mr-1" />Repositorio</Button>
+                                        </Link>
+                                    </div>
+                                </li>
+                            ))}
+                    </ul>
+                    <Button
+                        onClick={() => showHiddenProjects()}
+                    >
+                        Mostrar {statePage.showHide ? "menos" : "mais"}
+                    </Button>
+                </>
+            }
+            {statePage.loadStatus === "loading" && <Loading />}
+            {statePage.loadStatus === "error" && <Error />}
+
         </section>
     )
 }

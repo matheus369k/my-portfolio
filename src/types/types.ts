@@ -12,3 +12,8 @@ export interface HardSkill {
     name: string
     url: string
 }
+
+export interface PageStatus {
+    loadStatus: "loading" | "compleat" | "error"
+    showHide?: boolean
+}
