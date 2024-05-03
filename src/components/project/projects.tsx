@@ -58,10 +58,10 @@ export function Projects() {
                                         <ProjectUseSkill Skills={project.skills} />
                                     </ul>
                                     <div className="flex gap-5 text-1xl leading-8">
-                                        <Link>
+                                        <Link href={project.links.deploy}>
                                             <Button type="button" title="Acessar o site"><SiSitepoint className="size-4 mr-1" />Site</Button>
                                         </Link>
-                                        <Link>
+                                        <Link href={project.links.repositorio}>
                                             <Button type="button" title="Acessar o repositorio"><MdStorage className="size-4 mr-1" />Repositorio</Button>
                                         </Link>
                                     </div>
