@@ -69,12 +69,12 @@ export function TalkToMe() {
     return (
         <section
             id="talk-me"
-            className="flex flex-col items-center max-w-[1149px] mx-auto p-5 mt-16 max-md:mt-10"
+            className="flex flex-col items-center max-w-[1149px] mx-auto p-5 max-sm:px-2 mt-16 max-md:mt-10"
         >
             {form.isSent !== null &&
                 <AlertMessage isSent={form.isSent}/>
             }
-            <h2 className="text-5xl max-sm:text-4xl mb-20">
+            <h2 className="text-5xl max-sm:text-3xl mb-20">
                 Fale Comigo
             </h2>
             <form

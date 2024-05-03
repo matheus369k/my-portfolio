@@ -17,11 +17,11 @@ export async function fetchJsonApi(
                         : "Habilidades"
                         }`);
                 }
-
                 setProjects(response.data[pointy]);
-                setStatusPage({ loadStatus: "compleat", showHide: false })
+                setStatusPage({ loadStatus: "compleat", showHide: false });
             })
     } catch (error) {
-        setStatusPage({ loadStatus: "error", showHide: false })
+        setStatusPage({ loadStatus: "error", showHide: false });
+        console.log(error.message);
     }
 }

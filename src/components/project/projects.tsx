@@ -28,9 +28,9 @@ export function Projects() {
     return (
         <section
             id="projects"
-            className="flex flex-col p-5 gap-10 my-16 max-md:my-10 min-h-screen max-w-[1149px] mx-auto"
+            className="flex flex-col p-5 max-sm:px-2 gap-10 my-16 max-md:my-10 min-h-screen max-w-[1149px] mx-auto"
         >
-            <h2 className="text-5xl max-sm:text-4xl mb-32 max-sm:mb-20  text-center">
+            <h2 className="text-5xl max-sm:text-3xl mb-32 max-sm:mb-20  text-center">
                 Projetos
             </h2>
             {statePage.loadStatus === "compleat" &&

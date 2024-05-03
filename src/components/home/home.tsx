@@ -10,7 +10,7 @@ export function Home() {
     return (
         <section
             id="home"
-            className="flex max-lg:flex-col-reverse max-lg:gap-20 justify-between max-lg:justify-start items-center p-5 my-16 max-md:my-10 min-h-screen max-w-[1149px] mx-auto"
+            className="flex max-lg:flex-col-reverse max-lg:gap-20 justify-between max-lg:justify-start items-center p-5 max-sm:px-2 my-16 max-md:my-10 min-h-screen max-w-[1149px] mx-auto"
         >
             <div
                 className="w-full flex flex-col gap-10"
@@ -22,7 +22,7 @@ export function Home() {
                     <Span id="title-auto-toggle"></Span>
                 </h2>
                 <ul
-                    className="m-auto flex justify-center flex-wrap gap-8"
+                    className="m-auto flex justify-center flex-wrap gap-8 max-sm:gap-4"
                 >
                     <li>
                         <Link href="https://github.com/matheus369k">

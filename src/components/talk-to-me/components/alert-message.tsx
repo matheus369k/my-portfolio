@@ -7,7 +7,7 @@ interface AlertMessageProps {
 
 export function AlertMessage({isSent}:AlertMessageProps) {
     return (
-        <div id="alert-message" className={`fixed rounded flex top-0 right-0 px-10 py-2 z-10 bg-gray-500 dark:bg-gray-900 border-l-2 border-l-gray-800 transition-all ${
+        <div id="alert-message" className={`fixed rounded-bl flex top-0 right-0 px-10 py-2 z-10 bg-gray-700 dark:bg-gray-900 border-l-2 border-l-gray-800 transition-all ${
             isSent ? "after:bg-green-500 text-green-500" : "after:bg-red-500 text-red-500"
         }`}>
         {isSent

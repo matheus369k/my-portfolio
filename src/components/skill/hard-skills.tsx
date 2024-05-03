@@ -13,9 +13,9 @@ export function HardSkills() {
     return (
         <section
             id="hardSkills"
-            className="flex flex-col p-5 my-16 max-md:my-10 items-center min-h-screen max-w-[1149px] mx-auto"
+            className="flex flex-col p-5 max-sm:px-2 my-16 max-md:my-10 items-center min-h-screen max-w-[1149px] mx-auto"
         >
-            <h2 className="text-5xl max-sm:text-4xl mb-32 max-sm:mb-20">
+            <h2 className="text-5xl max-sm:text-3xl mb-32 max-sm:mb-20">
                 Habilidades Tecnicas
             </h2>
             <ul
@@ -23,11 +23,13 @@ export function HardSkills() {
             >
                 {statusPage.loadStatus === "compleat" &&
                     getHardSkill.map(hardSkill => (
-                        <li key={hardSkill.name + "-" + hardSkill.id}>
+                        <li
+                            title={hardSkill.name} 
+                            key={hardSkill.name + "-" + hardSkill.id}
+                        >
                             <img
                                 src={hardSkill.url}
                                 alt={hardSkill.name}
-                                title={hardSkill.name}
                                 className="size-[100px] max-md:size-[80px]"
                             />
                         </li>
