@@ -36,7 +36,7 @@ export function Projects() {
             {statePage.loadStatus === "compleat" &&
                 <>
                     <ul
-                        className="flex flex-col max-sm:items-center mb-20 w-full gap-24 [&>*:nth-child(even)]:self-end max-sm:[&>*:nth-child(even)]:self-center"
+                        className="flex flex-col max-sm:items-center mb-20 max-md:mb-5 w-full gap-24 [&>*:nth-child(even)]:self-end max-sm:[&>*:nth-child(even)]:self-center"
                     >
                         {
                             getProjects.map((project, index) => (

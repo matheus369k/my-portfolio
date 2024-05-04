@@ -13,7 +13,7 @@ export function HardSkills() {
     return (
         <section
             id="hardSkills"
-            className="flex flex-col p-5 max-sm:px-2 my-16 max-md:my-10 items-center min-h-screen max-w-[1149px] mx-auto"
+            className="flex flex-col p-5 max-sm:px-2 my-16 max-md:my-10 items-center min-h-screen max-md:h-full max-w-[1149px] mx-auto"
         >
             <h2 className="text-5xl max-sm:text-3xl mb-32 max-sm:mb-20">
                 Habilidades Tecnicas
