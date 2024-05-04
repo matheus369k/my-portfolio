@@ -8,7 +8,7 @@ export async function fetchJsonApi(
     setStatusPage: React.Dispatch<React.SetStateAction<PageStatus>>
 ) {
     try {
-        const url = "https://matheus369k.github.io/Data/portfolio.json";
+        const url = "https://raw.githubusercontent.com/matheus369k/my-portfolio/master/src/data/portfolio.json";
         await axios.get(url)
             .then((response) => {
                 if (response.data[pointy] === undefined) {
