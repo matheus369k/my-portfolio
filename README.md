@@ -34,7 +34,7 @@ O Projeto foi desenvolvido com a seguintes tecnologias
 
 O projeto tem como objetivo apresentar outros sites desenvolvidos por mim e mostrar as habilidades técnicas que já utilizei em projetos pessoais.
 
-- [Acessar o projeto finalizado, online](http://localhost:5173/my-portfolio/)
+- [Acessar o projeto finalizado, online](https://matheus369k.github.io/my-portfolio/)
 
 ## 🔖 Layout
 
