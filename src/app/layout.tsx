@@ -1,28 +1,30 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
+import Link from 'next/link';
+import { Header } from '@/components/header';
 
-const FONT_LIGHT = localFont({
+export const FONT_LIGHT = localFont({
 	src: '../assets/fonts/ChakraPetch-Light.ttf',
 	variable: '--font-chackra-light',
 	weight: '300',
 });
-const FONT_REGULAR = localFont({
+export const FONT_REGULAR = localFont({
 	src: '../assets/fonts/ChakraPetch-Regular.ttf',
 	variable: '--font-chackra-regular',
 	weight: '400',
 });
-const FONT_MEDIUM = localFont({
+export const FONT_MEDIUM = localFont({
 	src: '../assets/fonts/ChakraPetch-Medium.ttf',
 	variable: '--font-chackra-medium',
 	weight: '500',
 });
-const FONT_SEMIBOLD = localFont({
+export const FONT_SEMIBOLD = localFont({
 	src: '../assets/fonts/ChakraPetch-SemiBold.ttf',
 	variable: '--font-chackra-semibold',
 	weight: '600',
 });
-const FONT_BOLD = localFont({
+export const FONT_BOLD = localFont({
 	src: '../assets/fonts/ChakraPetch-Bold.ttf',
 	variable: '--font-chackra-bold',
 	weight: '700',
@@ -42,8 +44,10 @@ export default function RootLayout({
 		<html lang='en'>
 			<body
 				className={`${FONT_REGULAR.className}
-          bg-zinc-900 text-blue-600 antialiased`}>
-				{children}
+          bg-zinc-900 text-zinc-50 antialiased`}>
+				<Header />
+				
+				<main>{children}</main>
 			</body>
 		</html>
 	);
