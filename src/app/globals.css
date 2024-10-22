@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.animation-rotate-border,
+.animation-rotate-border-reverse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    animation-name: rotate-border;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+    animation-duration: 40s;
+}
+
+.animation-rotate-border-reverse {
+    animation-direction: reverse;
+}
+
+@keyframes rotate-border {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}

@@ -47,7 +47,7 @@ export default function RootLayout({
           bg-zinc-900 text-zinc-50 antialiased`}>
 				<Header />
 				
-				<main>{children}</main>
+				<main className="max-w-7xl mx-auto px-8">{children}</main>
 			</body>
 		</html>
 	);
