@@ -17,7 +17,7 @@ export default function Home() {
 				<p className={`max-w-lg ${FONT_SEMIBOLD.className} text-center`}>
 					Olá, Me chamo Matheus. Seja bem-vindo ao meu portfólio. Se tiver algum
 					feedback ou quer uma forma rápida de me contactar, acesse a pagina{' '}
-					<Link href='/fale-comigo' className='underline'>
+					<Link href='/talk-me' className='underline'>
 						‘Fale Comigo’
 					</Link>
 					.

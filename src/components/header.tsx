@@ -15,10 +15,10 @@ export function Header() {
 			<nav>
 				<ul className={`${FONT_SEMIBOLD.className} flex gap-6 capitalize tracking-wide transition-colors`}>
 					<NavbarRow href='/' value='apresentação' />
-					<NavbarRow href='/aprendizado' value='aprendizado' />
-					<NavbarRow href='/projetos' value='projetos' />
-					<NavbarRow href='/fale-comigo' value='fale comigo' />
-					<NavbarRow href='/sobre-min' value='sobre min' />
+					<NavbarRow href='/learn' value='aprendizado' />
+					<NavbarRow href='/projects' value='projetos' />
+					<NavbarRow href='/talk-me' value='fale comigo' />
+					<NavbarRow href='/about-me' value='sobre min' />
 				</ul>
 			</nav>
 		</header>
