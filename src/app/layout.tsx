@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
-import './globals.css';
-import Link from 'next/link';
 import { Header } from '@/components/header';
+import { Footer } from '@/components/footer';
+import { QueryProvider } from '@/lib/query-provider';
+import './globals.css';
 
 export const FONT_LIGHT = localFont({
 	src: '../assets/fonts/ChakraPetch-Light.ttf',
@@ -45,9 +46,11 @@ export default function RootLayout({
 			<body
 				className={`${FONT_REGULAR.className}
           bg-zinc-900 text-zinc-50 antialiased`}>
-				<Header />
-				
-				<main className="max-w-7xl mx-auto px-8">{children}</main>
+				<QueryProvider>
+					<Header />
+					<main className='max-w-7xl mx-auto px-8'>{children}</main>
+					<Footer />
+				</QueryProvider>
 			</body>
 		</html>
 	);

@@ -26,3 +26,17 @@
         transform: translate(-50%, -50%) rotate(360deg);
     }
 }
+
+.animation-tools-carousel {
+    animation-name: tools-carousel;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-duration: 60s;
+}
+
+@keyframes tools-carousel {
+    to {
+       transform: translateX(-50%);
+    }
+}
