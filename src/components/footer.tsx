@@ -28,8 +28,8 @@ export function Footer() {
 	const { tools } = isPending || isError ? fakerDatas : data;
 
 	return (
-		<footer className='overflow-hidden relative h-10 border-t border-zinc-700'>
-			<div className='flex justify-between items-center w-max absolute h-full animation-tools-carousel'>
+		<footer className='flex items-center overflow-hidden relative h-10 border-t border-zinc-700'>
+			<div className='flex justify-between gap-2 w-max absolute h-min animation-tools-carousel'>
 				<ToolsCarousel tools={tools} />
 				<ToolsCarousel tools={tools} />
 			</div>

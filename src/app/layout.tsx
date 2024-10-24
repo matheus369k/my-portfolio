@@ -45,10 +45,10 @@ export default function RootLayout({
 		<html lang='en'>
 			<body
 				className={`${FONT_REGULAR.className}
-          bg-zinc-900 text-zinc-50 antialiased`}>
+          bg-zinc-900 text-zinc-50 antialiased min-h-screen h-full flex flex-col gap-8 justify-between`}>
 				<QueryProvider>
 					<Header />
-					<main className='max-w-7xl mx-auto px-8'>{children}</main>
+					<main className='max-w-7xl w-full mx-auto px-8'>{children}</main>
 					<Footer />
 				</QueryProvider>
 			</body>

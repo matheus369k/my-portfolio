@@ -9,7 +9,7 @@ import { AvatarBorder } from '@/components/avatar-border';
 
 export default function Home() {
 	return (
-		<div className='flex justify-between items-center h-screen'>
+		<div className='flex justify-between items-center'>
 			<div className='flex flex-col justify-center items-center gap-4'>
 				<h1 className={`text-center ${FONT_BOLD.className} text-5xl`}>
 					Desenvolvedor Web
