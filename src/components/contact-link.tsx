@@ -1,22 +1,19 @@
-import type { ComponentProps } from 'react';
-import { FONT_BOLD } from '@/app/layout';
-import Link from 'next/link';
+import Link, { type LinkProps } from 'next/link';
 
-interface ContactLinkProps {
-	link: string;
+type ContactLinkProps = LinkProps & {
 	children: React.ReactNode;
 	onlyIcon?: boolean;
-}
+};
 
 export function ContactLink({
-	link,
 	children,
 	onlyIcon = false,
+	...props
 }: ContactLinkProps) {
 	return (
 		<Link
+			{...props}
 			className='rounded-lg overflow-hidden'
-			href={link}
 			rel='noreferrer'
 			target='_blank'>
 			{onlyIcon ? (
@@ -24,7 +21,7 @@ export function ContactLink({
 			) : (
 				<button
 					type='button'
-					className={`${FONT_BOLD.className} px-8 py-2 bg-blue-600 hover:bg-blue-500`}>
+					className='font-bold px-8 py-2 bg-blue-600 hover:bg-blue-500'>
 					{children}
 				</button>
 			)}

@@ -1,19 +1,18 @@
-'use client'
+'use client';
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import Link, { type LinkProps } from 'next/link';
+import { usePathname } from 'next/navigation';
 
-interface NavbarRowProps {
-    value: string;
-    href: string;
-}
+type NavbarRowProps = LinkProps & {
+	text: string;
+};
 
-export function NavbarRow({href, value}: NavbarRowProps) {
-    const pathName = usePathname();
+export function NavbarRow({ text, href }: NavbarRowProps) {
+	const pathName = usePathname();
 
 	return (
-		<li {...(pathName === href ? {className: "text-zinc-400"} : '')} >
-			<Link href={href}>{value}</Link>
+		<li {...(pathName === href ? { className: 'text-zinc-400' } : '')}>
+			<Link href={href}>{text}</Link>
 		</li>
 	);
 }
