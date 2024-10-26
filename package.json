@@ -1,5 +1,5 @@
 {
-  "name": "portfiolio-nextjs",
+  "name": "portfolio-nextjs",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,15 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@paralleldrive/cuid2": "^2.2.2",
-    "@tanstack/react-query": "^5.59.15",
-    "axios": "^1.7.7",
     "lucide-react": "^0.453.0",
     "next": "14.0.0",
     "react": "^18",
     "react-dom": "^18",
-    "tailwind-merge": "^2.5.4",
-    "tailwind-variants": "^0.2.1",
     "zod": "^3.23.8"
   },
   "devDependencies": {
@@ -28,6 +23,8 @@
     "autoprefixer": "^10",
     "dotenv": "^16.4.5",
     "postcss": "^8",
+    "tailwind-merge": "^2.5.4",
+    "tailwind-variants": "^0.2.1",
     "tailwindcss": "^3",
     "typescript": "^5"
   }
