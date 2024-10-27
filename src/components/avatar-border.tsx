@@ -2,7 +2,7 @@ import type { ComponentProps } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { tv } from 'tailwind-variants';
 
-interface AvatarBorderProps extends ComponentProps<'div'> {
+type AvatarBorderProps = ComponentProps<'div'> & {
 	animation?: 'reverse' | 'normal';
 	hiddenBorder?: 'top' | 'left' | 'right' | 'bottom';
 }

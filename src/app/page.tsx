@@ -51,7 +51,7 @@ export default function Home() {
 					<AvatarBorder className='size-[400px]' hiddenBorder='top' />
 
 					<div className='bg-gradient-to-t from-zinc-700/20 to-zinc-900/20 rounded-full flex justify-center items-center size-[400px]'>
-						<Image src='./avatar.svg' alt='' />
+						<Image src='./avatar.svg' width={300} height={300} alt='' />
 					</div>
 				</div>
 			</div>
