@@ -1,16 +1,5 @@
-import { env } from '@/env';
-import Image from 'next/image';
 import { LearnTool } from './learn-tool';
-import type { Tools } from '@/_types';
-
-async function getTools() {
-	const response = await fetch(`${env.NEXT_PUBLIC_BACK_END_URL}/tools`);
-	const data: Tools = await response.json();
-
-	return {
-		...data,
-	};
-}
+import { getTools } from '@/services/get-tools';
 
 export async function LearnTools() {
 	const { tools } = await getTools();

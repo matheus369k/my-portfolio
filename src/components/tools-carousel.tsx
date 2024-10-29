@@ -1,22 +1,5 @@
+import { getTools } from '@/services/get-tools';
 import Image from 'next/image';
-import { env } from '@/env';
-
-interface Tools {
-	tools: {
-		_id: string;
-		name: string;
-		svg_url: string;
-	}[];
-}
-
-async function getTools() {
-	const response = await fetch(`${env.NEXT_PUBLIC_BACK_END_URL}/tools`);
-	const data: Tools = await response.json();
-
-	return {
-		...data,
-	};
-}
 
 export async function ToolsCarousel() {
 	const { tools } = await getTools();
