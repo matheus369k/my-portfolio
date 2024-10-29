@@ -8,3 +8,13 @@ export interface Certificates {
 }
 
 export type LimiteCertificates =  'min' | 'max';
+
+export interface Tool {
+    _id: string;
+    name: string;
+    svg_url: string;
+}
+ 
+export interface Tools {
+	tools: Tool[];
+}

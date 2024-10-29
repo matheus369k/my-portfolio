@@ -1,9 +1,9 @@
+import { ReactQueryProvider } from '@/lib/react-query-provider';
 import { Chakra_Petch } from 'next/font/google';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import type { Metadata } from 'next';
 import './globals.css';
-import { ReactQueryProvider } from '@/lib/react-query-provider';
 
 const chackraPetch = Chakra_Petch({
 	subsets: ['latin'],
