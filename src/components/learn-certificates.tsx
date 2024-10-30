@@ -7,6 +7,7 @@ import { getCertificates } from '@/services/get-certificates';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+import { Title } from './title';
 
 export function LearnCertificates({
 	staticDatas,
@@ -25,9 +26,7 @@ export function LearnCertificates({
 
 	return (
 		<section className='flex flex-col gap-8'>
-			<h1 className='text-3xl font-bold leading-relaxed pl-8 border-l-4 border-blue-600 rounded-lg'>
-				Certificados
-			</h1>
+			<Title title='Certificados' />
 
 			<div
 				className={`relative pl-8 flex flex-col gap-8 leading-relaxed ${certificates.length <= 3 ? 'max-h-[575px] overflow-hidden' : ''}`}>
