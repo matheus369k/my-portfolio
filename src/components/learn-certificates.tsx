@@ -26,7 +26,7 @@ export function LearnCertificates({
 
 	return (
 		<section className='flex flex-col gap-8'>
-			<Title title='Certificados' />
+			<Title>Certificados</Title>
 
 			<div
 				className={`relative pl-8 flex flex-col gap-8 leading-relaxed ${certificates.length <= 3 ? 'max-h-[575px] overflow-hidden' : ''}`}>

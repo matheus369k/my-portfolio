@@ -7,11 +7,11 @@ export async function LearnTools() {
 
 	return (
 		<section className='flex flex-col gap-8'>
-			<Title title='Ferramentas' />
+			<Title>Ferramentas</Title>
 
 			<div className='flex justify-center items-center flex-wrap gap-8 w-full'>
 				{tools.map((tool) => {
-					return <LearnTool key={tool._id} {...tool} />
+					return <LearnTool key={tool._id} {...tool} />;
 				})}
 			</div>
 		</section>
