@@ -35,7 +35,7 @@ export default function Home() {
 				</div>
 			</div>
 
-			<div className='flex-1'>
+			<div className='flex-1 overflow-hidden'>
 				<div className='relative size-[454px] mx-auto flex justify-center items-center rounded-full'>
 					<AvatarBorder
 						className='size-full'
