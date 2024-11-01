@@ -1,26 +1,10 @@
+import type { Projects } from '@/_types';
+import { ProjectPreview } from '@/components/project-preview';
 import { Title } from '@/components/title';
 import { env } from '@/env';
 import { ArrowLeft, ArrowRight, ImageIcon, ImagePlay } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-
-interface Projects {
-	projects: {
-		_id: string;
-		name: string;
-		slug: string;
-		tools: [string];
-		images_url: {
-			png: string;
-			gif: string;
-		};
-		links: {
-			deploy: string;
-			repository: string;
-		};
-		description: string;
-	}[];
-}
 
 async function getProjects() {
 	const res = await fetch(`${env.NEXT_PUBLIC_BACK_END_URL}/projects`);
@@ -31,7 +15,7 @@ async function getProjects() {
 	};
 }
 
-export default async function Projects() {
+export default async function ProjectsPage() {
 	const { projects } = await getProjects();
 
 	return (
@@ -96,29 +80,7 @@ export default async function Projects() {
 							</div>
 						</div>
 
-						<div className='flex flex-col'>
-							<div className='flex justify-end font-bold capitalize'>
-								<button
-									type='button'
-									className='flex items-center gap-2 w-fit row-start-1 px-4 py-2 text-zinc-700 border border-zinc-700/20 border-r-0 border-b-0 rounded-lg rounded-b-none rounded-tr-none'>
-									<ImageIcon className='size-4' />
-									<span>Imagem</span>
-								</button>
-								<button
-									type='button'
-									className='flex items-center gap-2 w-fit row-start-1 px-4 py-2 border border-zinc-700/20 border-b-0 rounded-lg rounded-b-none rounded-tl-none'>
-									<ImagePlay className='size-4' />
-									<span>Gif</span>
-								</button>
-							</div>
-							<Image
-								className='col-span-full row-start-2 rounded-lg rounded-tr-none border border-zinc-700/20'
-								src={project.images_url.png}
-								width={619}
-								height={350}
-								alt={`png-${project.name}`}
-							/>
-						</div>
+						<ProjectPreview {...project.images_url} />
 					</div>
 				);
 			})}

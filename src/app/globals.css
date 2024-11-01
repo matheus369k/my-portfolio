@@ -21,6 +21,20 @@
     animation-direction: reverse;
 }
 
+.animation-loading-spin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    animation-name: rotate-border;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+    animation-duration: 700ms;
+}
+
 @keyframes rotate-border {
     to {
         transform: translate(-50%, -50%) rotate(360deg);
