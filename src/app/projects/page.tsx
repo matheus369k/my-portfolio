@@ -1,4 +1,5 @@
 import type { Projects } from '@/_types';
+import { ProjectLinks } from '@/components/project-links';
 import { ProjectPreview } from '@/components/project-preview';
 import { Title } from '@/components/title';
 import { env } from '@/env';
@@ -60,22 +61,8 @@ export default async function ProjectsPage() {
 							<div className='flex flex-col gap-2'>
 								<h3 className='font-bold text-xl'>Links</h3>
 								<div className='px-4 flex gap-8 font-bold'>
-									<Link
-										className='rounded-lg overflow-hidden'
-										target='_blank'
-										href={project.links.deploy}>
-										<button type='button' className='px-8 py-2 bg-blue-600'>
-											Site
-										</button>
-									</Link>
-									<Link
-										className='rounded-lg overflow-hidden'
-										target='_blank'
-										href={project.links.repository}>
-										<button type='button' className='px-8 py-2 bg-blue-600'>
-											Repositório
-										</button>
-									</Link>
+									<ProjectLinks href={project.links.deploy}>Site</ProjectLinks>
+									<ProjectLinks href={project.links.repository}>Repositório</ProjectLinks>
 								</div>
 							</div>
 						</div>
