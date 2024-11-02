@@ -26,7 +26,7 @@ export default function RootLayout({
 			<html lang='en'>
 				<body
 					className={`${chackraPetch.className}
-			bg-zinc-900 text-zinc-50 antialiased min-h-screen h-full flex flex-col gap-8 justify-between overflow-x-hidden`}>
+			bg-zinc-900 text-zinc-50 antialiased min-h-screen h-full flex flex-col gap-6 justify-between overflow-x-hidden scroll-smooth`}>
 					<Header />
 					<main className='max-w-7xl w-full mx-auto px-8 overflow-x-hidden'>{children}</main>
 					<Footer />
