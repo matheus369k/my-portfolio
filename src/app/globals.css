@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:focus {
+    outline: 1px solid theme('colors.blue.600');
+    border-color: transparent;
+}
+
 .animation-rotate-border,
 .animation-rotate-border-reverse {
     position: absolute;
