@@ -1,4 +1,6 @@
 import { ContactLinks } from '@/components/contact-links';
+import { Input } from '@/components/input';
+import { Label } from '@/components/label';
 import { ProfileAvatar } from '@/components/profile-avatar';
 import { Title } from '@/components/title';
 import { MailIcon, MessageCircle, UserIcon } from 'lucide-react';
@@ -11,10 +13,9 @@ export default function TalkMePage() {
 
 				<form className='flex flex-col gap-6'>
 					<div>
-						<label htmlFor='name' className='font-bold text-blue-600'>Nome</label>
+						<Label htmlFor='name'>Nome</Label>
 						<div className='relative rounded-lg'>
-							<input
-								className='px-4 w-full py-2.5 rounded-lg border border-zinc-700 placeholder:text-zinc-700 ring-0 bg-transparent focus:ring-0'
+							<Input
 								type='text'
 								name='name'
 								id='name'
@@ -24,10 +25,9 @@ export default function TalkMePage() {
 						</div>
 					</div>
 					<div>
-						<label htmlFor='email' className='font-bold text-blue-600'>E-Mail</label>
+						<Label htmlFor='email'>E-Mail</Label>
 						<div className='relative rounded-lg'>
-							<input
-								className='px-4 w-full py-2.5 rounded-lg border border-zinc-700 placeholder:text-zinc-700 ring-0 bg-transparent focus:ring-0'
+							<Input
 								type='email'
 								name='email'
 								id='email'
@@ -38,7 +38,7 @@ export default function TalkMePage() {
 						</div>
 					</div>
 					<div>
-						<label htmlFor='message' className='font-bold text-blue-600'>Mensagem</label>
+						<Label htmlFor='message'>Mensagem</Label>
 						<div className='relative rounded-lg'>
 							<textarea
 								className='px-4 w-full resize-none h-52 py-2.5 rounded-lg border border-zinc-700 placeholder:text-zinc-700 ring-0 bg-transparent focus:ring-0'
