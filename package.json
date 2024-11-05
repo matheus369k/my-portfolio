@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "@glidejs/glide": "^3.6.2",
+    "@hookform/resolvers": "^3.9.1",
     "@tanstack/react-query": "4",
     "lucide-react": "^0.453.0",
     "next": "14.0.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-hook-form": "^7.53.1",
     "sharp": "^0.33.5",
     "zod": "^3.23.8"
   },
