@@ -6,29 +6,8 @@ import { Label } from './label';
 import { z } from 'zod';
 import { FormProvider, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-
-const FormSchema = z.object({
-	from_name: z
-		.string()
-		.min(1, {
-			message: 'Nome é obrigatório',
-		})
-		.regex(/^[a-zA-Z].*$/, 'Nome inválido'),
-	email: z
-		.string()
-		.min(1, {
-			message: 'E-Mail é obrigatório',
-		})
-		.email('E-Mail inválido'),
-	message: z
-		.string()
-		.min(1, {
-			message: 'Mensagem é obrigatória',
-		})
-		.regex(/^[A-Za-z0-9.,!? ]{1,255}$/, 'Mensagem inválida'),
-});
-
-type FormData = z.infer<typeof FormSchema>;
+import { type FormData, FormSchema } from '@/_types';
+import { inviteMail } from '@/services/invite-mail';
 
 export function TalkMeForm() {
 	const hookForm = useForm<FormData>({
@@ -36,8 +15,14 @@ export function TalkMeForm() {
 	});
 	const { handleSubmit, register } = hookForm;
 
-	function handleInviteEmail(data: FormData) {
-		console.log(data);
+	async function handleInviteEmail({ from_name, email, message }: FormData) {
+		await inviteMail({
+			from_name,
+			email,
+			message,
+		});
+
+		console.log(from_name, email, message);
 	}
 
 	return (
