@@ -28,7 +28,7 @@ export default function RootLayout({
 					className={`${chackraPetch.className}
 			bg-zinc-900 text-zinc-50 antialiased min-h-dvh grid grid-cols-1 grid-rows-[auto,_1fr_auto] gap-6 overflow-x-hidden scroll-smooth`}>
 					<Header />
-					<main className='max-w-7xl w-full h-max mx-auto px-8 overflow-x-hidden'>
+					<main className='max-w-7xl w-full h-full mx-auto px-8 overflow-x-hidden'>
 						{children}
 					</main>
 					<Footer />
