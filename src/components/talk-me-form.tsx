@@ -36,7 +36,6 @@ export function TalkMeForm() {
 
 		setIsLoading(false);
 		handleShowNotification({ status });
-		reset();
 	}
 
 	function handleShowNotification({ status }: ReturnInviteMail) {
@@ -51,6 +50,7 @@ export function TalkMeForm() {
 		toast.success('Enviado com sucesso!', {
 			icon: <CircleCheckBig className='text-blue-600 size-6' />,
 		});
+		reset();
 	}
 
 	return (
