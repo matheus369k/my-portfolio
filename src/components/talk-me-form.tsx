@@ -1,28 +1,56 @@
 'use client';
 
-import { MailIcon, MessageCircle, UserIcon } from 'lucide-react';
+import {
+	CircleCheckBig,
+	CircleX,
+	MailIcon,
+	MessageCircle,
+	UserIcon,
+} from 'lucide-react';
 import { Input } from './input';
 import { Label } from './label';
-import { z } from 'zod';
 import { FormProvider, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { type FormData, FormSchema } from '@/_types';
+import { type FormData, FormSchema, type ReturnInviteMail } from '@/_types';
 import { inviteMail } from '@/services/invite-mail';
+import { useState } from 'react';
+import { AlertMessage } from './alert-message';
+import { toast } from 'react-toastify';
 
 export function TalkMeForm() {
+	const [isLoading, setIsLoading] = useState(false);
+
 	const hookForm = useForm<FormData>({
 		resolver: zodResolver(FormSchema),
 	});
-	const { handleSubmit, register } = hookForm;
+	const { handleSubmit, register, reset } = hookForm;
 
 	async function handleInviteEmail({ from_name, email, message }: FormData) {
-		await inviteMail({
+		setIsLoading(true);
+
+		const { status } = await inviteMail({
 			from_name,
 			email,
 			message,
 		});
 
-		console.log(from_name, email, message);
+		setIsLoading(false);
+		handleShowNotification({ status });
+		reset();
+	}
+
+	function handleShowNotification({ status }: ReturnInviteMail) {
+		if (status === 'error') {
+			toast.error('Error ao tentar enviar!', {
+				icon: <CircleX className='text-red-600 size-6' />,
+			});
+
+			return;
+		}
+
+		toast.success('Enviado com sucesso!', {
+			icon: <CircleCheckBig className='text-blue-600 size-6' />,
+		});
 	}
 
 	return (
@@ -69,12 +97,15 @@ export function TalkMeForm() {
 				</div>
 
 				<button
+					disabled={isLoading}
 					type='submit'
 					title='Enviar e-mail'
-					className='px-8 py-2 bg-blue-600 font-bold w-min rounded-lg'>
-					Enviar
+					className={`px-8 py-2 bg-blue-600 font-bold w-min rounded-lg transition-opacity ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}>
+					{isLoading ? 'Enviando...' : 'Enviar'}
 				</button>
 			</form>
+
+			<AlertMessage />
 		</FormProvider>
 	);
 }

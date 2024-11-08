@@ -65,3 +65,7 @@ export const FormSchema = z.object({
 });
 
 export type FormData = z.infer<typeof FormSchema>;
+
+export interface ReturnInviteMail {
+    status: 'ok' | 'error'
+};

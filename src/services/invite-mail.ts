@@ -1,10 +1,10 @@
 'use server';
 
-import type { FormData } from "@/_types";
+import type { FormData, ReturnInviteMail } from "@/_types";
 import { env } from "@/env";
 
-export async function inviteMail({ from_name, email, message }: FormData) {
-    await fetch(`${env.NEXT_PUBLIC_BACK_END_URL}/invite-email`, {
+export async function inviteMail({ from_name, email, message }: FormData): Promise<ReturnInviteMail> {
+    const { status } = await fetch(`${env.NEXT_PUBLIC_BACK_END_URL}/invite-email`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -14,5 +14,17 @@ export async function inviteMail({ from_name, email, message }: FormData) {
             email,
             message,
         }),
+    }).then((): ReturnInviteMail => {
+        return {
+            status: 'ok'
+        }
+    }).catch((): ReturnInviteMail => {
+        return {
+            status: 'error'
+        }
     });
+
+    return {
+        status
+    }
 }

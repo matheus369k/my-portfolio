@@ -2,59 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary-color: theme("colors.blue.600");
+  --wrong-color: #ef4444;
+}
+
+.Toastify__progress-bar--success {
+  background: var(--primary-color)!important;
+}
+
+.Toastify__progress-bar--error {
+  background: var(--wrong-color)!important;
+}
+
 :focus {
-    outline: 1px solid theme('colors.blue.600');
-    border-color: transparent;
+  outline: 1px solid var(--primary-color);
+  border-color: transparent;
 }
 
 .animation-rotate-border,
 .animation-rotate-border-reverse {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
 
-    transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 
-    animation-name: rotate-border;
-    animation-iteration-count: infinite;
-    animation-fill-mode: both;
-    animation-timing-function: linear;
-    animation-duration: 40s;
+  animation-name: rotate-border;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  animation-timing-function: linear;
+  animation-duration: 40s;
 }
 
 .animation-rotate-border-reverse {
-    animation-direction: reverse;
+  animation-direction: reverse;
 }
 
 .animation-loading-spin {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
 
-    transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 
-    animation-name: rotate-border;
-    animation-iteration-count: infinite;
-    animation-fill-mode: both;
-    animation-timing-function: linear;
-    animation-duration: 700ms;
+  animation-name: rotate-border;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  animation-timing-function: linear;
+  animation-duration: 700ms;
 }
 
 @keyframes rotate-border {
-    to {
-        transform: translate(-50%, -50%) rotate(360deg);
-    }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
 .animation-tools-carousel {
-    animation-name: tools-carousel;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    animation-duration: 60s;
+  animation-name: tools-carousel;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-duration: 60s;
 }
 
 @keyframes tools-carousel {
-    to {
-       transform: translateX(-50%);
-    }
+  to {
+    transform: translateX(-50%);
+  }
 }
