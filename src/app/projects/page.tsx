@@ -1,15 +1,5 @@
-import type { Projects } from '@/_types';
 import { Project } from '@/components/project';
-import { env } from '@/env';
-
-async function getProjects() {
-	const res = await fetch(`${env.NEXT_PUBLIC_BACK_END_URL}/projects`);
-	const data: Projects = await res.json();
-
-	return {
-		...data,
-	};
-}
+import { getProjects } from '@/services/get-projects';
 
 export default async function ProjectsPage() {
 	const { projects } = await getProjects();
