@@ -6,7 +6,7 @@ import { ProjectLinks } from './project-links';
 import { ProjectPreview } from './project-preview';
 import type { ProjectType } from '@/_types';
 import Glide from '@glidejs/glide';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import '@glidejs/glide/dist/css/glide.core.min.css';
 
 interface ProjectProps {
@@ -17,20 +17,44 @@ interface ProjectProps {
 
 export function Project({ index, project, total }: ProjectProps) {
 	useEffect(() => {
-		new Glide('.glide', {
-			type: 'slider',
-			startAt: 0,
-			waitForTransition: false,
-			gap: 32,
-			perView: 1,
-			animationDuration: 0,
-			rewind: false,
-			dragThreshold: false,
-		}).mount();
+		ObserverContainer();
 	}, []);
 
+	function setQueryParams({ slug }: { slug: string }) {
+		const url = new URL(window.location.toString());
+		url.searchParams.set('slug', slug);
+		window.history.pushState({}, '', url.toString());
+	}
+
+	function callbackObserver(entries: IntersectionObserverEntry[]) {
+		const isVisible = entries[0].isIntersecting;
+
+		if (!isVisible) return;
+
+		const { slug } = project;
+		setQueryParams({ slug });
+	}
+
+	function ObserverContainer() {
+		const projectElement = document.querySelector(
+			`[data-slug='${project.slug}']`,
+		);
+
+		if (!projectElement) return;
+
+		const optionObserver = { threshold: 0.9 };
+		const observerInstance = new IntersectionObserver(
+			callbackObserver,
+			optionObserver,
+		);
+
+		observerInstance.observe(projectElement);
+	}
+
 	return (
-		<li className='glide__slide cursor-default flex flex-col gap-y-8'>
+		<li
+			data-slug={project.slug}
+			className='glide__slide cursor-default flex flex-col gap-y-8'>
 			<div className='col-span-full flex items-center justify-between'>
 				<Title>{project.name}</Title>
 				<div
