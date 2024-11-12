@@ -17,7 +17,7 @@ export function Header() {
 					<NavbarRow href='/learn' text='aprendizado' />
 					<NavbarRow href='/projects' text='projetos' />
 					<NavbarRow href='/talk-me' text='fale comigo' />
-					<NavbarRow href='/about-me' text='sobre min' />
+					<NavbarRow href='/about-me' text='sobre mim' />
 				</ul>
 			</nav>
 		</header>

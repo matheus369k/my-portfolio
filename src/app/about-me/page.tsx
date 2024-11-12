@@ -10,7 +10,9 @@ export default function AboutMePage() {
 				<p className='text-zinc-400 pl-4'>
 					Olá, me chamo Matheus gomes de melo, sou de Pernambuco e tenho 20 anos
 					atualmente. Sou um dev autônomo, ou seja, buscou conteúdo e gerencio
-					meus estudos de maneira independente.
+					meus estudos de maneira independente. Minha area e desenvolvimento
+					web, especificamente o front-end, contudo venho me aprofundado em
+					conceitos relacionados a parte back-end da web.
 				</p>
 			</div>
 			<div className='grid grid-cols-[auto,_1fr] grid-rows-[auto,_1fr] gap-6'>
