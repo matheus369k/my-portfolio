@@ -1,6 +1,6 @@
-import { ContactLinks } from '@/components/contact-links';
+import { ContactLinks } from '@/components/contact/links';
 import { ProfileAvatar } from '@/components/profile-avatar';
-import { TalkMeForm } from '@/components/talk-me-form';
+import { TalkMeForm } from '@/components/form/invite-mail';
 import { Title } from '@/components/title';
 
 export default function TalkMePage() {

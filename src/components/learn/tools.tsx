@@ -1,6 +1,6 @@
-import { LearnTool } from './learn-tool';
+import { LearnTool } from './tool';
 import { getTools } from '@/services/get-tools';
-import { Title } from './title';
+import { Title } from '../title';
 
 export async function LearnTools() {
 	const { tools } = await getTools();

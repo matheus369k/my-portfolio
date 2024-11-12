@@ -1,9 +1,8 @@
 'use client';
 
-import { ArrowLeft, ArrowRight } from 'lucide-react';
-import { Title } from './title';
-import { ProjectLinks } from './project-links';
-import { ProjectPreview } from './project-preview';
+import { Title } from '../title';
+import { ProjectLink } from './link';
+import { ProjectPreview } from './preview';
 import type { ProjectType } from '@/_types';
 import { useContext, useEffect } from 'react';
 import '@glidejs/glide/dist/css/glide.core.min.css';
@@ -16,8 +15,7 @@ interface ProjectProps {
 }
 
 export function Project({ index, project, total }: ProjectProps) {
-	
-    const {handleSetCurrentSlide} = useContext(slideProjectsContext)
+	const { handleSetCurrentSlide } = useContext(slideProjectsContext);
 
 	useEffect(() => {
 		ObserverContainer();
@@ -34,7 +32,7 @@ export function Project({ index, project, total }: ProjectProps) {
 
 		if (!isVisible) return;
 
-		handleSetCurrentSlide({currentSlide: index})
+		handleSetCurrentSlide({ currentSlide: index });
 		setQueryParams({ index });
 	}
 
@@ -57,10 +55,11 @@ export function Project({ index, project, total }: ProjectProps) {
 	return (
 		<li
 			data-slug={project.slug}
-			className={'glide__slide cursor-default flex flex-col gap-y-8 transition-opacity duration-700'}>
+			className={
+				'glide__slide cursor-default flex flex-col gap-y-8 transition-opacity duration-700'
+			}>
 			<div className='col-span-full flex items-center justify-between'>
 				<Title>{project.name}</Title>
-				
 			</div>
 
 			<div className='flex justify-between'>
@@ -86,10 +85,10 @@ export function Project({ index, project, total }: ProjectProps) {
 					<div className='flex flex-col gap-2'>
 						<h3 className='font-bold text-xl'>Links</h3>
 						<div className='px-4 flex gap-8 font-bold'>
-							<ProjectLinks href={project.links.deploy}>Site</ProjectLinks>
-							<ProjectLinks href={project.links.repository}>
+							<ProjectLink href={project.links.deploy}>Site</ProjectLink>
+							<ProjectLink href={project.links.repository}>
 								Repositório
-							</ProjectLinks>
+							</ProjectLink>
 						</div>
 					</div>
 				</div>

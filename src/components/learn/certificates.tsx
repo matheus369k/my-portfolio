@@ -7,7 +7,7 @@ import { getCertificates } from '@/services/get-certificates';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import { Title } from './title';
+import { Title } from '../title';
 
 export function LearnCertificates({
 	staticDatas,

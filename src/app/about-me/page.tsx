@@ -1,4 +1,4 @@
-import { ContactLinks } from '@/components/contact-links';
+import { ContactLinks } from '@/components/contact/links';
 import { ProfileAvatar } from '@/components/profile-avatar';
 import { Title } from '@/components/title';
 

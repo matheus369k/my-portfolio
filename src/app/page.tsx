@@ -1,7 +1,7 @@
 import { AvatarBorder } from '@/components/avatar-border';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ContactLinks } from '@/components/contact-links';
+import { ContactLinks } from '@/components/contact/links';
 import { ProfileAvatar } from '@/components/profile-avatar';
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
 					</Link>
 					.
 				</p>
-				
+
 				<ContactLinks />
 			</div>
 

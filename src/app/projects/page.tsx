@@ -1,5 +1,5 @@
-import { ControlSlideProject } from '@/components/control-slide-projects';
-import { Project } from '@/components/project';
+import { ControlSlideProject } from '@/components/project/control-slides';
+import { Project } from '@/components/project/project';
 import { SlideProjectsContextProvider } from '@/contexts/slide-projects';
 import { getProjects } from '@/services/get-projects';
 import { Suspense } from 'react';

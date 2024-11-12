@@ -1,5 +1,5 @@
 import { env } from '@/env';
-import { ContactLink } from './contact-link';
+import { ContactLink } from './link';
 import { Github, Linkedin, Mail } from 'lucide-react';
 
 export function ContactLinks() {

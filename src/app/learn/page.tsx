@@ -1,5 +1,5 @@
-import { LearnCertificates } from '@/components/learn-certificates';
-import { LearnTools } from '@/components/learn-tools';
+import { LearnCertificates } from '@/components/learn/certificates';
+import { LearnTools } from '@/components/learn/tools';
 import { getCertificates } from '@/services/get-certificates';
 
 export default async function Learn() {
