@@ -5,9 +5,9 @@ import { Title } from './title';
 import { ProjectLinks } from './project-links';
 import { ProjectPreview } from './project-preview';
 import type { ProjectType } from '@/_types';
-import Glide from '@glidejs/glide';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import '@glidejs/glide/dist/css/glide.core.min.css';
+import { slideProjectsContext } from '@/contexts/slide-projects';
 
 interface ProjectProps {
 	project: ProjectType;
@@ -16,13 +16,16 @@ interface ProjectProps {
 }
 
 export function Project({ index, project, total }: ProjectProps) {
+	
+    const {handleSetCurrentSlide} = useContext(slideProjectsContext)
+
 	useEffect(() => {
 		ObserverContainer();
 	}, []);
 
-	function setQueryParams({ slug }: { slug: string }) {
+	function setQueryParams({ index }: { index: number }) {
 		const url = new URL(window.location.toString());
-		url.searchParams.set('slug', slug);
+		url.searchParams.set('index', index.toString());
 		window.history.pushState({}, '', url.toString());
 	}
 
@@ -31,8 +34,8 @@ export function Project({ index, project, total }: ProjectProps) {
 
 		if (!isVisible) return;
 
-		const { slug } = project;
-		setQueryParams({ slug });
+		handleSetCurrentSlide({currentSlide: index})
+		setQueryParams({ index });
 	}
 
 	function ObserverContainer() {
@@ -54,24 +57,10 @@ export function Project({ index, project, total }: ProjectProps) {
 	return (
 		<li
 			data-slug={project.slug}
-			className='glide__slide cursor-default flex flex-col gap-y-8'>
+			className={'glide__slide cursor-default flex flex-col gap-y-8 transition-opacity duration-700'}>
 			<div className='col-span-full flex items-center justify-between'>
 				<Title>{project.name}</Title>
-				<div
-					data-glide-el='controls'
-					className='glide__arrows relative flex items-center gap-0.5'>
-					<ArrowLeft
-						data-glide-dir='<'
-						className={`glide__arrow glide__arrow--left w-8 h-6 ${index === 0 ? 'text-zinc-700' : 'text-blue-600 cursor-pointer'}`}
-					/>
-					<span className='text-xl font-medium text-blue-600'>
-						{index + 1} de {total}
-					</span>
-					<ArrowRight
-						data-glide-dir='>'
-						className={`lide__arrow glide__arrow--right w-8 h-6 ${index === total - 1 ? 'text-zinc-700' : 'text-blue-600 cursor-pointer'}`}
-					/>
-				</div>
+				
 			</div>
 
 			<div className='flex justify-between'>
