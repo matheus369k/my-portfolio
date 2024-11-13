@@ -3,12 +3,11 @@ import Link from 'next/link';
 
 export function Header() {
 	return (
-		<header
-			className='flex justify-between items-center px-8 border-b border-zinc-700 h-min'>
+		<header className='flex justify-between items-center px-8 border-b border-zinc-700 h-min'>
 			<Link
 				href='/'
 				className='font-bold text-blue-600 text-3xl uppercase py-4'>
-				{'<M.G />'}
+				{'<'}M.G {'/>'}
 			</Link>
 
 			<nav>
