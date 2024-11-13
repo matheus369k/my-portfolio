@@ -66,7 +66,7 @@ export function Project({ index, project, total }: ProjectProps) {
 				<div className='flex flex-col gap-8'>
 					<div className='flex flex-col gap-2'>
 						<h3 className='font-bold text-xl'>Descrição</h3>
-						<p className='px-4 font-medium max-w-xl'>{project.description}</p>
+						<p className='px-4 max-w-xl'>{project.description}</p>
 					</div>
 					<div className='flex flex-col gap-2'>
 						<h3 className='font-bold text-xl'>Ferramentas</h3>
@@ -74,7 +74,7 @@ export function Project({ index, project, total }: ProjectProps) {
 							{project.tools.map((technology) => {
 								return (
 									<p
-										className='px-3 py-2 border border-blue-600 rounded-lg font-medium'
+										className='px-3 py-2 border border-blue-600 rounded-lg'
 										key={technology}>
 										{technology}
 									</p>

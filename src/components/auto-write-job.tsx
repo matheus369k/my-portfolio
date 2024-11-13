@@ -24,7 +24,6 @@ export function AutoWriteJob() {
 							}, 15000);
 						});
 					},
-					deleteSpeed: 25,
 					startDelay: 0,
 					speed: 50,
 				}}

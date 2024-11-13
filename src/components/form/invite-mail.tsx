@@ -74,6 +74,7 @@ export function TalkMeForm() {
 							id='from_name'
 							placeholder='Digite seu nome'
 							errors={errors.from_name}
+							autoFocus
 						/>
 						<UserIcon className='size-6 text-blue-600 absolute right-2.5 top-1/2 -translate-y-1/2' />
 					</div>
