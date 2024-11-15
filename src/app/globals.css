@@ -71,3 +71,9 @@
     transform: translateX(-50%);
   }
 }
+
+@media (max-width: 769px) {
+  html {
+    font-size: 87.5%;
+  }
+}

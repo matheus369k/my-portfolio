@@ -29,12 +29,12 @@ export function LearnCertificates({
 			<Title>Certificados</Title>
 
 			<div
-				className={`relative pl-8 flex flex-col gap-8 leading-relaxed ${certificates.length <= 3 ? 'max-h-[575px] overflow-hidden' : ''}`}>
+				className={`relative flex flex-col leading-relaxed gap-8 md:pl-8 ${certificates.length <= 3 ? 'max-h-[775px] overflow-hidden md:max-h-[575px]' : ''}`}>
 				{certificates.map((certificate) => {
 					return (
 						<div
 							key={certificate.validation_code}
-							className='flex items-center gap-4'>
+							className='flex flex-col gap-2 md:gap-4 md:flex-row md:items-center'>
 							<Image
 								className='rounded-lg'
 								src={certificate.image_url}

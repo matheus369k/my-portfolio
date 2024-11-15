@@ -14,7 +14,7 @@ export function ControlSlideProject({ total }: { total: number }) {
 			animationTimingFunc: 'linear',
 			startAt: state.initialSlide,
 			waitForTransition: true,
-			gap: 32,
+			gap: 16,
 			perView: 1,
 			animationDuration: 700,
 			rewind: false,

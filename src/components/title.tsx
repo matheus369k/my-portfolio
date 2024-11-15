@@ -8,7 +8,7 @@ export function Title({ className, children, ...props }: TitleProps) {
 		<h1
 			{...props}
 			className={twMerge(
-				'text-3xl font-bold leading-relaxed pl-8 border-l-4 border-blue-600 rounded-lg',
+				'text-2xl font-bold leading-relaxed pl-4 border-l-4 border-blue-600 rounded-lg md:text-3xl md:pl-8',
 				className,
 			)}>
 			{children}

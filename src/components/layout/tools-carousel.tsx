@@ -1,11 +1,23 @@
 import { getTools } from '@/services/get-tools';
 import Image from 'next/image';
+import type { ComponentProps } from 'react';
+import { twMerge } from 'tailwind-merge';
 
-export async function ToolsCarousel() {
+interface ToolsCarouselProps extends ComponentProps<'div'> {}
+
+export async function ToolsCarousel({
+	className,
+	...props
+}: ToolsCarouselProps) {
 	const { tools } = await getTools();
 
 	return (
-		<div className='w-screen flex px-4 justify-between items-center'>
+		<div
+			{...props}
+			className={twMerge(
+				'w-screen flex justify-between items-center',
+				className,
+			)}>
 			{tools.map((tool) => {
 				return (
 					<Image

@@ -15,7 +15,7 @@ export default function AboutMePage() {
 					conceitos relacionados a parte back-end da web.
 				</p>
 			</div>
-			<div className='grid grid-cols-[auto,_1fr] grid-rows-[auto,_1fr] gap-6'>
+			<div className='grid grid-cols-1 grid-rows-[auto,_1fr] gap-6 lg:grid-cols-[auto,_1fr] '>
 				<Title>Início de carreira</Title>
 				<ul className='flex flex-col gap-4 text-zinc-400'>
 					<li>
@@ -59,7 +59,7 @@ export default function AboutMePage() {
 						</p>
 					</li>
 				</ul>
-				<div className='flex flex-col items-center justify-center gap-4 row-span-full col-start-2'>
+				<div className='hidden flex-col items-center justify-center gap-4 row-span-full h-min col-start-2 lg:flex'>
 					<ProfileAvatar />
 					<ContactLinks />
 				</div>

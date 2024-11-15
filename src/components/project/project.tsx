@@ -62,7 +62,7 @@ export function Project({ index, project, total }: ProjectProps) {
 				<Title>{project.name}</Title>
 			</div>
 
-			<div className='flex justify-between'>
+			<div className='flex flex-col-reverse w-auto mx-auto lg:justify-between lg:flex-row'>
 				<div className='flex flex-col gap-8'>
 					<div className='flex flex-col gap-2'>
 						<h3 className='font-bold text-xl'>Descrição</h3>

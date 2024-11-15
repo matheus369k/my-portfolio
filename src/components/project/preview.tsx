@@ -62,7 +62,7 @@ export function ProjectPreview({ png, gif }: ProjectImageUrl) {
 	}
 
 	return (
-		<div className='flex flex-col'>
+		<div className='flex flex-col w-fit mb-8'>
 			<div className='flex justify-end font-bold capitalize'>
 				<button
 					disabled={state.fileType === 'png'}
@@ -81,17 +81,17 @@ export function ProjectPreview({ png, gif }: ProjectImageUrl) {
 					<span>Gif</span>
 				</button>
 			</div>
-			<div className='relative col-span-full row-start-2 row-end-3'>
+			<div className='relative col-span-full row-start-2 row-end-3 max-h-[350px] max-w-[620px] '>
 				{state.isLoading && (
 					<LoaderCircle className='animation-loading-spin text-blue-600' />
 				)}
 				<Image
-					onLoad={handlePreviewCompleteLoad}
-					className={`rounded-lg rounded-tr-none border border-zinc-700/20 transition-opacity h-[350px] w-[619px] ${state.isLoading ? 'opacity-20' : ''}`}
-					loading='lazy'
-					src={state.preview}
 					width={619}
 					height={350}
+					onLoad={handlePreviewCompleteLoad}
+					className={`rounded-lg rounded-tr-none border border-zinc-700/20 transition-opacity object-cover w-full${state.isLoading ? 'opacity-20' : ''}`}
+					loading='lazy'
+					src={state.preview}
 					alt=''
 				/>
 			</div>

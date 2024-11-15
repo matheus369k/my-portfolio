@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export function Header() {
 	return (
-		<header className='flex justify-between items-center px-8 border-b border-zinc-700 h-min'>
+		<header className='flex justify-between items-center px-4 border-b border-zinc-700 h-min md:px-8'>
 			<Link
 				href='/'
 				className='font-bold text-blue-600 text-3xl uppercase py-4'>
@@ -11,7 +11,7 @@ export function Header() {
 			</Link>
 
 			<nav>
-				<ul className='font-semibold flex gap-6 capitalize tracking-wide transition-colors'>
+				<ul className='font-semibold hidden gap-6 capitalize tracking-wide transition-colors md:flex'>
 					<NavbarRow href='/' text='apresentação' />
 					<NavbarRow href='/learn' text='aprendizado' />
 					<NavbarRow href='/projects' text='projetos' />

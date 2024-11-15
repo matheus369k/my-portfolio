@@ -9,7 +9,7 @@ export async function LearnTools() {
 		<section className='flex flex-col gap-8'>
 			<Title>Ferramentas</Title>
 
-			<div className='flex justify-center items-center flex-wrap gap-8 w-full'>
+			<div className='flex justify-center items-center flex-wrap w-full gap-4 md:gap-8'>
 				{tools.map((tool) => {
 					return <LearnTool key={tool._id} {...tool} />;
 				})}

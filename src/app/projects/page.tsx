@@ -11,11 +11,11 @@ export default async function ProjectsPage() {
 	return (
 		<div className='glide max-w-full'>
 			<div
-				className='glide__track flex flex-col justify-center'
+				className='glide__track flex flex-col justify-center gap-y-4 lg:gap-y-0'
 				data-glide-el='track'>
 				<Suspense fallback={<p>loading...</p>}>
 					<SlideProjectsContextProvider>
-						<ul className='glide__slides flex'>
+						<ul className='glide__slides grid'>
 							{projects.map((project, index) => {
 								return (
 									<Project
