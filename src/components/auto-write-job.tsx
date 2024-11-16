@@ -7,7 +7,7 @@ export function AutoWriteJob() {
 		<p className='text-left w-full font-semibold text-xl flex gap-2'>
 			Eu sou um desenvolvedor
 			<TypeIt
-				className='text-blue-600'
+				className='text-blue-600 text-xl'
 				options={{
 					strings: ['Web', 'Front-End', 'React'],
 					loop: true,

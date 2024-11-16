@@ -5,14 +5,18 @@ import { usePathname } from 'next/navigation';
 
 type NavbarRowProps = LinkProps & {
 	text: string;
+	hasBorderBottom?: boolean;
 };
 
-export function NavbarRow({ text, href }: NavbarRowProps) {
-	const pathName = usePathname();
+export function NavbarRow({ text, href, hasBorderBottom }: NavbarRowProps) {
+		const pathName = usePathname();
 
-	return (
-		<li {...(pathName === href ? { className: 'text-zinc-400' } : '')}>
-			<Link href={href}>{text}</Link>
-		</li>
-	);
-}
+		return (
+			<li
+				className={
+					`py-3 md:py-0 ${pathName === href ? '' : 'text-zinc-400'} ${hasBorderBottom ? 'border-b': ''} border-zinc-700 md:border-none`
+				}>
+				<Link href={href}>{text}</Link>
+			</li>
+		);
+	}
