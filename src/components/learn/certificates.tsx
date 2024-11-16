@@ -13,15 +13,11 @@ export function LearnCertificates({
 	staticDatas,
 }: { staticDatas: Certificates }) {
 	const [certificates, setCertificates] = useState(staticDatas.certificates);
-	const { data } = useQuery<Certificates>({
-		queryKey: ['certificates'],
-		queryFn: async () => await getCertificates('max'),
-	});
 
-	function handleShowMore() {
-		if (!data) return;
+	async function handleShowMore() {
+		const { certificates: certificatesDatas } = await getCertificates('max');
 
-		setCertificates(data.certificates);
+		setCertificates(certificatesDatas);
 	}
 
 	return (
