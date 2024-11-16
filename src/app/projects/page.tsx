@@ -13,7 +13,7 @@ export default async function ProjectsPage() {
 			<div
 				className='glide__track flex flex-col justify-center gap-y-4 lg:gap-y-0'
 				data-glide-el='track'>
-				<Suspense fallback={<p>loading...</p>}>
+				<Suspense>
 					<SlideProjectsContextProvider>
 						<ul className='glide__slides grid'>
 							{projects.map((project, index) => {

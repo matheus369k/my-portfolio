@@ -39,17 +39,17 @@ export function LearnCertificates({
 								alt=''
 							/>
 							<div className='flex flex-col'>
-								<h2 className='text-2xl font-semibold'>{certificate.title}</h2>
+								<h2 className='text-2xl font-semibold truncate'>{certificate.title}</h2>
 								<p>
 									<span className='font-semibold'>Código: </span>
-									<span className='text-zinc-400'>
+									<span className='text-zinc-400 truncate'>
 										{certificate.validation_code}
 									</span>
 								</p>
 								<p>
 									<span className='font-semibold'>Verifique em: </span>
 									<Link
-										className='text-zinc-400 underline'
+										className='text-zinc-400 underline truncate'
 										href={certificate.verification_url}
 										target='_blank'>
 										{certificate.verification_url}
