@@ -2,7 +2,6 @@
 
 import type { Certificates } from '@/_types';
 import { ArrowDownIcon } from 'lucide-react';
-import { useQuery } from '@tanstack/react-query';
 import { getCertificates } from '@/services/get-certificates';
 import Image from 'next/image';
 import Link from 'next/link';

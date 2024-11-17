@@ -1,11 +1,9 @@
-import { ReactQueryProvider } from '@/lib/react-query-provider';
-import { Poppins, Roboto } from 'next/font/google';
+import { Roboto } from 'next/font/google';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import type { Metadata } from 'next';
 import './globals.css';
 import { Suspense } from 'react';
-import Loading from './loading';
 
 const roboto = Roboto({
 	subsets: ['latin'],
@@ -23,18 +21,16 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<ReactQueryProvider>
-			<html lang='en'>
-				<body
-					className={`${roboto.className}
+		<html lang='en'>
+			<body
+				className={`${roboto.className}
 			bg-zinc-900 text-zinc-100 antialiased min-h-dvh grid grid-cols-1 grid-rows-[auto,_1fr_auto] gap-6 overflow-x-hidden scroll-smooth`}>
-					<Header />
-					<main className='max-w-7xl w-full h-full mx-auto px-2 overflow-x-hidden md:px-8'>
-						<Suspense>{children}</Suspense>
-					</main>
-					<Footer />
-				</body>
-			</html>
-		</ReactQueryProvider>
+				<Header />
+				<main className='max-w-7xl w-full h-full mx-auto px-2 overflow-x-hidden md:px-8'>
+					<Suspense>{children}</Suspense>
+				</main>
+				<Footer />
+			</body>
+		</html>
 	);
 }
