@@ -1,6 +1,6 @@
 'use server';
 
-import type { Tools } from "@/_types";
+import type { Tools } from "@/@types";
 import { env } from "@/env";
 
 export async function getTools() {

@@ -1,9 +1,9 @@
 import { Roboto } from 'next/font/google';
-import { Header } from '@/components/layout/header';
-import { Footer } from '@/components/layout/footer';
+import { Header } from '@/components/header/header';
+import { Footer } from '@/components/footer/footer';
 import type { Metadata } from 'next';
-import './globals.css';
 import { Suspense } from 'react';
+import '@/styles/globals.css';
 
 const roboto = Roboto({
 	subsets: ['latin'],
