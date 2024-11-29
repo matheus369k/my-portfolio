@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 				alt: 'M.G - Portfolio',
 			},
 		],
-		url: 'https://my-portfolio-ten-smoky-67.vercel.app/?vercelToolbarCode=aEPvzsBZlotMgxU',
+		url: 'https://my-portfolio-ten-smoky-67.vercel.app/',
 		type: 'website',
 		locale: 'pt_BR',
 		siteName: 'M.G - Portfolio',

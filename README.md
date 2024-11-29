@@ -26,7 +26,7 @@ Ainda esta sendo implementados os testes no projeto.
 ## 💻Projeto
 O Site e um portfólio pessoal, onde é possível ver os projetos desenvolvidos por mim, e também me contatar. Ele visa facilitar o entendimento do que faço, e meu nível atual de conhecimento.
 
-Acesse o site M.G - Portfólio 🔗[aqui](https://my-portfolio-ten-smoky-67.vercel.app/?vercelToolbarCode=aEPvzsBZlotMgxU).
+Acesse o site M.G - Portfólio 🔗[aqui](https://my-portfolio-ten-smoky-67.vercel.app/).
 
 Fora criado um back-end em nodejs, para separar as responsabilidades da aplicação. Acesse o repositório 🔗[aqui](https://github.com/matheus369k/portfolio-back-end).
 
