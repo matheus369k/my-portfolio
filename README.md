@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align='center' >
+  💻M.G - Portfolio
+</h1>
+<div align='center'>
 
-## Getting Started
+  [Ferramentas](#ferramentas)
+  |
+  [Projeto](#projetos)
+  |
+  [Licença](#licença)
 
-First, run the development server:
+</div>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<div align='center'>
+  <img src='https://img.shields.io/github/license/matheus369k/my-portfolio.svg'/>
+  <img src='https://img.shields.io/github/watchers/matheus369k/my-portfolio.svg' />
+</div>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<div align='center'>
+  <img src='.github/portfolio-preview.png'/>
+</div>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛑Atenção
+Ainda esta sendo implementados os testes no projeto.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 💻Projeto
+O Site e um portfólio pessoal, onde é possível ver os projetos desenvolvidos por mim, e também me contatar. Ele visa facilitar o entendimento do que faço, e meu nível atual de conhecimento.
 
-## Learn More
+Acesse o site M.G - Portfólio 🔗[aqui](https://my-portfolio-ten-smoky-67.vercel.app/?vercelToolbarCode=aEPvzsBZlotMgxU).
 
-To learn more about Next.js, take a look at the following resources:
+Fora criado um back-end em nodejs, para separar as responsabilidades da aplicação. Acesse o repositório 🔗[aqui](https://github.com/matheus369k/portfolio-back-end).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧰Ferramentas
+- Next.js 
+- TailwindCSS 
+- Typescript
+- Context API
+- Testing-library
+- Hook Form
+- Zod
+- Jest
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 🎨Design
+O design do site foi feito por mim, utilizando o Figma, e usando minha cor favorita que o o azul, como cor primaria. Meu objetivo foi criar algo simples, mas que seja atraente. que não seja muito poluído, e que seja fácil de usar. O resultado me agradou, e espero que você também goste.
 
-## Deploy on Vercel
+Acesse o designer🔗[aqui](https://www.figma.com/design/UgZKmCI8uAagRTRkPFnShM/Portf%C3%B3lio-v2?node-id=0-1&t=nYP3hSCByUhhagK8-1).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 📜Licença
+A licença usado foi MIT, acesse 🔗[aqui](/LICENSE.txt)
