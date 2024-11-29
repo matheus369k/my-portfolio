@@ -12,7 +12,24 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
 	title: 'M.G - Portfolio',
-	description: 'Portfolio de desenvolvedor web',
+	description:
+		'O Site e um portfólio pessoal, onde é possível ver os projetos desenvolvidos por mim, e também me contatar. Ele visa facilitar o entendimento do que faço, e meu nível atual de conhecimento.',
+	openGraph: {
+		title: 'M.G - Portfolio',
+		description:
+			'O Site e um portfólio pessoal, onde é possível ver os projetos desenvolvidos por mim, e também me contatar. Ele visa facilitar o entendimento do que faço, e meu nível atual de conhecimento.',
+		images: [
+			{
+				url: 'https://raw.githubusercontent.com/matheus369k/my-portfolio/refs/heads/main/.github/portfolio-preview.png',
+				type: 'image/png',
+				alt: 'M.G - Portfolio',
+			},
+		],
+		url: 'https://my-portfolio-ten-smoky-67.vercel.app/?vercelToolbarCode=aEPvzsBZlotMgxU',
+		type: 'website',
+		locale: 'pt_BR',
+		siteName: 'M.G - Portfolio',
+	},
 };
 
 export default function RootLayout({
