@@ -1,11 +1,11 @@
 'use server';
 
 import type { Projects } from '@/@types';
-import { env } from '@/env';
+import { fetchAPI } from '@/lib/axios';
 
 export async function getProjects() {
-    const res = await fetch(`${env.NEXT_PUBLIC_BACK_END_URL}/projects`);
-    const data: Projects = await res.json();
+    const response = await fetchAPI('/projects');
+    const data: Projects = await response.data;
 
     return {
         ...data,
