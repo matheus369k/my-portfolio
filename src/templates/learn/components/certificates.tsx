@@ -2,10 +2,9 @@
 
 import type { Certificates } from '@/@types';
 import { ArrowDownIcon } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
 import { Title } from '@/components/title';
 import { useCertificates } from '../hooks/use-certificates';
+import { CertificateCard } from './certificate-card';
 
 export function LearnCertificates({
 	staticDatas,
@@ -18,40 +17,14 @@ export function LearnCertificates({
 			<Title>Certificados</Title>
 
 			<div
+				data-testid='listCertificates'
 				className={`relative flex flex-col leading-relaxed gap-8 md:pl-8 ${hasLessThreeCertificates ? 'max-h-[775px] overflow-hidden md:max-h-[575px]' : ''}`}>
 				{certificates.map((certificate) => {
 					return (
-						<div
+						<CertificateCard
 							key={certificate.validation_code}
-							className='flex flex-col gap-2 md:gap-4 md:flex-row md:items-center'>
-							<Image
-								className='rounded-lg'
-								src={certificate.image_url}
-								width={300}
-								height={200}
-								alt=''
-							/>
-							<div className='flex flex-col'>
-								<h2 className='text-2xl font-semibold truncate'>
-									{certificate.title}
-								</h2>
-								<p>
-									<span className='font-semibold'>Código: </span>
-									<span className='text-zinc-400 truncate'>
-										{certificate.validation_code}
-									</span>
-								</p>
-								<p>
-									<span className='font-semibold'>Verifique em: </span>
-									<Link
-										className='text-zinc-400 underline truncate'
-										href={certificate.verification_url}
-										target='_blank'>
-										{certificate.verification_url}
-									</Link>
-								</p>
-							</div>
-						</div>
+							{...certificate}
+						/>
 					);
 				})}
 

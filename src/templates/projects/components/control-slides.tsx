@@ -11,6 +11,7 @@ export function ControlSlideProject({ total }: { total: number }) {
 
 	return (
 		<div
+			data-testid='controlSlideProject'
 			data-glide-el='controls'
 			className='glide__arrows relative flex items-center justify-center gap-0.5'>
 			<ArrowLeft

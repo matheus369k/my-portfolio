@@ -1,16 +1,19 @@
-import { getTools } from '@/services/get-tools';
+'use client';
+
+import type { Tool } from '@/@types';
 import Image from 'next/image';
 import type { ComponentProps } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-interface ToolsCarouselProps extends ComponentProps<'div'> {}
+type ToolsCarouselProps = ComponentProps<'div'> & {
+	tools: Tool[];
+};
 
-export async function ToolsCarousel({
+export function ToolsCarousel({
+	tools,
 	className,
 	...props
 }: ToolsCarouselProps) {
-	const { tools } = await getTools();
-
 	return (
 		<div
 			{...props}

@@ -1,4 +1,4 @@
-import { env } from '@/env';
+import { env } from '@/lib/env';
 import { ContactLink } from './link';
 import { Github, Linkedin, Mail } from 'lucide-react';
 

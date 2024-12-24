@@ -45,6 +45,7 @@ export function usePreview({ png, gif }: ProjectImageUrl) {
 			payload: { fileType: 'png', preview: png, isLoading: true },
 		});
 	}
+	
 	function handleSetPreviewGif() {
 		dispatch({
 			type: 'TOGGLE_PREVIEW',

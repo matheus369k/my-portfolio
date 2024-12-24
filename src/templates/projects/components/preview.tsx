@@ -45,7 +45,7 @@ export function ProjectPreview({ png, gif }: ProjectImageUrl) {
 					width={619}
 					height={350}
 					onLoad={handlePreviewCompleteLoad}
-					className={`rounded-lg rounded-tr-none border border-zinc-700/20 transition-opacity object-cover w-full${IsLoading ? 'opacity-20' : ''}`}
+					className={`rounded-lg rounded-tr-none border border-zinc-700/20 transition-opacity object-cover w-full ${IsLoading ? 'opacity-20' : ''}`}
 					loading='lazy'
 					src={state.preview}
 					alt=''

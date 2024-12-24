@@ -1,19 +1,16 @@
-import { LearnCertificates } from './components/certificates';
-import { LearnTools } from './components/tools';
-import { getCertificates } from './services/get-certificates';
+import { ResponseCertificates } from './components/response-certificates';
+import { ResponseTools } from './components/response-tools';
 import { Suspense } from 'react';
 
-export async function Learn() {
-	const data = await getCertificates('min');
-
+export function Learn() {
 	return (
 		<div className='min-h-dvh flex flex-col gap-12'>
 			<Suspense>
-				<LearnTools />
+				<ResponseTools />
 			</Suspense>
 
 			<Suspense>
-				<LearnCertificates staticDatas={data} />
+				<ResponseCertificates />
 			</Suspense>
 		</div>
 	);

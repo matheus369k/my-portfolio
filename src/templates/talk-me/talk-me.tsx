@@ -1,10 +1,12 @@
-import { Title } from "@/components/title";
-import { TalkMeForm } from "./components/invite-mail";
-import { ProfileAvatar } from "@/components/profile-avatar";
-import { ContactLinks } from "@/components/contact/links";
+import { Title } from '@/components/title';
+import { TalkMeForm } from './components/invite-mail';
+import { ProfileAvatar } from '@/components/profile-avatar';
+import { ContactLinks } from '@/components/contact/links';
 
 export function TalkMe() {
-    return (<div className='block h-full gap-8 lg:flex
+	return (
+		<div
+			className='block h-full gap-8 lg:flex
 		 lg:justify-between '>
 			<section className='flex flex-col gap-6 w-full'>
 				<Title>Enviar E-Mail</Title>
@@ -16,5 +18,6 @@ export function TalkMe() {
 				<ProfileAvatar />
 				<ContactLinks />
 			</section>
-		</div>)
+		</div>
+	);
 }

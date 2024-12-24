@@ -10,11 +10,11 @@ type NavbarRowProps = LinkProps & {
 
 export function NavbarRow({ text, href, hasBorderBottom }: NavbarRowProps) {
 	const pathName = usePathname();
-	const pathNameIsEqualHerf = pathName === href;
+	const pathNameIsEqualHref = pathName === href;
 
 	return (
 		<li
-			className={`py-3 md:py-0 ${pathNameIsEqualHerf ? '' : 'text-zinc-400'} ${hasBorderBottom ? 'border-b' : ''} border-zinc-700 md:border-none`}>
+			className={`py-3 md:py-0 ${pathNameIsEqualHref ? '' : 'text-zinc-400'} ${hasBorderBottom ? 'border-b' : ''} border-zinc-700 md:border-none`}>
 			<Link href={href}>{text}</Link>
 		</li>
 	);

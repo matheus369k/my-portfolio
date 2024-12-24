@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import { schemaEnv } from "./@types";
+import { schemaEnv } from "@/@types";
 
 dotenv.config();
 

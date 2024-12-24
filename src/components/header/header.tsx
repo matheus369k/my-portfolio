@@ -1,18 +1,12 @@
 'use client';
 
 import { AlignJustify, X } from 'lucide-react';
-import { NavbarRow } from './navbar-row';
+import { NavbarRow } from './components/navbar-row';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useToggleMenu } from './hooks/use-toggle-menu';
 
 export function Header() {
-	const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-	function handleOpenCloseMenu() {
-		setIsMenuOpen((state)=>{
-			return !state;
-		})
-	}
+	const {isMenuOpen, handleOpenCloseMenu} = useToggleMenu();
 
 	return (
 		<header className='relative flex justify-between items-center px-4 border-b border-zinc-700 h-min md:px-8'>
@@ -24,7 +18,7 @@ export function Header() {
 
 			<nav className='flex flex-col z-10'>
 				<button onClick={handleOpenCloseMenu} type="button" className='text-blue-600 ml-auto md:hidden z-20'>
-					{isMenuOpen ? <X className='size-10' />  : <AlignJustify className='size-10' />}	
+					{isMenuOpen ? <X data-testid='menu-close' className='size-10' />  : <AlignJustify data-testid='menu-open' className='size-10' />}	
 				</button>
 
 				<ul className={`px-9 bg-zinc-900 font-semibold gap-6 capitalize tracking-wide rounded-bl-lg transition-colors ${isMenuOpen ? 'absolute top-12 right-0' : 'hidden'} md:flex`}>

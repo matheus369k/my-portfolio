@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import type { Tool } from '@/@types';
 
-export function LearnTool({ name, svg_url }: Tool) {
+export function ToolCard({ name, svg_url }: Tool) {
 	return (
 		<div className='bg-gradient-to-t from-zinc-700/20 to-zinc-900/20 rounded-full p-4 flex justify-center items-center border-b border-blue-600 group'>
 			<Image

@@ -7,7 +7,7 @@ export interface ProjectType {
     _id: string;
     name: string;
     slug: string;
-    tools: [string];
+    tools: string[];
     images_url: ProjectImageUrl
     links: {
         deploy: string;

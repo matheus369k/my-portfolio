@@ -1,10 +1,12 @@
+export interface Certificate {
+    title: string;
+    image_url: string;
+    validation_code: string;
+    verification_url: string;
+}
+
 export interface Certificates {
-    certificates: {
-        title: string;
-        validation_code: string;
-        image_url: string;
-        verification_url: string;
-    }[];
+    certificates: Certificate[];
 }
 
 export type LimiteCertificates = 'min' | 'max';
