@@ -1,12 +1,14 @@
-'use client';
-
 import type { Tool } from '@/@types';
 import Image from 'next/image';
 import type { ComponentProps } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 type ToolsCarouselProps = ComponentProps<'div'> & {
-	tools: Tool[];
+	tools: {
+		front_end: Tool[];
+		back_end: Tool[];
+		another: Tool[];
+	};
 };
 
 export function ToolsCarousel({
@@ -14,6 +16,11 @@ export function ToolsCarousel({
 	className,
 	...props
 }: ToolsCarouselProps) {
+	const toolsWithoutCategory = [
+		...tools.front_end,
+		...tools.back_end,
+		...tools.another,
+	];
 	return (
 		<div
 			{...props}
@@ -21,7 +28,7 @@ export function ToolsCarousel({
 				'w-screen flex justify-between items-center',
 				className,
 			)}>
-			{/*tools.map((tool) => {
+			{toolsWithoutCategory.map((tool) => {
 				return (
 					<Image
 						key={tool._id}
@@ -30,10 +37,10 @@ export function ToolsCarousel({
 						title={tool.name}
 						height={30}
 						width={30}
-						alt=''
+						alt={`${tool.name}: svg from developer tools`}
 					/>
 				);
-			})*/}
+			})}
 		</div>
 	);
 }
