@@ -1,15 +1,7 @@
-import {
-	cleanup,
-	findByRole,
-	render,
-	screen,
-	waitFor,
-} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { Projects } from '.';
-import { act, type ImgHTMLAttributes } from 'react';
+import type { ImgHTMLAttributes } from 'react';
 import userEvent from '@testing-library/user-event';
-import { before } from 'node:test';
-import { slideProjectsContext } from '@/contexts/slide-projects';
 
 jest.mock(
 	'next/image',
@@ -20,6 +12,7 @@ jest.mock(
 );
 
 describe('Projects', () => {
+	const url = new URL('http://localhost:3333/');
 	const defaultProps = [
 		{
 			_id: '1',
@@ -48,7 +41,6 @@ describe('Projects', () => {
 	];
 
 	beforeEach(() => {
-		const url = new URL('http://localhost:3333/');
 		window.history.pushState({}, '', url);
 	});
 
@@ -64,6 +56,15 @@ describe('Projects', () => {
 		expect(slidesContainerTrack?.parentNode).toHaveClass('glide');
 	});
 
+	it('should restore old slide when access url with query param index', async () => {
+		url.searchParams.set('index', '1');
+		window.history.pushState({}, '', url);
+		render(<Projects projects={defaultProps} />);
+		await screen.findByText(/2 de 2/i);
+		const projectSlides = await screen.findAllByRole('listitem');
+		expect(projectSlides[1]).toHaveAttribute('data-visible', 'true');
+	});
+
 	it('should go to next slide when clicked at the arrow right', async () => {
 		const user = userEvent.setup();
 		render(<Projects projects={defaultProps} />);
@@ -71,37 +72,27 @@ describe('Projects', () => {
 
 		await user.click(buttonNext);
 
-		await waitFor(
-			() => {
-				const projectSlides = screen.getAllByRole('listitem');
-				expect(projectSlides[0]).not.toHaveAttribute('data-visible', 'true');
-				expect(projectSlides[1]).toHaveAttribute('data-visible', 'true');
-				screen.getByText(/2 de 2/);
-			},
-			{ timeout: 1000 },
-		);
+		await screen.findByText(/2 de 2/);
+		const projectSlides = await screen.findAllByRole('listitem');
+		expect(projectSlides[0]).not.toHaveAttribute('data-visible', 'true');
+		expect(projectSlides[1]).toHaveAttribute('data-visible', 'true');
 	});
 
 	it('should go to back slide when clicked at the arrow left', async () => {
+		url.searchParams.set('index', '1');
+		window.history.pushState({}, '', url);
 		const user = userEvent.setup();
 		render(<Projects projects={defaultProps} />);
-		const buttonNext = await screen.findByRole('button', { name: /next/i });
-		const buttonPrevious = screen.getByRole('button', {
+		const buttonPrevious = await screen.findByRole('button', {
 			name: /previous/i,
 		});
 
-		await user.click(buttonNext);
-		await waitFor(() => screen.getByText(/2 de 2/i), { timeout: 1000 });
+		await screen.findByText(/2 de 2/i);
 		await user.click(buttonPrevious);
 
-		await waitFor(
-			() => {
-				const projectSlides = screen.getAllByRole('listitem');
-				expect(projectSlides[1]).not.toHaveAttribute('data-visible', 'true');
-				expect(projectSlides[0]).toHaveAttribute('data-visible', 'true');
-				screen.getByText(/1 de 2/i);
-			},
-			{ timeout: 1000 },
-		);
+		await screen.findByText(/1 de 2/i);
+		const projectSlides = await screen.findAllByRole('listitem');
+		expect(projectSlides[1]).not.toHaveAttribute('data-visible', 'true');
+		expect(projectSlides[0]).toHaveAttribute('data-visible', 'true');
 	});
 });
