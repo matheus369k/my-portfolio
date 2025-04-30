@@ -8,10 +8,11 @@
     "start": "next start",
     "lint": "next lint",
     "test:watch": "jest --watch",
+    "server": "json-server --watch db-exemple.json --port 3333",
     "test": "jest"
   },
   "dependencies": {
-    "@glidejs/glide": "^3.6.2",
+    "@glidejs/glide": "^3.7.1",
     "@hookform/resolvers": "^3.9.1",
     "axios": "^1.7.8",
     "lucide-react": "^0.453.0",
@@ -29,6 +30,7 @@
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.0.1",
+    "@testing-library/user-event": "^14.6.1",
     "@types/glidejs__glide": "^3.6.5",
     "@types/jest": "^29.5.14",
     "@types/node": "^20",
@@ -38,6 +40,7 @@
     "dotenv": "^16.4.5",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "json-server": "^1.0.0-beta.3",
     "postcss": "^8.4.47",
     "tailwind-merge": "^2.5.4",
     "tailwind-variants": "^0.2.1",

@@ -6,7 +6,7 @@ type CurrentSlideType = { currentSlide: number };
 
 type ReducerActionsTypes = 'replace/current';
 
-interface StateType extends CurrentSlideType {
+export interface StateType extends CurrentSlideType {
 	initialSlide: number;
 }
 
@@ -15,7 +15,7 @@ interface ActionType {
 	payload: CurrentSlideType;
 }
 
-interface SlideProjectsContextType {
+export interface SlideProjectsContextType {
 	state: StateType;
 	handleSetCurrentSlide: ({ currentSlide }: CurrentSlideType) => void;
 }

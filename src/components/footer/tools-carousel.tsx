@@ -21,7 +21,7 @@ export function ToolsCarousel({
 				'w-screen flex justify-between items-center',
 				className,
 			)}>
-			{tools.map((tool) => {
+			{/*tools.map((tool) => {
 				return (
 					<Image
 						key={tool._id}
@@ -33,7 +33,7 @@ export function ToolsCarousel({
 						alt=''
 					/>
 				);
-			})}
+			})*/}
 		</div>
 	);
 }
