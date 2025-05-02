@@ -1,8 +1,9 @@
 export interface Certificate {
   title: string
-  image_url: string
-  validation_code: string
-  verification_url: string
+  description: string
+  link: string
+  emission_data: string
+  order: number
 }
 
 export interface Certificates {

@@ -1,15 +1,20 @@
-'use server';
+'use server'
 
-import type { LimiteCertificates, Certificates } from '@/@types';
-import { fetchAPI } from '@/lib/axios';
+import type { Certificates } from '@/@types'
+import { fetchAPI } from '@/lib/axios'
 
-export async function getCertificates(limit: LimiteCertificates) {
-    const limiteCertificates = limit === 'min' ? '/3' : '';
-
-    const response = await fetchAPI.get(`/certificates${limiteCertificates}`);
-    const data: Certificates = await response.data;
+export async function getCertificates() {
+  try {
+    const response = await fetchAPI.get('/certificates')
+    const data: Certificates = await response.data
 
     return {
-        ...data,
-    };
+      ...data,
+    }
+  } catch (error) {
+    console.log((error as Error).message)
+    return {
+      certificates: [],
+    } as Certificates
+  }
 }
