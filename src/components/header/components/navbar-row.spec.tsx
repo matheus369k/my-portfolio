@@ -1,6 +1,4 @@
-'use client';
-
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { NavbarRow } from './navbar-row';
 
 jest.mock('next/navigation', () => ({
@@ -9,35 +7,32 @@ jest.mock('next/navigation', () => ({
 }));
 
 describe('<NavBarRow />', () => {
-	it('should render default navbar-row', () => {
-		const { getByRole } = render(<NavbarRow href='/' text='home' />);
-
-		const listItemElement = getByRole('listitem');
-
-		expect(listItemElement).not.toHaveClass('border-b');
-		expect(listItemElement).not.toHaveClass('text-zinc-400');
-
-		const linkItemElement = getByRole('link');
-
-		expect(linkItemElement).toHaveAttribute('href', '/');
-		expect(linkItemElement).toHaveTextContent('home');
+	it('should render correctly', () => {
+		render(<NavbarRow href='/about'>about</NavbarRow>);
+		const listItem = screen.getByRole('listitem');
+		const linkElement = screen.getByRole('link', { name: /about/i });
+		expect(linkElement).toHaveAttribute('href', '/about');
+		expect(listItem).not.toHaveClass('border-b');
+		expect(listItem).toHaveClass('text-zinc-400');
 	});
 
-	it('should render navbar-row not current page', () => {
-		const { getByRole } = render(<NavbarRow href='/about' text='about' />);
-
-		const listItemElement = getByRole('listitem');
-
-		expect(listItemElement).toHaveClass('text-zinc-400');
-	});
-
-    it('should render navbar-row with border', ()=> {
-		const { getByRole } = render(
-			<NavbarRow href='/' text='home' hasBorderBottom />,
+	it('should have border bottom when hasBorderBottom prop is true', () => {
+		render(
+			<NavbarRow href='/about' hasBorderBottom>
+				about
+			</NavbarRow>,
 		);
+		const listItem = screen.getByRole('listitem');
+		expect(listItem).toHaveClass('border-b');
+	});
 
-		const listItemElement = getByRole('listitem');
-
-		expect(listItemElement).toHaveClass('border-b');
-    })
+	it('should text color be white when pathname is equal href', () => {
+		render(
+			<NavbarRow href='/' hasBorderBottom>
+				home
+			</NavbarRow>,
+		);
+		const listItem = screen.getByRole('listitem');
+		expect(listItem).not.toHaveClass('text-zinc-400');
+	});
 });

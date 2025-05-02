@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useToggleMenu } from './hooks/use-toggle-menu';
 
 export function Header() {
-	const {isMenuOpen, handleOpenCloseMenu} = useToggleMenu();
+	const { isMenuOpen, handleToggleMenu } = useToggleMenu();
 
 	return (
 		<header className='relative flex justify-between items-center px-4 border-b border-zinc-700 h-min md:px-8'>
@@ -17,16 +17,37 @@ export function Header() {
 			</Link>
 
 			<nav className='flex flex-col z-10'>
-				<button onClick={handleOpenCloseMenu} type="button" className='text-blue-600 ml-auto md:hidden z-20'>
-					{isMenuOpen ? <X data-testid='menu-close' className='size-10' />  : <AlignJustify data-testid='menu-open' className='size-10' />}	
+				<button
+					onClick={handleToggleMenu}
+					type='button'
+					aria-label={isMenuOpen ? 'open menu' : 'close menu'}
+					className='text-blue-600 ml-auto md:hidden z-20'>
+					{isMenuOpen ? (
+						<X className='size-10' />
+					) : (
+						<AlignJustify className='size-10' />
+					)}
 				</button>
 
-				<ul className={`px-9 bg-zinc-900 font-semibold gap-6 capitalize tracking-wide rounded-bl-lg transition-colors ${isMenuOpen ? 'absolute top-12 right-0' : 'hidden'} md:flex`}>
-					<NavbarRow hasBorderBottom href='/' text='apresentação' />
-					<NavbarRow hasBorderBottom href='/learn' text='aprendizado' />
-					<NavbarRow hasBorderBottom href='/projects' text='projetos' />
-					<NavbarRow hasBorderBottom href='/talk-me' text='fale comigo' />
-					<NavbarRow href='/about-me' text='sobre mim' />
+				<ul
+					className={`px-9 bg-zinc-900 font-semibold gap-6 capitalize tracking-wide rounded-bl-lg transition-colors ${isMenuOpen ? 'absolute top-12 right-0' : 'hidden'} md:flex`}>
+					<NavbarRow hasBorderBottom href='/'>
+						apresentação
+					</NavbarRow>
+
+					<NavbarRow hasBorderBottom href='/learn'>
+						aprendizado
+					</NavbarRow>
+
+					<NavbarRow hasBorderBottom href='/projects'>
+						projetos
+					</NavbarRow>
+
+					<NavbarRow hasBorderBottom href='/talk-me'>
+						fale comigo
+					</NavbarRow>
+
+					<NavbarRow href='/about-me'>sobre mim</NavbarRow>
 				</ul>
 			</nav>
 		</header>

@@ -1,21 +1,18 @@
-'use client';
-
 import Link, { type LinkProps } from 'next/link';
 import { usePathname } from 'next/navigation';
 
-type NavbarRowProps = LinkProps & {
-	text: string;
+interface NavbarRowProps extends LinkProps {
+	children: React.ReactNode;
 	hasBorderBottom?: boolean;
-};
+}
 
-export function NavbarRow({ text, href, hasBorderBottom }: NavbarRowProps) {
+export function NavbarRow({ hasBorderBottom, ...props }: NavbarRowProps) {
 	const pathName = usePathname();
-	const pathNameIsEqualHref = pathName === href;
-
+	const pathNameIsEqualHref = pathName === props.href;
 	return (
 		<li
-			className={`py-3 md:py-0 ${pathNameIsEqualHref ? '' : 'text-zinc-400'} ${hasBorderBottom ? 'border-b' : ''} border-zinc-700 md:border-none`}>
-			<Link href={href}>{text}</Link>
+			className={`py-3 md:py-0 border-zinc-700 md:border-none ${pathNameIsEqualHref ? '' : 'text-zinc-400'} ${hasBorderBottom ? 'border-b' : ''}`}>
+			<Link {...props} />
 		</li>
 	);
 }

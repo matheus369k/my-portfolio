@@ -1,99 +1,50 @@
-import { act, fireEvent, render } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Header } from './header';
 
-const mockIsMenuOpenValue = jest.fn().mockReturnValue(false);
-const mockHandleOpenCloseMenu = jest.fn();
-
-jest.mock('./components/navbar-row', () => ({
-	NavbarRow: ({ text, href }: { text: string; href: string }) => (
-		<li data-href={href}>{text}</li>
-	),
-}));
-
-jest.mock('./hooks/use-toggle-menu', () => ({
-	useToggleMenu: () => ({
-		isMenuOpen: mockIsMenuOpenValue(),
-		handleOpenCloseMenu: () => mockHandleOpenCloseMenu(),
-	}),
-}));
-
 describe('<Header />', () => {
-	it('should render logo', () => {
-		const { getByRole } = render(<Header />);
-
-		const linkElement = getByRole('link');
-
-		expect(linkElement).toHaveTextContent('M.G');
-		expect(linkElement).toHaveAttribute('href', '/');
-	});
-
-	it('should render navbar elements', () => {
-		const { getByText } = render(<Header />);
-
-		const navbarElement = {
-			presentation: getByText('apresentação'),
-			learning: getByText('aprendizado'),
-			projects: getByText('projetos'),
-			talkMe: getByText('fale comigo'),
-			aboutMe: getByText('sobre mim'),
-		};
-
-		expect(navbarElement.presentation).toBeVisible();
-		expect(navbarElement.learning).toBeVisible();
-		expect(navbarElement.projects).toBeVisible();
-		expect(navbarElement.aboutMe).toBeVisible();
-		expect(navbarElement.talkMe).toBeVisible();
-	});
-
-	it('should invite correct redirect link(href) to the navbar elements', () => {
-		const { getByText } = render(<Header />);
-
-		const navbarElement = {
-			presentation: getByText('apresentação'),
-			learning: getByText('aprendizado'),
-			projects: getByText('projetos'),
-			talkMe: getByText('fale comigo'),
-			aboutMe: getByText('sobre mim'),
-		};
-
-		expect(navbarElement.presentation).toHaveAttribute('data-href', '/');
-		expect(navbarElement.learning).toHaveAttribute('data-href', '/learn');
-		expect(navbarElement.projects).toHaveAttribute('data-href', '/projects');
-		expect(navbarElement.aboutMe).toHaveAttribute('data-href', '/about-me');
-		expect(navbarElement.talkMe).toHaveAttribute('data-href', '/talk-me');
-	});
-
-	it('should render icon to open menu', () => {
-		const { getByTestId, getByRole } = render(<Header />);
-
-		const iconMenuOpenElement = getByTestId('menu-open');
-		expect(iconMenuOpenElement).toBeVisible();
-
-		const navbarListElement = getByRole('list');
-		expect(navbarListElement).toHaveClass('hidden');
-	});
-
-	it('should render icon to close menu and show the navbar', () => {
-		mockIsMenuOpenValue.mockReturnValueOnce(true);
-
-		const { getByTestId, getByRole } = render(<Header />);
-
-		const iconMenuCloseElement = getByTestId('menu-close');
-		expect(iconMenuCloseElement).toBeVisible();
-
-		const navbarListElement = getByRole('list');
-		expect(navbarListElement).toBeVisible();
-	});
-
-	it('should call function when clicked on the button toggle menu', () => {
-		const { getByRole } = render(<Header />);
-
-		const buttonElement = getByRole('button');
-
-		act(() => {
-			fireEvent.click(buttonElement);
+	it('should render correctly', () => {
+		render(<Header />);
+		const logoElement = screen.getByRole('link', { name: '<M.G />' });
+		expect(logoElement).toHaveAttribute('href', '/');
+		const presentationElement = screen.getByRole('link', {
+			name: /apresentação/i,
 		});
+		expect(presentationElement).toHaveAttribute('href', '/');
+		const learnElement = screen.getByRole('link', { name: /aprendizado/i });
+		expect(learnElement).toHaveAttribute('href', '/learn');
+		const projectsElement = screen.getByRole('link', { name: /projetos/i });
+		expect(projectsElement).toHaveAttribute('href', '/projects');
+		const talkMeElement = screen.getByRole('link', { name: /fale comigo/i });
+		expect(talkMeElement).toHaveAttribute('href', '/talk-me');
+	});
 
-        expect(mockHandleOpenCloseMenu).toHaveBeenCalledTimes(1);
+	it('should open and close menu when clicked on the button toggle menu', async () => {
+		const user = userEvent.setup();
+		render(<Header />);
+		const buttonToggleMenu = screen.getByRole('button');
+
+		await user.click(buttonToggleMenu);
+		screen.getByRole('button', { name: /open menu/i });
+		expect(screen.queryByRole('button', { name: /close menu/i })).toBeNull();
+
+		await user.click(buttonToggleMenu);
+		screen.getByRole('button', { name: /close menu/i });
+		expect(screen.queryByRole('button', { name: /open menu/i })).toBeNull();
+	});
+
+	it('should hidden navbar when menu is closed and show when menu is open', async () => {
+		const user = userEvent.setup();
+		render(<Header />);
+		const buttonToggleMenu = screen.getByRole('button');
+		const listItems = screen.getByRole('list');
+
+		await user.click(buttonToggleMenu);
+		expect(listItems).toHaveClass('absolute top-12 right-0');
+		expect(listItems).not.toHaveClass('hidden');
+
+		await user.click(buttonToggleMenu);
+		expect(listItems).not.toHaveClass('absolute top-12 right-0');
+		expect(listItems).toHaveClass('hidden');
 	});
 });

@@ -1,32 +1,25 @@
-'use client';
-
 import { renderHook } from '@testing-library/react';
 import { useToggleMenu } from './use-toggle-menu';
 import { act } from 'react';
 
 describe('useToggleMenu()', () => {
-	it('should correct initial state', () => {
+	it('should run correctly', () => {
 		const { result } = renderHook(useToggleMenu);
-
-		expect(result.current.isMenuOpen).toBeFalsy();
+		expect(result.current.isMenuOpen).toBe(false);
 	});
 
-	it('should open menu when call the function handleOpenCloseMenu for first time', () => {
+	it('should open menu when function is called and menu is closed', () => {
 		const { result } = renderHook(useToggleMenu);
-
-		act(() => result.current.handleOpenCloseMenu());
-
-		expect(result.current.isMenuOpen).toBeTruthy();
+		act(() => result.current.handleToggleMenu());
+		expect(result.current.isMenuOpen).toBe(true);
 	});
 
-	it('should close menu when function for call two time', () => {
+	it('should closed menu when function is called and menu is open', () => {
 		const { result } = renderHook(useToggleMenu);
-
 		act(() => {
-			result.current.handleOpenCloseMenu();
-			result.current.handleOpenCloseMenu();
+			result.current.handleToggleMenu();
+			result.current.handleToggleMenu();
 		});
-
-		expect(result.current.isMenuOpen).toBeFalsy();
+		expect(result.current.isMenuOpen).toBe(false);
 	});
 });
