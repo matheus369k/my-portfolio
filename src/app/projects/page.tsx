@@ -1,8 +1,5 @@
-import { Projects } from '@/templates/projects';
-import { getProjects } from '@/templates/projects/services/get-projects';
+import { Projects } from '@/templates/projects/index';
 
-export default async function ProjectsPage() {
-	const { projects } = await getProjects();
-	
-	return <Projects projects={projects} />;
+export default function ProjectsPage() {
+	return <Projects />;
 }

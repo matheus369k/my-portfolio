@@ -1,10 +1,11 @@
 import { SlideProjectsContextProvider } from '@/contexts/slide-projects';
-import { Suspense } from 'react';
 import { ProjectItem } from './components/project-item';
 import { ControlSlideProject } from './components/control-slides';
-import type { Projects as ProjectsType } from '@/@types';
+import { getProjects } from './services/get-projects';
+import { Suspense } from 'react';
 
-export function Projects({ projects }: ProjectsType) {
+export async function Projects() {
+	const { projects } = await getProjects();
 	const total = projects.length;
 
 	return (

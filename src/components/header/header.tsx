@@ -4,9 +4,16 @@ import { AlignJustify, X } from 'lucide-react';
 import { NavbarRow } from './components/navbar-row';
 import Link from 'next/link';
 import { useToggleMenu } from './hooks/use-toggle-menu';
+import { useEffect } from 'react';
 
 export function Header() {
 	const { isMenuOpen, handleToggleMenu } = useToggleMenu();
+
+	useEffect(() => {
+		fetch(`${process.env.NEXT_PUBLIC_BACK_END_URL}/hearth`).then((response) => {
+			console.log(response.json());
+		});
+	}, []);
 
 	return (
 		<header className='relative flex justify-between items-center px-4 border-b border-zinc-700 h-min md:px-8'>

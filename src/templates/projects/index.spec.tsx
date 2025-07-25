@@ -13,39 +13,13 @@ jest.mock(
 
 describe('Projects', () => {
 	const url = new URL('http://localhost:3333/');
-	const defaultProps = [
-		{
-			_id: '1',
-			name: 'Test 1',
-			slug: 'test-1',
-			tools: ['skill-test-1', 'skill-test-2'],
-			image_url: 'http://localhost:3000/test-1.png',
-			links: {
-				deploy: 'http://localhost:3000/test/deploy',
-				repository: 'http://localhost:3000/test/repos',
-			},
-			description: 'This description from test site',
-		},
-		{
-			_id: '2',
-			name: 'Test 2',
-			slug: 'test-2',
-			tools: ['skill-test-1', 'skill-test-2'],
-			image_url: 'http://localhost:3000/test-2.png',
-			links: {
-				deploy: 'http://localhost:3000/test/deploy',
-				repository: 'http://localhost:3000/test/repos',
-			},
-			description: 'This description from test site',
-		},
-	];
 
 	beforeEach(() => {
 		window.history.pushState({}, '', url);
 	});
 
 	it('should render correctly', async () => {
-		render(<Projects projects={defaultProps} />);
+		render(<Projects />);
 		await screen.findByRole('heading', { level: 1, name: /test 1/i });
 		screen.getByRole('heading', { level: 1, name: /test 2/i });
 		const slidesContainer = screen.getByRole('list');
@@ -59,7 +33,7 @@ describe('Projects', () => {
 	it('should restore old slide when access url with query param index', async () => {
 		url.searchParams.set('index', '1');
 		window.history.pushState({}, '', url);
-		render(<Projects projects={defaultProps} />);
+		render(<Projects />);
 		await screen.findByText(/2 de 2/i);
 		const projectSlides = await screen.findAllByRole('listitem');
 		expect(projectSlides[1]).toHaveAttribute('data-visible', 'true');
@@ -67,7 +41,7 @@ describe('Projects', () => {
 
 	it('should go to next slide when clicked at the arrow right', async () => {
 		const user = userEvent.setup();
-		render(<Projects projects={defaultProps} />);
+		render(<Projects />);
 		const buttonNext = await screen.findByRole('button', { name: /next/i });
 
 		await user.click(buttonNext);
@@ -82,7 +56,7 @@ describe('Projects', () => {
 		url.searchParams.set('index', '1');
 		window.history.pushState({}, '', url);
 		const user = userEvent.setup();
-		render(<Projects projects={defaultProps} />);
+		render(<Projects />);
 		const buttonPrevious = await screen.findByRole('button', {
 			name: /previous/i,
 		});

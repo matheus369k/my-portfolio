@@ -1,6 +1,6 @@
 'use client';
 
-import { TalkMe } from './talk-me';
+import { TalkMe } from '.';
 import { render } from '@testing-library/react';
 
 jest.mock('@/components/title', () => ({

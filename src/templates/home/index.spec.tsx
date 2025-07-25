@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { Home } from './home';
+import { Home } from '.';
 
 jest.mock('./components/auto-write-job', () => ({
 	AutoWriteJob: () => <div>AutoWriteJob Test</div>,
@@ -25,11 +25,10 @@ describe('<Home/>', () => {
 		expect(profileAvatarElement).toBeVisible();
 	});
 
-    it('should render link "fale comigo" with correct href', () => {
+	it('should render link "fale comigo" with correct href', () => {
 		const { getByRole } = render(<Home />);
 
-        const linkElement = getByRole('link', { name: '‘Fale Comigo’' });
-        expect(linkElement).toHaveAttribute('href', '/talk-me');
-    })
-
+		const linkElement = getByRole('link', { name: '‘Fale Comigo’' });
+		expect(linkElement).toHaveAttribute('href', '/talk-me');
+	});
 });

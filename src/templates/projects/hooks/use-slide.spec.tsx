@@ -1,10 +1,9 @@
-import { fireEvent, renderHook, screen } from '@testing-library/react';
+import { renderHook, screen } from '@testing-library/react';
 import { useSlide } from './use-slide';
-import { act, type ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import {
 	slideProjectsContext,
 	SlideProjectsContextProvider,
-	type StateType,
 } from '@/contexts/slide-projects';
 import { userEvent } from '@testing-library/user-event';
 

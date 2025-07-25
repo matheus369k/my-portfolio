@@ -1,1 +1,0 @@
-export { TalkMe } from './talk-me'
