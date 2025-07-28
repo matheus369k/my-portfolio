@@ -1,7 +1,7 @@
 import { Title } from '@/components/title';
 import { TalkMeForm } from './components/invite-mail';
 import { ProfileAvatar } from '@/components/profile-avatar';
-import { ContactLinks } from '@/components/contact/links';
+import { ContactLinks } from '@/components/contact';
 
 export function TalkMe() {
 	return (

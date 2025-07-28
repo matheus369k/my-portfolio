@@ -1,8 +1,8 @@
 import { Title } from '@/components/title';
-import { ProjectLinkContent, ProjectLinkRoot } from './project-link';
+import { ProjectLinkRoot } from './project-link';
 import type { ProjectType } from '@/@types';
-import '@glidejs/glide/dist/css/glide.core.min.css';
 import Image from 'next/image';
+import { Button } from '@/components/button';
 
 interface ProjectItemProps {
 	project: ProjectType;
@@ -13,22 +13,34 @@ export function ProjectItem({ project }: ProjectItemProps) {
 	return (
 		<li
 			data-slug={project.slug}
-			className='glide__slide cursor-default flex flex-col gap-y-8 opacity-0 transition-opacity data-[visible]:opacity-100'>
-			<div className='col-span-full flex items-center justify-between'>
-				<Title className='relative max-w-[calc(100%-140px)] truncate'>
+			className='glide__slide pt-4 cursor-default flex flex-col justify-between gap-y-6 md:gap-y-12'>
+			<div className='col-span-full flex flex-col gap-6 items-center justify-between sm:flex-row'>
+				<Title className='relative self-start max-w-full truncate'>
 					{project.name}
 				</Title>
+				<div className='flex gap-y-8 gap-x-4 w-full sm:w-auto font-bold'>
+					<ProjectLinkRoot href={project.links.deploy}>
+						<Button size='full' className='sm:w-auto'>
+							Site
+						</Button>
+					</ProjectLinkRoot>
+					<ProjectLinkRoot href={project.links.repository}>
+						<Button size='full' className='sm:w-auto'>
+							Repositório
+						</Button>
+					</ProjectLinkRoot>
+				</div>
 			</div>
 
-			<div className='flex flex-col-reverse w-auto mx-auto lg:justify-between lg:flex-row'>
-				<div className='flex flex-col gap-8'>
+			<div className='grid grid-cols-1 [grid-template-rows: repeat(2, auto);] grid-rows w-auto mx-auto gap-y-6 lg:grid-rows-1 lg:grid-cols-2'>
+				<div className='flex flex-col gap-8 col-auto rom-start-2 lg:row-start-1'>
 					<div className='flex flex-col gap-2'>
 						<h3 className='font-bold text-xl'>Descrição</h3>
-						<p className='px-4 max-w-xl text-base'>{project.description}</p>
+						<p className='px-4 text-base'>{project.description}</p>
 					</div>
 					<div className='flex flex-col gap-2'>
 						<h3 className='font-bold text-xl'>Ferramentas</h3>
-						<div className='flex flex-wrap gap-2.5 px-4 max-w-xl'>
+						<div className='flex flex-wrap gap-2.5 px-4'>
 							{project.tools.map((technology) => {
 								return (
 									<p
@@ -40,20 +52,9 @@ export function ProjectItem({ project }: ProjectItemProps) {
 							})}
 						</div>
 					</div>
-					<div className='flex flex-col gap-2'>
-						<h3 className='font-bold text-xl'>Links</h3>
-						<div className='px-4 flex gap-8 font-bold'>
-							<ProjectLinkRoot href={project.links.deploy}>
-								<ProjectLinkContent>Site</ProjectLinkContent>
-							</ProjectLinkRoot>
-							<ProjectLinkRoot href={project.links.repository}>
-								<ProjectLinkContent>Repositório</ProjectLinkContent>
-							</ProjectLinkRoot>
-						</div>
-					</div>
 				</div>
 
-				<div className='relative col-span-full row-start-2 row-end-3 aspect-video h-full lg:place-self-center'>
+				<div className='col-start-1 lg:col-start-2 row-start-1 relative aspect-video w-full'>
 					<Image
 						width={619}
 						height={350}
@@ -61,7 +62,7 @@ export function ProjectItem({ project }: ProjectItemProps) {
 						className='rounded-lg border border-zinc-700/20 transition-opacity object-cover h-full w-full'
 						loading='lazy'
 						fetchPriority='high'
-						alt=''
+						alt={project.description}
 					/>
 				</div>
 			</div>

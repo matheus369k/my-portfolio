@@ -1,9 +1,9 @@
-import { ContactLinks } from "@/components/contact/links";
-import { ProfileAvatar } from "@/components/profile-avatar";
-import { Title } from "@/components/title";
+import { ContactLinks } from '@/components/contact';
+import { ProfileAvatar } from '@/components/profile-avatar';
+import { Title } from '@/components/title';
 
 export function AboutMe() {
-    return (
+	return (
 		<div className='flex flex-col gap-12'>
 			<div className='flex flex-col gap-6'>
 				<Title>Apresentação inicial</Title>

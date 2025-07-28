@@ -5,16 +5,12 @@ type ProjectLinksProps = LinkProps & {
 	children: React.ReactNode;
 };
 
-export function ProjectLinkRoot({ children, ...props }: ProjectLinksProps) {
+export function ProjectLinkRoot({ ...props }: ProjectLinksProps) {
 	return (
-		<Link {...props} className='rounded-lg overflow-hidden' target='_blank'>
-			{children}
-		</Link>
+		<Link
+			{...props}
+			className='rounded-lg overflow-hidden w-full sm:w-auto flex'
+			target='_blank'
+		/>
 	);
-}
-
-type ProjectLinkContentProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
-
-export function ProjectLinkContent({ ...props }: ProjectLinkContentProps) {
-	return <button {...props} type='button' className='px-8 py-2 bg-blue-600' />;
 }

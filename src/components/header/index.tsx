@@ -5,13 +5,14 @@ import { NavbarRow } from './components/navbar-row';
 import Link from 'next/link';
 import { useToggleMenu } from './hooks/use-toggle-menu';
 import { useEffect } from 'react';
+import axios from 'axios';
 
 export function Header() {
 	const { isMenuOpen, handleToggleMenu } = useToggleMenu();
 
 	useEffect(() => {
-		fetch(`${process.env.NEXT_PUBLIC_BACK_END_URL}/hearth`).then((response) => {
-			console.log(response.json());
+		axios(`${process.env.NEXT_PUBLIC_BACK_END_URL}/hearth`).then((response) => {
+			console.log(response.data);
 		});
 	}, []);
 
@@ -37,7 +38,7 @@ export function Header() {
 				</button>
 
 				<ul
-					className={`px-9 bg-zinc-900 font-semibold gap-6 capitalize tracking-wide rounded-bl-lg transition-colors ${isMenuOpen ? 'absolute top-12 right-0' : 'hidden'} md:flex`}>
+					className={`px-9 bg-zinc-900 font-semibold gap-6 capitalize tracking-wide rounded-bl-lg transition-colors md:flex md:px-0 ${isMenuOpen ? 'absolute top-12 right-0' : 'hidden'}`}>
 					<NavbarRow hasBorderBottom href='/'>
 						apresentação
 					</NavbarRow>

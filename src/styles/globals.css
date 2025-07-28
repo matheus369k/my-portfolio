@@ -2,23 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Geral */
+
 :root {
-  --primary-color: theme("colors.blue.600");
+  --primary-color: theme('colors.blue.600');
   --wrong-color: #ef4444;
-}
-
-.Toastify__progress-bar--success {
-  background: var(--primary-color)!important;
-}
-
-.Toastify__progress-bar--error {
-  background: var(--wrong-color)!important;
 }
 
 :focus {
   outline: 1px solid var(--primary-color);
   border-color: transparent;
 }
+
+@media (max-width: 769px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
+/* Glidejs carousel lib */
+
+.glide__arrow {
+  color: var(--primary-color) !important;
+  position: relative !important;
+  transform: translateY(0) !important;
+  background-color: #18181b !important;
+  border-width: 1px !important;
+  border-color: #3f3f46 !important;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0.5rem !important;
+
+  &:disabled {
+    background-color: #18181b !important;
+    color: #3f3f46 !important;
+  }
+}
+
+.glide__arrow--right {
+  right: 0.5rem !important;
+}
+
+.glide__arrow--left {
+  left: 0.5rem !important;
+}
+
+@media (width < 768px) {
+  .glide__arrow {
+    display: none !important;
+  }
+}
+
+/* Toastify notification lib */
+
+.Toastify__progress-bar--success {
+  background: var(--primary-color) !important;
+}
+
+.Toastify__progress-bar--error {
+  background: var(--wrong-color) !important;
+}
+
+/* Animations */
 
 .animation-rotate-border,
 .animation-rotate-border-reverse {
@@ -69,11 +114,5 @@
 @keyframes tools-carousel {
   to {
     transform: translateX(-50%);
-  }
-}
-
-@media (max-width: 769px) {
-  html {
-    font-size: 87.5%;
   }
 }

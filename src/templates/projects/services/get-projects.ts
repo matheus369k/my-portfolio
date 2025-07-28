@@ -1,13 +1,22 @@
-'use server';
+'use server'
 
-import type { Projects } from '@/@types';
-import { fetchAPI } from '@/lib/axios';
+import type { Projects } from '@/@types'
+import { fetchAPI } from '@/lib/axios'
 
 export async function getProjects() {
-    const response = await fetchAPI('/projects');
-    const data: Projects = await response.data;
+  try {
+    const response = await fetchAPI.get('/projects')
+    const data: Projects = await response.data
+
+    if (!data) {
+      throw new Error('Error to request project datas...')
+    }
 
     return {
-        ...data,
-    };
+      ...data,
+    }
+  } catch (error) {
+    console.log(error)
+    return { projects: null }
+  }
 }

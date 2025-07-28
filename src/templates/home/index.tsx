@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { AutoWriteJob } from './components/auto-write-job';
-import { ContactLinks } from '@/components/contact/links';
+import { ContactLinks } from '@/components/contact';
 import { ProfileAvatar } from '@/components/profile-avatar';
 
 export function Home() {

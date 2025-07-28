@@ -1,22 +1,21 @@
-import { SlideProjectsContextProvider } from '@/contexts/slide-projects';
+import { SlideProjectsContextProvider } from './contexts/slide-projects';
 import { ProjectItem } from './components/project-item';
 import { ControlSlideProject } from './components/control-slides';
-import { getProjects } from './services/get-projects';
 import { Suspense } from 'react';
+import type { Projects as ProjectsType } from '@/@types';
 
-export async function Projects() {
-	const { projects } = await getProjects();
+export function Projects({ projects }: ProjectsType) {
 	const total = projects.length;
 
 	return (
 		<div className='glide max-w-full'>
 			<div
-				className='glide__track flex flex-col justify-center gap-y-4 lg:gap-y-0'
+				className='glide__track flex flex-col justify-center gap-y-6'
 				data-glide-el='track'>
 				<Suspense>
 					<SlideProjectsContextProvider>
 						<ul className='glide__slides grid'>
-							{projects.map((project, index) => {
+							{projects?.map((project, index) => {
 								return (
 									<ProjectItem
 										index={index}

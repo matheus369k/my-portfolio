@@ -1,12 +1,15 @@
 'use client';
 
-import { slideProjectsContext } from '@/contexts/slide-projects';
+import { slideProjectsContext } from '../contexts/slide-projects';
 import { useEffect, useContext } from 'react';
+import 'node_modules/@glidejs/glide/dist/css/glide.core.min.css';
+import 'node_modules/@glidejs/glide/dist/css/glide.theme.min.css';
 import Glide from '@glidejs/glide';
 
 export function useSlide() {
 	const { state, handleSetCurrentSlide } = useContext(slideProjectsContext);
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		const glide = new Glide('.glide', {
 			type: 'slider',
@@ -20,12 +23,14 @@ export function useSlide() {
 			dragThreshold: false,
 		}).mount();
 
-		document.addEventListener('keydown', disableSlide);
-		glide
-			.on('move', () => hiddenSlide())
-			.on('move.after', () => showedSlide(glide.index));
+		document.addEventListener('keydown', disableSlideWithKeyPress);
 
-		function disableSlide({ code }: KeyboardEvent) {
+		glide.on('move.after', () => {
+			handleSetCurrentSlide({ currentSlide: glide.index });
+			setQueryParams({ index: glide.index });
+		});
+
+		function disableSlideWithKeyPress({ code }: KeyboardEvent) {
 			const allProjects = document.querySelectorAll('[data-slug]');
 			const index = glide.index;
 			if (code === 'ArrowLeft' && index === 0) {
@@ -38,7 +43,7 @@ export function useSlide() {
 		}
 
 		return () => {
-			document.removeEventListener('keydown', disableSlide);
+			document.removeEventListener('keydown', disableSlideWithKeyPress);
 			glide.destroy();
 		};
 	}, [state.initialSlide]);
@@ -47,19 +52,6 @@ export function useSlide() {
 		const url = new URL(window.location.toString());
 		url.searchParams.set('index', index.toString());
 		window.history.pushState({}, '', url.toString());
-	}
-
-	function showedSlide(index: number) {
-		const allProjects = document.querySelectorAll('[data-slug]');
-		const visibleProject = allProjects[index];
-		visibleProject.setAttribute('data-visible', 'true');
-		handleSetCurrentSlide({ currentSlide: index });
-		setQueryParams({ index: index });
-	}
-
-	function hiddenSlide() {
-		const visibleProject = document.querySelector('[data-visible]');
-		visibleProject?.removeAttribute('data-visible');
 	}
 
 	return {

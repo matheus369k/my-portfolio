@@ -1,8 +1,19 @@
-import { act, fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Header } from './header';
+import { Header } from '.';
+import axiosMockAdapter from 'axios-mock-adapter';
+import axios from 'axios';
 
 describe('<Header />', () => {
+	const user = userEvent.setup();
+	const MockAxios = new axiosMockAdapter(axios);
+	beforeEach(() => {
+		MockAxios.onGet(`${process.env.NEXT_PUBLIC_BACK_END_URL}/hearth`).replyOnce(
+			200,
+			'ok',
+		);
+	});
+
 	it('should render correctly', () => {
 		render(<Header />);
 		const logoElement = screen.getByRole('link', { name: '<M.G />' });
@@ -20,7 +31,7 @@ describe('<Header />', () => {
 	});
 
 	it('should open and close menu when clicked on the button toggle menu', async () => {
-		const user = userEvent.setup();
+		window.outerWidth = 543;
 		render(<Header />);
 		const buttonToggleMenu = screen.getByRole('button');
 
@@ -34,7 +45,7 @@ describe('<Header />', () => {
 	});
 
 	it('should hidden navbar when menu is closed and show when menu is open', async () => {
-		const user = userEvent.setup();
+		window.outerWidth = 543;
 		render(<Header />);
 		const buttonToggleMenu = screen.getByRole('button');
 		const listItems = screen.getByRole('list');

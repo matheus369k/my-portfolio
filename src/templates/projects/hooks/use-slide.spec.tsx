@@ -4,7 +4,7 @@ import type { ReactNode } from 'react';
 import {
 	slideProjectsContext,
 	SlideProjectsContextProvider,
-} from '@/contexts/slide-projects';
+} from '../contexts/slide-projects';
 import { userEvent } from '@testing-library/user-event';
 
 const wrapper = ({ children }: { children: ReactNode }) => {
@@ -97,7 +97,7 @@ describe('useSlide', () => {
 	});
 
 	it('should restore old slide when load page and has query param index on the url', async () => {
-		const url = new URL('http://localhost:3333/');
+		const url = new URL(window.location.toString());
 		url.searchParams.set('index', '4');
 		window.history.pushState({}, '', url.toString());
 		const { result } = renderHook(() => useSlide(), {

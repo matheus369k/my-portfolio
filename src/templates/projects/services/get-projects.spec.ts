@@ -1,55 +1,43 @@
-'use client';
-
-import { getProjects } from "./get-projects";
-
-const mockFetchAPI = jest.fn().mockResolvedValue({
-    data: {
-        projects: [{
-            _id: '774f310b-147d-4636-828b-37d6c625a289',
-            name: 'Project 1',
-            slug: 'project-1',
-            tools: ['tool1', 'tool2'],
-            images_url: {
-                png: 'https://example.com/image.png',
-                gif: 'https://example.com/image.gif',
-            },
-            links: {
-                deploy: 'https://example.com/deploy',
-                repository: 'https://example.com/repository',
-            },
-            description: 'project 1 description',
-        }]
-    }
-});
-
-jest.mock('@/lib/axios', () => ({
-    fetchAPI: (pathName: string ) => mockFetchAPI(pathName)
-}))
+import { getProjects } from './get-projects'
+import axiosMockAdapter from 'axios-mock-adapter'
+import { faker } from '@faker-js/faker/locale/pt_BR'
+import { renderHook } from '@testing-library/react'
+import { fetchAPI } from '@/lib/axios'
 
 describe('getProjects()', () => {
-    it('should return projects', async () => {
-        const { projects } = await getProjects();
+  const fetchApi = new axiosMockAdapter(fetchAPI)
+  const fakerDatas = Array.from({ length: 4 }).map(() => {
+    return {
+      _id: faker.database.mongodbObjectId(),
+      name: faker.company.name(),
+      slug: faker.company.name().replace(' ', '-').toLocaleLowerCase(),
+      tools: Array.from({ length: 5 }).map(() => {
+        return faker.company.buzzPhrase()
+      }),
+      image_url: faker.image.url(),
+      links: {
+        deploy: faker.internet.url(),
+        repository: faker.internet.url(),
+      },
+      description: faker.company.catchPhraseDescriptor(),
+    }
+  })
 
-        expect(projects).toMatchObject([{
-            _id: '774f310b-147d-4636-828b-37d6c625a289',
-            name: 'Project 1',
-            slug: 'project-1',
-            tools: ['tool1', 'tool2'],
-            images_url: {
-                png: 'https://example.com/image.png',
-                gif: 'https://example.com/image.gif',
-            },
-            links: {
-                deploy: 'https://example.com/deploy',
-                repository: 'https://example.com/repository',
-            },
-            description: 'project 1 description',
-        }])
-    })
+  it('should return projects', async () => {
+    fetchApi.onGet('/projects').replyOnce(200, { projects: fakerDatas })
+    const { result } = renderHook(getProjects)
+    const { projects } = await result.current
 
-    it('should call fetchAPI with correct pathName', async () => {
-        await getProjects();
+    expect(projects).toMatchObject(fakerDatas)
+  })
 
-        expect(mockFetchAPI).toHaveBeenCalledWith('/projects');
-    })
+  it('should call fetchAPI and return undefine', async () => {
+    const MockConsole = jest.spyOn(console, 'log')
+    fetchApi.onGet('/projects').replyOnce(200, undefined)
+    const { result } = renderHook(getProjects)
+    const { projects } = await result.current
+
+    expect(projects).toBeNull()
+    expect(MockConsole).toHaveBeenCalled()
+  })
 })

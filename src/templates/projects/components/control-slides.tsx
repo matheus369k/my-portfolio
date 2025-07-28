@@ -12,13 +12,13 @@ export function ControlSlideProject({ total }: { total: number }) {
 	return (
 		<div
 			data-glide-el='controls'
-			className='glide__arrows absolute right-0 top-1 flex items-center justify-center gap-0.5'>
+			className='glide__arrows flex items-center justify-center gap-6 relative w-auto h-full'>
 			<button
 				disabled={isFirstSlide}
 				aria-label='Previous'
 				type='button'
 				data-glide-dir='<'
-				className='w-8 h-6 glide__arrow glide__arrow--left text-blue-600 disabled:text-zinc-700'>
+				className='glide__arrow glide__arrow--left text-blue-600 disabled:text-zinc-700'>
 				<ArrowLeft />
 			</button>
 			<span className='text-xl font-medium text-blue-600'>
@@ -29,7 +29,7 @@ export function ControlSlideProject({ total }: { total: number }) {
 				aria-label='Next'
 				type='button'
 				data-glide-dir='>'
-				className='w-8 h-6 glide__arrow glide__arrow--right text-blue-600 disabled:text-zinc-700'>
+				className='glide__arrow glide__arrow--right text-blue-600 disabled:text-zinc-700'>
 				<ArrowRight />
 			</button>
 		</div>

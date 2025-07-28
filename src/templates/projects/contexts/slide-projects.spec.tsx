@@ -1,6 +1,4 @@
-'use client';
-
-import { act, fireEvent, render } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import {
 	slideProjectsContext,
 	SlideProjectsContextProvider,
@@ -26,36 +24,36 @@ const TestComponent = () => {
 
 describe('SlideProjectsContext', () => {
 	it('should receive correct initial state', () => {
-		const { getByTestId } = render(
+		render(
 			<SlideProjectsContextProvider>
 				<TestComponent />
 			</SlideProjectsContextProvider>,
 		);
 
-		const currentSlideElement = getByTestId('currentSlide');
+		const currentSlideElement = screen.getByTestId('currentSlide');
 		expect(currentSlideElement).toHaveTextContent('0');
 
-		const initialSlideElement = getByTestId('initialSlide');
+		const initialSlideElement = screen.getByTestId('initialSlide');
 		expect(initialSlideElement).toHaveTextContent('0');
 	});
 
 	it('should set new currentSlide when call function handleSetCurrentSlide', () => {
-		const { getByRole, getByTestId } = render(
+		render(
 			<SlideProjectsContextProvider>
 				<TestComponent />
 			</SlideProjectsContextProvider>,
 		);
 
-		const buttonElement = getByRole('button');
+		const buttonElement = screen.getByRole('button');
 
 		act(() => {
 			fireEvent.click(buttonElement);
 		});
 
-		const initialSlideElement = getByTestId('initialSlide');
+		const initialSlideElement = screen.getByTestId('initialSlide');
 		expect(initialSlideElement).toHaveTextContent('0');
 
-		const currentSlideElement = getByTestId('currentSlide');
+		const currentSlideElement = screen.getByTestId('currentSlide');
 		expect(currentSlideElement).toHaveTextContent('1');
 	});
 
@@ -65,17 +63,17 @@ describe('SlideProjectsContext', () => {
 			url.searchParams.set('index', '6');
 			window.history.pushState({}, '', url);
 		});
-        
-		const { getByTestId } = render(
+
+		render(
 			<SlideProjectsContextProvider>
 				<TestComponent />
 			</SlideProjectsContextProvider>,
 		);
 
-		const initialSlideElement = getByTestId('initialSlide');
+		const initialSlideElement = screen.getByTestId('initialSlide');
 		expect(initialSlideElement).toHaveTextContent('6');
 
-		const currentSlideElement = getByTestId('currentSlide');
+		const currentSlideElement = screen.getByTestId('currentSlide');
 		expect(currentSlideElement).toHaveTextContent('0');
 	});
 });

@@ -1,6 +1,6 @@
 import { Chakra_Petch } from 'next/font/google';
-import { Header } from '@/components/header/header';
-import { Footer } from '@/components/footer/footer';
+import { Header } from '@/components/header';
+import { Footer } from '@/components/footer';
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import '@/styles/globals.css';
