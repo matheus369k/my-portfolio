@@ -1,64 +1,34 @@
-'use client';
-
-import { mock } from "node:test";
-import { inviteMail } from "./invite-mail";
-
-const mockPost = jest.fn()
-
-jest.mock('@/lib/axios', () => ({
-    fetchAPI: {
-        post: (pathName: string, body: object) => mockPost(pathName, body)
-    }
-}))
+import { fetchAPI } from '@/lib/axios'
+import { inviteMail } from './invite-mail'
+import axiosMockAdapter from 'axios-mock-adapter'
 
 describe('inviteMail()', () => {
-    it('should return status ok', async () => {
-        mockPost.mockResolvedValueOnce({
-            status: 200
-        })
+  const fetchApi = new axiosMockAdapter(fetchAPI)
+  it('should return status ok', async () => {
+    fetchApi.onPost('/invite-email').replyOnce(201, 'ok')
 
-        const response = await inviteMail({
-            from_name: 'test',
-            email: 'test@gmail.com',
-            message: 'test'
-        })
-
-        expect(response).toEqual({
-            status: 'ok'
-        })
+    const response = await inviteMail({
+      from_name: 'test',
+      email: 'test@gmail.com',
+      message: 'test',
     })
 
-    it('should return status error', async () => {
-        mockPost.mockRejectedValueOnce({
-            status: 400
-        })
+    expect(response).toEqual({
+      status: 'ok',
+    })
+  })
 
-        const response = await inviteMail({
-            from_name: 'test',
-            email: 'test@gmail.com',
-            message: 'test'
-        })
+  it('should return status error', async () => {
+    fetchApi.onPost('/invite-email').replyOnce(400, 'bad error')
 
-        expect(response).toEqual({
-            status: 'error'
-        })
+    const response = await inviteMail({
+      from_name: 'test',
+      email: 'test@gmail.com',
+      message: 'test',
     })
 
-    it('should call fetchAPI.post with correct data and pathName', async () => {
-        mockPost.mockResolvedValueOnce({
-            status: 200
-        })
-        
-        await inviteMail({
-            from_name: 'test',
-            email: 'test@gmail.com',
-            message: 'test'
-        })
-
-        expect(mockPost).toHaveBeenCalledWith('/invite-email', {
-            from_name: 'test',
-            email: 'test@gmail.com',
-            message: 'test'
-        })
+    expect(response).toEqual({
+      status: 'error',
     })
+  })
 })

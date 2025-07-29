@@ -13,9 +13,7 @@ export function Label({ errors, children, ...props }: LabelProps) {
 				{children}
 			</label>
 			{hasError && (
-				<p className='text-red-600 text-xs ml-auto'>
-					{errors.message}
-				</p>
+				<p className='text-red-600 text-xs ml-auto'>{errors.message}</p>
 			)}
 		</>
 	);

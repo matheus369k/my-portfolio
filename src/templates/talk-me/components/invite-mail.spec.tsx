@@ -1,196 +1,97 @@
-'use client';
-
-import { fireEvent, render, renderHook, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { TalkMeForm } from './invite-mail';
-import { act } from 'react';
-
-const mockHandleSubmit = jest.fn();
-const mockUseFormErrorsField = jest.fn().mockReturnValue({
-	message: undefined,
-	from_name: undefined,
-	email: undefined,
-});
-const mockInviteEmail = jest.fn().mockReturnValue({
-	handleInviteEmail: jest.fn(),
-	isLoading: false,
-});
-
-jest.mock('./input', () => ({
-	Input: ({ ...props }) => <input {...props} />,
-}));
-
-jest.mock('./label', () => ({
-	Label: ({
-		children,
-		htmlFor,
-		...props
-	}: { children: React.ReactNode; htmlFor: string }) => (
-		<label {...props} htmlFor={htmlFor}>
-			{children}
-		</label>
-	),
-}));
-
-jest.mock('./alert-message', () => ({
-	AlertMessage: () => <div data-testid='AlertMessage' />,
-}));
-
-jest.mock('../hooks/use-invite-mail', () => ({
-	useInviteMail: () => mockInviteEmail(),
-}));
-
-jest.mock('react-hook-form', () => ({
-	...jest.requireActual('react-hook-form'),
-	FormProvider: ({ children, ...props }: { children: React.ReactNode }) => (
-		<div data-testid='TalkMeForm'>{children}</div>
-	),
-	useForm: () => ({
-		handleSubmit: mockHandleSubmit,
-		register: jest.fn(),
-		reset: jest.fn(),
-		formState: {
-			errors: mockUseFormErrorsField(),
-		},
-	}),
-}));
+import axiosMockAdapter from 'axios-mock-adapter';
+import { fetchAPI } from '@/lib/axios';
+import userEvent from '@testing-library/user-event';
 
 describe('<InviteMail />', () => {
-	it('should render FormProvier', () => {
-		const { getByTestId } = render(<TalkMeForm />);
+	const fetchApi = new axiosMockAdapter(fetchAPI, { delayResponse: 1000 });
+	const user = userEvent.setup();
 
-		const formElement = getByTestId('TalkMeForm');
-		expect(formElement).toBeVisible();
+	afterEach(() => {
+		fetchApi.reset();
 	});
 
-	it('should render all label fields', () => {
-		const { getByText } = render(<TalkMeForm />);
-
-		const labelFromNameElement = getByText('Nome');
-		const labelMessageElement = getByText('Mensagem');
-		const labelEmailElement = getByText('E-Mail');
-
-		expect(labelFromNameElement).toBeVisible();
-		expect(labelMessageElement).toBeVisible();
-		expect(labelEmailElement).toBeVisible();
-	});
-
-	it('should render all input fields', () => {
-		const { getByRole } = render(<TalkMeForm />);
-
-		const inputFromNameElement = getByRole('textbox', { name: 'Nome' });
-		const inputMessageElement = getByRole('textbox', { name: 'Mensagem' });
-		const inputEmailElement = getByRole('textbox', { name: 'E-Mail' });
-
-		expect(inputFromNameElement).toBeVisible();
-		expect(inputMessageElement).toBeVisible();
-		expect(inputEmailElement).toBeVisible();
-	});
-
-	it('should render input with correct attributes', () => {
-		const { getByRole } = render(<TalkMeForm />);
-
-		const inputFromNameElement = getByRole('textbox', { name: 'Nome' });
-		const inputMessageElement = getByRole('textbox', { name: 'Mensagem' });
-		const inputEmailElement = getByRole('textbox', { name: 'E-Mail' });
-
-		expect(inputFromNameElement).toHaveAttribute('name', 'from_name');
-		expect(inputMessageElement).toHaveAttribute('name', 'message');
-		expect(inputEmailElement).toHaveAttribute('name', 'email');
-
-		expect(inputFromNameElement).toHaveAttribute(
-			'placeholder',
-			'Digite seu nome',
-		);
-		expect(inputMessageElement).toHaveAttribute(
-			'placeholder',
-			'Digite aqui sua mensagem',
-		);
-		expect(inputEmailElement).toHaveAttribute(
-			'placeholder',
-			'Digite seu e-mail',
-		);
-
-		expect(inputFromNameElement).toHaveAttribute('type', 'text');
-		expect(inputEmailElement).toHaveAttribute('type', 'email');
-
-		expect(inputFromNameElement).toHaveAttribute('id', 'from_name');
-		expect(inputMessageElement).toHaveAttribute('id', 'message');
-		expect(inputEmailElement).toHaveAttribute('id', 'email');
-	});
-
-	it('should render all label with correct attributes', () => {
-		const { getByText } = render(<TalkMeForm />);
-
-		const labelFromNameElement = getByText('Nome');
-		const labelMessageElement = getByText('Mensagem');
-		const labelEmailElement = getByText('E-Mail');
-
-		expect(labelFromNameElement).toHaveAttribute('for', 'from_name');
-		expect(labelMessageElement).toHaveAttribute('for', 'message');
-		expect(labelEmailElement).toHaveAttribute('for', 'email');
-	});
-
-	it('should render message field with style of the error', () => {
-		mockUseFormErrorsField.mockReturnValueOnce({
-			message: {
-				type: 'required',
-				message: 'Mensagem é obrigatória',
-			},
-			from_name: undefined,
-			email: undefined,
-		});
-
-		const { getByRole } = render(<TalkMeForm />);
-
-		const inputMessageElement = getByRole('textbox', { name: 'Mensagem' });
-		expect(inputMessageElement).toHaveClass('border-red-600');
-		expect(inputMessageElement).not.toHaveClass('border-zinc-700');
-	});
-
-	it('should render message field without style of the error', () => {
-		const { getByRole } = render(<TalkMeForm />);
-
-		const inputMessageElement = getByRole('textbox', { name: 'Mensagem' });
-		expect(inputMessageElement).toHaveClass('border-zinc-700');
-		expect(inputMessageElement).not.toHaveClass('border-red-600');
-	});
-
-	it('should call handleSubmit from useForm with handleInviteEmail how props', () => {
+	it('should render corrected', () => {
 		render(<TalkMeForm />);
 
-		expect(mockHandleSubmit).toHaveBeenCalledWith(
-			mockInviteEmail().handleInviteEmail,
-		);
+		screen.getAllByRole('textbox', { name: /nome/i });
+		screen.getAllByRole('textbox', { name: /e-mail/i });
+		screen.getAllByRole('textbox', { name: /mensagem/i });
 	});
 
-	it('should render AlertMessage component', () => {
-		const { getByTestId } = render(<TalkMeForm />);
+	it('should validation values when are fields than empty', async () => {
+		render(<TalkMeForm />);
+		const btnSubmit = screen.getByRole('button');
 
-		const alertMessageElement = getByTestId('AlertMessage');
-		expect(alertMessageElement).toBeInTheDocument();
+		expect(screen.queryByText(/Nome é obrigatório/i)).toBeNull();
+		expect(screen.queryByText(/E-Mail é obrigatório/i)).toBeNull();
+		expect(screen.queryByText(/Mensagem é obrigatória/i)).toBeNull();
+		await user.click(btnSubmit);
+
+		screen.getByText(/Nome é obrigatório/i);
+		screen.getByText(/E-Mail é obrigatório/i);
+		screen.getByText(/Mensagem é obrigatória/i);
 	});
 
-	it('should render button with loading state', () => {
-		mockInviteEmail.mockReturnValueOnce({
-			isLoading: true,
-		});
+	it('should validation email value when is invalide', async () => {
+		fetchApi.onPost('/invite-email').replyOnce(201, 'ok');
+		render(<TalkMeForm />);
+		const fieldName = screen.getByRole('textbox', { name: /nome/i });
+		const fieldEmail = screen.getByRole('textbox', { name: /e-mail/i });
+		const fieldMessage = screen.getByRole('textbox', { name: /mensagem/i });
+		const btnSubmit = screen.getByRole('button');
 
-		const { getByRole } = render(<TalkMeForm />);
+		expect(fieldEmail).toBeValid();
+		await user.type(fieldName, 'Dev Front');
+		await user.type(fieldEmail, 'test#gmail.com');
+		await user.type(fieldMessage, 'Ola, dev front aqui...');
+		await user.click(btnSubmit);
 
-		const buttonElement = getByRole('button', { name: 'Enviando...' });
-		expect(buttonElement).toHaveClass('opacity-50 cursor-not-allowed');
-		expect(buttonElement).toBeDisabled();
+		expect(fieldEmail).toBeInvalid();
+		await user.clear(fieldEmail);
+		await user.type(fieldEmail, 'test@gmail.com');
+		await user.click(btnSubmit);
+
+		expect(fieldEmail).toBeValid();
 	});
 
-	it('should render button without loading state', () => {
-		mockInviteEmail.mockReturnValueOnce({
-			isLoading: false,
-		});
+	it('should switch text in the button when is clicked in invite email', async () => {
+		fetchApi.onPost('/invite-email').replyOnce(201, 'ok');
+		render(<TalkMeForm />);
+		const fieldName = screen.getByRole('textbox', { name: /nome/i });
+		const fieldEmail = screen.getByRole('textbox', { name: /e-mail/i });
+		const fieldMessage = screen.getByRole('textbox', { name: /mensagem/i });
+		const btnSubmit = screen.getByRole('button');
 
-		const { getByRole } = render(<TalkMeForm />);
+		expect(btnSubmit).toHaveTextContent(/Enviar/i);
+		await user.type(fieldName, 'Dev Front');
+		await user.type(fieldEmail, 'test@gmail.com');
+		await user.type(fieldMessage, 'Ola, dev front aqui...');
+		await user.click(btnSubmit);
 
-		const buttonElement = getByRole('button', { name: 'Enviar' });
-		expect(buttonElement).not.toHaveClass('opacity-50 cursor-not-allowed');
-		expect(buttonElement).not.toBeDisabled();
+		expect(btnSubmit).toHaveTextContent(/Enviando.../i);
+	});
+
+	it('should invite corrected datas on the body of the invite mail request', async () => {
+		fetchApi.onPost('/invite-email').replyOnce(201, 'ok');
+		render(<TalkMeForm />);
+		const fieldName = screen.getByRole('textbox', { name: /nome/i });
+		const fieldEmail = screen.getByRole('textbox', { name: /e-mail/i });
+		const fieldMessage = screen.getByRole('textbox', { name: /mensagem/i });
+		const btnSubmit = screen.getByRole('button');
+		const data = {
+			from_name: 'Dev Front',
+			email: 'test@gmail.com',
+			message: 'Ola, dev front aqui...',
+		};
+
+		await user.type(fieldName, data.from_name);
+		await user.type(fieldEmail, data.email);
+		await user.type(fieldMessage, data.message);
+		await user.click(btnSubmit);
+
+		const requestBody = JSON.parse(fetchApi.history[0].data);
+		expect(requestBody).toMatchObject(data);
 	});
 });

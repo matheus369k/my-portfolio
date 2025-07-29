@@ -55,9 +55,9 @@ export default function RootLayout({
 		<html lang='en'>
 			<body
 				className={`${chakraPetch.className}
-			bg-zinc-900 text-zinc-100 antialiased min-h-dvh grid grid-cols-1 grid-rows-[auto,_1fr_auto] gap-6 overflow-x-hidden scroll-smooth`}>
+			bg-zinc-900 text-zinc-100 antialiased min-h-dvh grid grid-cols-1 grid-rows-[auto,_1fr_auto] overflow-x-hidden scroll-smooth`}>
 				<Header />
-				<main className='max-w-7xl w-full h-full mx-auto px-2 overflow-x-hidden md:px-8'>
+				<main className='max-w-7xl w-full h-full mx-auto py-6 px-2 overflow-x-hidden md:px-8'>
 					<Suspense>{children}</Suspense>
 				</main>
 				<Footer />

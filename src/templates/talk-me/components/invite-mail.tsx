@@ -1,10 +1,6 @@
 'use client';
 
-import {
-	MailIcon,
-	MessageCircle,
-	UserIcon
-} from 'lucide-react';
+import { MailIcon, MessageCircle, UserIcon } from 'lucide-react';
 import { Input } from './input';
 import { Label } from './label';
 import { FormProvider, useForm } from 'react-hook-form';

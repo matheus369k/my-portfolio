@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { inviteMail } from '../services/invite-mail';
 
 interface UseInviteMailProps {
-    reset: ()=> void;
+	reset: () => void;
 }
 
 export function useInviteMail({ reset }: UseInviteMailProps) {

@@ -11,9 +11,11 @@ export function Header() {
 	const { isMenuOpen, handleToggleMenu } = useToggleMenu();
 
 	useEffect(() => {
-		axios(`${process.env.NEXT_PUBLIC_BACK_END_URL}/hearth`).then((response) => {
-			console.log(response.data);
-		});
+		axios
+			.get(`${process.env.NEXT_PUBLIC_BACK_END_URL}/hearth`)
+			.then((response) => {
+				console.log(response.data);
+			});
 	}, []);
 
 	return (
