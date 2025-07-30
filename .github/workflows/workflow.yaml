@@ -14,8 +14,8 @@ jobs:
       - name: run install, build and tests
         run: |
           npm install
-          npm run build 
           npm run test
+          npm run build
         env:
           NEXT_PUBLIC_CV_LINK: http://localhost:3333/cv
           NEXT_PUBLIC_GITHUB_LINK: http://localhost:3333/github
