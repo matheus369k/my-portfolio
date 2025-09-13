@@ -3,6 +3,7 @@ import { ProjectLinkRoot } from './project-link';
 import type { ProjectType } from '@/@types';
 import Image from 'next/image';
 import { Button } from '@/components/button';
+import {ul as MotionList} from 'motion/react-client'
 
 interface ProjectItemProps {
 	project: ProjectType;
@@ -11,9 +12,12 @@ interface ProjectItemProps {
 
 export function ProjectItem({ project }: ProjectItemProps) {
 	return (
-		<li
+		<MotionList 
+		  animate={{ animationDuration: 750 }}
+      initial={{ opacity: 0, x: -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
 			data-slug={project.slug}
-			className='glide__slide pt-4 cursor-default flex flex-col justify-between gap-y-6 md:gap-y-12'>
+			className='cursor-default flex flex-col justify-between gap-y-6 border-b border-zinc-700 py-12 first-of-type:pt-8 last-of-type:border-none md:gap-y-12'>
 			<div className='col-span-full flex flex-col gap-6 items-center justify-between sm:flex-row'>
 				<Title className='relative self-start max-w-full truncate'>
 					{project.name}
@@ -66,6 +70,6 @@ export function ProjectItem({ project }: ProjectItemProps) {
 					/>
 				</div>
 			</div>
-		</li>
+		</MotionList>
 	);
 }
