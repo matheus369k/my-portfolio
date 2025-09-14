@@ -19,7 +19,7 @@ export function Header() {
 	}, []);
 
 	return (
-		<header className='relative flex justify-between items-center px-4 border-b border-zinc-700 h-min md:px-8'>
+		<header className='relative flex justify-between items-center px-4 border-b border-zinc-700 h-min bg-zinc-900 md:px-8'>
 			<Link
 				href='/'
 				className='font-bold text-blue-600 text-3xl uppercase py-4'>

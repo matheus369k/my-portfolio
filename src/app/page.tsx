@@ -1,5 +1,5 @@
 import { Home } from '@/templates/home';
 
-export default function HomePage() {
+export default async function HomePage() {
 	return <Home />;
 }

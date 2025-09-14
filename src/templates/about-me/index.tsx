@@ -1,10 +1,11 @@
 import { ContactLinks } from '@/components/contact';
 import { ProfileAvatar } from '@/components/profile-avatar';
 import { Title } from '@/components/title';
+import {div as MotionDiv} from 'motion/react-client';
 
 export function AboutMe() {
 	return (
-		<div className='flex flex-col gap-12'>
+		<MotionDiv initial={{opacity:0}} animate={{opacity: 1}} className='flex flex-col gap-12'>
 			<div className='flex flex-col gap-6'>
 				<Title>Apresentação inicial</Title>
 				<p className='text-zinc-400 pl-4'>
@@ -64,6 +65,6 @@ export function AboutMe() {
 					<ContactLinks />
 				</div>
 			</div>
-		</div>
+		</MotionDiv>
 	);
 }

@@ -2,10 +2,11 @@ import Link from 'next/link';
 import { AutoWriteJob } from './components/auto-write-job';
 import { ContactLinks } from '@/components/contact';
 import { ProfileAvatar } from '@/components/profile-avatar';
+import {div as MotionDiv} from 'motion/react-client';
 
 export function Home() {
 	return (
-		<div className='grid grid-cols-1 place-content-center place-items-center h-full grid-rows-[repeat(2,_auto)] gap-y-8 lg:place-content-between lg:grid-cols-[repeat(2,_auto)] lg:grid-rows-1'>
+		<MotionDiv initial={{opacity:0}} animate={{opacity: 1}} className='grid grid-cols-1 place-content-center place-items-center h-full grid-rows-[repeat(2,_auto)] gap-y-8 lg:place-content-between lg:grid-cols-[repeat(2,_auto)] lg:grid-rows-1'>
 			<div className='flex flex-col items-center gap-4 col-start-1'>
 				<div className='w-full'>
 					<h1 className='font-semibold text-4xl'>
@@ -27,6 +28,6 @@ export function Home() {
 			</div>
 
 			<ProfileAvatar />
-		</div>
+		</MotionDiv>
 	);
 }

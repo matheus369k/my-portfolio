@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import { ToolsSection } from './components/tools-section';
 import { CertificatesSection } from './components/certificates-section';
 import { getCertificates } from './services/get-certificates';
+import {div as MotionDiv} from 'motion/react-client';
 
 export async function Learn() {
 	const [{ tools }, { certificates }] = await Promise.all([
@@ -10,7 +11,7 @@ export async function Learn() {
 		getCertificates(),
 	]);
 	return (
-		<div className='min-h-dvh flex flex-col gap-12'>
+		<MotionDiv initial={{opacity:0}} animate={{opacity: 1}} className='min-h-dvh flex flex-col gap-12'>
 			<Suspense>
 				<ToolsSection tools={tools} />
 			</Suspense>
@@ -18,6 +19,6 @@ export async function Learn() {
 			<Suspense>
 				<CertificatesSection certificates={certificates} />
 			</Suspense>
-		</div>
+		</MotionDiv>
 	);
 }

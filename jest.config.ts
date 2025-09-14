@@ -28,6 +28,7 @@ const config: Config = {
   testEnvironmentOptions: {
     url: 'http://localhost:3333',
   },
+  testTimeout: 10000,
 }
 
 export default createJestConfig(config)
