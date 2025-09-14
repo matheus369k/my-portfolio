@@ -57,5 +57,5 @@ export function ParticlesCanvas() {
     initParticles()
   },[])
 
-  return <div id='tsparticles' />
+  return <div id='tsparticles' style={{position: 'fixed'}} />
 }
