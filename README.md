@@ -1,49 +1,57 @@
-<h1 align='center' >
-  💻M.G - Portfolio
-</h1>
-<div align='center'>
-
-  [Ferramentas](#ferramentas)
-  |
-  [Projeto](#projetos)
-  |
-  [Licença](#licença)
-
+<h1 align="center">M.G - Portfolio - Desenvolvedor</h1>
+<div align="center">
+  <a href="#descrição">Descrição</a> |
+  <a href="#iniciar">Iniciar</a> |
+  <a href="#licença">Licença</a>
 </div>
 
-<div align='center'>
-  <img src='https://img.shields.io/github/license/matheus369k/my-portfolio.svg'/>
-  <img src='https://img.shields.io/github/watchers/matheus369k/my-portfolio.svg' />
-</div>
+<p align="center">
+  <img src="https://img.shields.io/github/license/matheus369k/play-movies-series.svg"/>
+</p>
+<p>
+ <img src="./.github/preview-project.jpg" />
+</p>
 
-<div align='center'>
-  <img src='.github/portfolio-preview.png'/>
-</div>
+## Descrição
 
-## 🛑Atenção
-Ainda esta sendo implementados os testes no projeto.
+A aplicação e um site que visá compartilhar, meu trabalho e meu nível, como desenvolvedor, aprestando meus projetos, minha certificações, um pouco da minha trajetória e algumas da minha habilidades atuais.
 
-## 💻Projeto
-O Site e um portfólio pessoal, onde é possível ver os projetos desenvolvidos por mim, e também me contatar. Ele visa facilitar o entendimento do que faço, e meu nível atual de conhecimento.
+Acesse o site **[M.G - Portfolio](https://mg-developer-portfolio.vercel.app/)**.
 
-Acesse o site M.G - Portfólio 🔗[aqui](https://mg-developer-portfolio.vercel.app/).
+## Iniciar
 
-Fora criado um back-end em nodejs, para separar as responsabilidades da aplicação. Acesse o repositório 🔗[aqui](https://github.com/matheus369k/portfolio-back-end).
+E Necessário ter o Nodejs, o git instalado e o repositório **[portfolio-back-end](https://github.com/matheus369k/portfolio-back-end)**.
 
-## 🧰Ferramentas
-- Next.js 
-- TailwindCSS 
-- Typescript
-- Context API
-- Testing-library
-- Hook Form
-- Zod
-- Jest
+Faça clone do repositório localmente.
 
-## 🎨Design
-O design do site foi feito por mim, utilizando o Figma, e usando minha cor favorita que o o azul, como cor primaria. Meu objetivo foi criar algo simples, mas que seja atraente. que não seja muito poluído, e que seja fácil de usar. O resultado me agradou, e espero que você também goste.
+```bash
+git clone https://github.com/matheus369k/my-portfolio
+cd ./my-portfolio
+```
 
-Acesse o designer🔗[aqui](https://www.figma.com/design/UgZKmCI8uAagRTRkPFnShM/Portf%C3%B3lio-v2?node-id=0-1&t=nYP3hSCByUhhagK8-1).
+Instale as dependencies
 
-## 📜Licença
-A licença usado foi MIT, acesse 🔗[aqui](/LICENSE.txt)
+```bash
+pnpm install
+```
+
+Crie um arquivo **.env**, com as variaves ambientes abaixo
+
+```bash
+NEXT_PUBLIC_CV_LINK="http://localhost:3333/cv"
+NEXT_PUBLIC_GITHUB_LINK="http://localhost:3333/github"
+NEXT_PUBLIC_LINKEDIN_LINK="http://localhost:3333/linkedin"
+NEXT_PUBLIC_MAIL_LINK="http://localhost:3333/mail"
+
+NEXT_PUBLIC_BACK_END_URL="http://localhost:3333"
+```
+
+Agora você pode iniciar o projetos
+
+```bash
+pnpm dev
+```
+
+## Licença
+
+Licença usada **[MIT](./LICENSE.txt)**
