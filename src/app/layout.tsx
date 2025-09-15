@@ -12,7 +12,7 @@ const chakraPetch = Chakra_Petch({
 });
 
 export const metadata: Metadata = {
-	icons: 'favicon.ico',
+	icons: 'favicon.png',
 	title: 'M.G - Portfolio',
 	description:
 		'O Site e um portfólio pessoal, onde é possível ver os projetos desenvolvidos por mim, e também me contatar. Ele visa facilitar o entendimento do que faço, e meu nível atual de conhecimento.',
@@ -36,12 +36,12 @@ export const metadata: Metadata = {
 			'O Site e um portfólio pessoal, onde é possível ver os projetos desenvolvidos por mim, e também me contatar. Ele visa facilitar o entendimento do que faço, e meu nível atual de conhecimento.',
 		images: [
 			{
-				url: 'https://raw.githubusercontent.com/matheus369k/my-portfolio/refs/heads/main/public/share-card.png',
+				url: 'share-card.png',
 				type: 'image/png',
 				alt: 'M.G - Portfolio',
 			},
 		],
-		url: 'https://my-portfolio-ten-smoky-67.vercel.app/',
+		url: 'https://mg-developer-portfolio.vercel.app/',
 		type: 'website',
 		locale: 'pt_BR',
 		siteName: 'M.G - Portfolio',
