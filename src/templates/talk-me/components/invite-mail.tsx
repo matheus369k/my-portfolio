@@ -26,7 +26,7 @@ export function TalkMeForm() {
 	return (
 		<FormProvider {...hookForm}>
 			<form
-				className='flex flex-col gap-6 w-full max-w-lg'
+				className='flex flex-col gap-6 w-full max-w-lg mx-auto lg:mx-0'
 				onSubmit={handleSubmit(handleInviteEmail)}>
 				<div className='grid grid-rows-[repeat(2,_auto)] grid-cols-2'>
 					<Label errors={errors.from_name} htmlFor='from_name'>
