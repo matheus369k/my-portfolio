@@ -1,18 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Header } from '.';
-import axiosMockAdapter from 'axios-mock-adapter';
-import axios from 'axios';
 
 describe('<Header />', () => {
 	const user = userEvent.setup();
-	const MockAxios = new axiosMockAdapter(axios);
-	beforeEach(() => {
-		MockAxios.onGet(`${process.env.NEXT_PUBLIC_BACK_END_URL}/hearth`).replyOnce(
-			200,
-			'ok',
-		);
-	});
 
 	it('should render correctly', () => {
 		render(<Header />);
