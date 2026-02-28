@@ -17,6 +17,6 @@ export async function getProjects() {
     }
   } catch (error) {
     console.log(error)
-    return { projects: null }
+    return { projects: [] }
   }
 }

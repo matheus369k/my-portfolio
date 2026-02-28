@@ -37,7 +37,7 @@ describe('getProjects()', () => {
     const { result } = renderHook(getProjects)
     const { projects } = await result.current
 
-    expect(projects).toBeNull()
+    expect(projects).toEqual([])
     expect(MockConsole).toHaveBeenCalled()
   })
 })
