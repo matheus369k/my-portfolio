@@ -1,6 +1,5 @@
 import type { FormData, ReturnInviteMail } from '@/@types';
 import { CircleCheckBig, CircleX } from 'lucide-react';
-import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { inviteMail } from '@/services/invite-mail';
 
@@ -9,18 +8,13 @@ interface UseInviteMailProps {
 }
 
 export function useInviteMail({ reset }: UseInviteMailProps) {
-	const [isLoading, setIsLoading] = useState(false);
-
 	async function handleInviteEmail({ from_name, email, message }: FormData) {
-		setIsLoading(true);
-
 		const { status } = await inviteMail({
 			from_name,
-			email,
 			message,
+			email,
 		});
 
-		setIsLoading(false);
 		handleShowNotification({ status });
 	}
 
@@ -39,8 +33,5 @@ export function useInviteMail({ reset }: UseInviteMailProps) {
 		reset();
 	}
 
-	return {
-		isLoading,
-		handleInviteEmail,
-	};
+	return { handleInviteEmail };
 }

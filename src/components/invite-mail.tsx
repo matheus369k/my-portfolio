@@ -7,7 +7,7 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { type FormData, FormSchema } from '@/@types';
 import { AlertMessage } from './alert-message';
-import { useInviteMail } from '../hooks/use-invite-mail';
+import { useInviteMail } from '@/hooks/use-invite-mail';
 
 export function TalkMeForm() {
 	const hookForm = useForm<FormData>({
@@ -17,10 +17,10 @@ export function TalkMeForm() {
 		handleSubmit,
 		register,
 		reset,
-		formState: { errors },
+		formState: { errors,isSubmitting },
 	} = hookForm;
 
-	const { handleInviteEmail, isLoading } = useInviteMail({ reset });
+	const { handleInviteEmail } = useInviteMail({ reset });
 	const messageHasError = errors.message;
 
 	return (
@@ -77,11 +77,11 @@ export function TalkMeForm() {
 				</div>
 
 				<button
-					disabled={isLoading}
+					disabled={isSubmitting}
 					type='submit'
 					title='Enviar e-mail'
-					className={`px-8 py-2 bg-blue-600 font-bold w-min rounded-lg transition-opacity ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}>
-					{isLoading ? 'Enviando...' : 'Enviar'}
+					className={`px-8 py-2 bg-blue-600 font-bold w-min rounded-lg transition-opacity ${isSubmitting && 'opacity-50 cursor-not-allowed'}`}>
+					{isSubmitting ? 'Enviando...' : 'Enviar'}
 				</button>
 			</form>
 

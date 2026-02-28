@@ -31,29 +31,7 @@ describe('useInviteMail()', () => {
 			}),
 		);
 
-		expect(result.current.isLoading).toBeFalsy();
 		expect(result.current.handleInviteEmail).toBeTruthy();
-	});
-
-	it('should add isLoading as true before call function inviteMail after toggle to false', async () => {
-		fetchApi.onPost('/invite-email').replyOnce(200, 'ok');
-		const { result } = renderHook(() =>
-			useInviteMail({
-				reset: () => jest.fn(),
-			}),
-		);
-
-		act(() => {
-			result.current.handleInviteEmail(InviteMailDatas);
-		});
-
-		expect(result.current.isLoading).toBeTruthy();
-
-		await act(async () => {
-			await result.current.handleInviteEmail(InviteMailDatas);
-		});
-
-		expect(result.current.isLoading).toBeFalsy();
 	});
 
 	it('should call toast.error and not call reset when status is error', async () => {
