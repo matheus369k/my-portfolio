@@ -1,6 +1,5 @@
-import { Title } from '@/components/title';
-import type { Tools } from '@/@types';
 import Image from 'next/image';
+import { getTools } from '@/services/get-tools';
 
 enum ToolsCategory {
 	front_end = 'Front End',
@@ -10,13 +9,12 @@ enum ToolsCategory {
 
 type CategoryTypes = 'front_end' | 'back_end' | 'another';
 
-export function ToolsSection({ tools }: Tools) {
-	return (
-		<section className='flex flex-col gap-8'>
-			<Title>Ferramentas</Title>
+export async function ToolsList() {
+	const { tools } = await	getTools()
 
-			{Object.entries(tools).map((tool) => {
+	return Object.entries(tools).map((tool) => {
 				const toolCategory = ToolsCategory[tool[0] as CategoryTypes];
+
 				return (
 					<div className='flex flex-col gap-4' key={tool[0]}>
 						<h3 className='font-bold text-xl'>{toolCategory}</h3>
@@ -39,7 +37,5 @@ export function ToolsSection({ tools }: Tools) {
 						</div>
 					</div>
 				);
-			})}
-		</section>
-	);
+			})
 }
