@@ -12,6 +12,7 @@ const TomorrowFont = Tomorrow({
 });
 
 export const metadata: Metadata = {
+	metadataBase: new URL('https://mg-developer-portfolio.vercel.app/'),
 	icons: 'favicon.png',
 	title: 'M.G - Portfolio',
 	description:
