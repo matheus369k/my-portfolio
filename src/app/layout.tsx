@@ -1,4 +1,4 @@
-import { Chakra_Petch } from 'next/font/google';
+import { Tomorrow } from 'next/font/google';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import type { Metadata } from 'next';
@@ -6,7 +6,7 @@ import { Suspense } from 'react';
 import '@/styles/globals.css';
 import { ParticlesCanvas } from '@/components/particles';
 
-const chakraPetch = Chakra_Petch({
+const TomorrowFont = Tomorrow({
 	subsets: ['latin'],
 	weight: ['300', '400', '500', '700'],
 });
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
 		type: 'website',
 		locale: 'pt_BR',
 		siteName: 'M.G - Portfolio',
-		countryName: "Brazil",
+		countryName: 'Brazil',
 	},
 };
 
@@ -57,14 +57,12 @@ export default async function RootLayout({
 	return (
 		<html lang='pt-BR'>
 			<body
-				className={`${chakraPetch.className}
+				className={`${TomorrowFont.className}
 				bg-zinc-900 text-zinc-100 antialiased min-h-dvh grid grid-cols-1 grid-rows-[min-content_1fr_min-content] place-content-start overflow-x-hidden scroll-smooth`}>
 				<ParticlesCanvas />
 				<Header />
 				<main className='max-w-7xl w-full mx-auto py-6 px-2 overflow-x-hidden md:px-8'>
-					<Suspense>
-						{children}
-					</Suspense>
+					<Suspense>{children}</Suspense>
 				</main>
 				<Footer />
 			</body>
