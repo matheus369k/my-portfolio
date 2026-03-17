@@ -1,7 +1,7 @@
-import { Title } from '@/components/title';
+import { Title } from '@/components/ui/title';
 import { TalkMeForm } from '@/components/invite-mail';
 import { ProfileAvatar } from '@/components/profile-avatar';
-import { ContactLinks } from '@/components/contact';
+import { SocialMedias } from '@/components/social-medias';
 import { div as MotionDiv } from 'motion/react-client';
 
 export default function TalkMePage() {
@@ -19,7 +19,7 @@ export default function TalkMePage() {
 			<div className='hidden lg:flex flex-col items-center justify-center gap-4 h-fit'>
 				<ProfileAvatar />
 
-				<ContactLinks />
+				<SocialMedias />
 			</div>
 		</MotionDiv>
 	);

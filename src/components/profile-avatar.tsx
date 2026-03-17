@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { AvatarBorder } from './avatar-border';
+import { AvatarBorder } from './ui/avatar-border';
 
 export function ProfileAvatar() {
 	return (
