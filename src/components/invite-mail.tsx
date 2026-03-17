@@ -1,8 +1,8 @@
 'use client';
 
 import { MailIcon, MessageCircle, UserIcon } from 'lucide-react';
-import { Input } from './input';
-import { Label } from './label';
+import { Input } from './ui/input';
+import { Label } from './ui/label';
 import { FormProvider, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { type FormData, FormSchema } from '@/@types';
@@ -17,7 +17,7 @@ export function TalkMeForm() {
 		handleSubmit,
 		register,
 		reset,
-		formState: { errors,isSubmitting },
+		formState: { errors, isSubmitting },
 	} = hookForm;
 
 	const { handleInviteEmail } = useInviteMail({ reset });
@@ -26,7 +26,7 @@ export function TalkMeForm() {
 	return (
 		<FormProvider {...hookForm}>
 			<form
-				className='flex flex-col gap-6 w-full max-w-lg mx-auto lg:mx-0'
+				className='flex flex-col gap-6 w-full max-w-lg'
 				onSubmit={handleSubmit(handleInviteEmail)}>
 				<div className='grid grid-rows-[repeat(2,_auto)] grid-cols-2'>
 					<Label errors={errors.from_name} htmlFor='from_name'>
