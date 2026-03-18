@@ -10,10 +10,11 @@ export interface ProjectType {
   tools: string[]
   image_url: string
   links: {
-    deploy: string
-    repository: string
-  }
+    name: string
+    link: string
+  }[]
   description: string
+  access_total: number
 }
 
 export interface Projects {

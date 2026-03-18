@@ -27,7 +27,8 @@ export function CopyButton({ link, className, ...props }: CopyButtonProps) {
 			disabled={isSuccessCopy}
 			onClick={handleCopyLinks}
 			type='button'
-			className={twMerge('group ml-auto', className)}>
+			className={twMerge('group ml-auto', className)}
+			aria-label='copy-button'>
 			{!isSuccessCopy && (
 				<MotionI initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 					<Copy className='size-6 text-blue-600 ' />

@@ -1,20 +1,20 @@
-import { Title } from '@/components/title';
-import { ProjectLinkRoot } from './project-link';
+import { Title } from '@/components/ui/title';
+import { BaseLink } from './ui/base-link';
 import type { ProjectType } from '@/@types';
 import Image from 'next/image';
-import { Button } from '@/components/button';
-import {ul as MotionList} from 'motion/react-client'
+import { Button } from '@/components/ui/button';
+import { ul as MotionList } from 'motion/react-client';
+import { ProjectLinksModal } from './project-links-modal';
 
 interface ProjectItemProps {
 	project: ProjectType;
-	index: number;
 }
 
 export function ProjectItem({ project }: ProjectItemProps) {
 	return (
-		<MotionList 
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
+		<MotionList
+			initial={{ opacity: 0 }}
+			whileInView={{ opacity: 1 }}
 			data-slug={project.slug}
 			className='cursor-default flex flex-col justify-between gap-y-6 border-b border-zinc-700 py-12 first-of-type:pt-8 last-of-type:border-none md:gap-y-12'>
 			<div className='col-span-full flex flex-col gap-6 items-center justify-between sm:flex-row'>
@@ -22,16 +22,13 @@ export function ProjectItem({ project }: ProjectItemProps) {
 					{project.name}
 				</Title>
 				<div className='flex gap-y-8 gap-x-4 w-full sm:w-auto font-bold'>
-					<ProjectLinkRoot href={project.links.deploy}>
+					<BaseLink href={project.links[0].link}>
 						<Button size='full' className='sm:w-auto'>
-							Site
+							{project.links[0].name}
 						</Button>
-					</ProjectLinkRoot>
-					<ProjectLinkRoot href={project.links.repository}>
-						<Button size='full' className='sm:w-auto'>
-							Repositório
-						</Button>
-					</ProjectLinkRoot>
+					</BaseLink>
+
+					<ProjectLinksModal name={project.name} links={project.links} />
 				</div>
 			</div>
 
