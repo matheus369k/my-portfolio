@@ -3,8 +3,9 @@ import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
+import { ParticlesCanvas } from '@/components/ui/particles';
+import { RootContainer } from '@/layout/root';
 import '@/styles/globals.css';
-import { ParticlesCanvas } from '@/components/particles';
 
 const TomorrowFont = Tomorrow({
 	subsets: ['latin'],
@@ -56,17 +57,20 @@ export default async function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang='pt-BR'>
-			<body
-				className={`${TomorrowFont.className}
+		<RootContainer>
+			<html lang='pt-BR'>
+				<body
+					id='__next'
+					className={`${TomorrowFont.className}
 				bg-zinc-900 text-zinc-100 antialiased min-h-dvh grid grid-cols-1 grid-rows-[min-content_1fr_min-content] place-content-start overflow-x-hidden scroll-smooth`}>
-				<ParticlesCanvas />
-				<Header />
-				<main className='max-w-7xl w-full mx-auto py-6 px-2 overflow-x-hidden md:px-8'>
-					<Suspense>{children}</Suspense>
-				</main>
-				<Footer />
-			</body>
-		</html>
+					<ParticlesCanvas />
+					<Header />
+					<main className='max-w-7xl w-full mx-auto py-6 px-2 overflow-x-hidden md:px-8'>
+						<Suspense>{children}</Suspense>
+					</main>
+					<Footer />
+				</body>
+			</html>
+		</RootContainer>
 	);
 }
