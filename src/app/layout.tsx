@@ -4,8 +4,10 @@ import { Footer } from '@/components/footer';
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import { ParticlesCanvas } from '@/components/ui/particles';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { RootContainer } from '@/layout/root';
 import '@/styles/globals.css';
+import { env } from '@/lib/env';
 
 const TomorrowFont = Tomorrow({
 	subsets: ['latin'],
@@ -70,6 +72,7 @@ export default async function RootLayout({
 					</main>
 					<Footer />
 				</body>
+				<GoogleAnalytics gaId={env.NEXT_PUBLIC_GA_ID} />
 			</html>
 		</RootContainer>
 	);

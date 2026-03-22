@@ -9,6 +9,8 @@ export const schemaEnv = z.object({
   NEXT_PUBLIC_MAIL_LINK: z.string().url(),
 
   NEXT_PUBLIC_BACK_END_URL: z.string().url(),
+
+  NEXT_PUBLIC_GA_ID: z.string(),
 })
 
 export const env = schemaEnv.parse(process.env)
