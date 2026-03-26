@@ -3,6 +3,8 @@ import { Suspense } from 'react';
 import { div as MotionDiv } from 'motion/react-client';
 import { getProjects } from '@/services/get-projects';
 
+export const revalidate = 1000 * 60 * 60;
+
 export default async function ProjectsPage() {
 	const { projects } = await getProjects();
 

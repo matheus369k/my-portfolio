@@ -21,6 +21,33 @@ export function ProjectLinksModal({
 		setOpen(false);
 	}
 
+	function renderLinksUI(props: { name: string; link: string }) {
+		return (
+			<div key={name} className='flex flex-col gap-1'>
+				<span className='text-base font-bold capitalize'>{name}</span>
+
+				<div className='flex gap-4 w-full'>
+					<div className='relative w-full flex items-center gap-1 border border-zinc-700 rounded-lg py-2 px-4'>
+						<p className='text-base text-zinc-700 font-bold truncate absolute w-5/6'>
+							{props.link}
+						</p>
+
+						<CopyButton link={props.link} />
+					</div>
+
+					<BaseLink href={props.link} size='fit'>
+						<Button
+							types='icon'
+							aria-label='access-page'
+							className='bg-blue-600 text-zinc-100 hover:text-zinc-100 hover:bg-blue-500'>
+							<ExternalLink />
+						</Button>
+					</BaseLink>
+				</div>
+			</div>
+		);
+	}
+
 	return (
 		<div className='w-full sm:w-fit'>
 			<Button
@@ -49,30 +76,7 @@ export function ProjectLinksModal({
 						Links do projeto {name}
 					</h3>
 
-					{links.map(({ link, name }) => (
-						<div key={name} className='flex flex-col gap-1'>
-							<span className='text-base font-bold capitalize'>{name}</span>
-
-							<div className='flex gap-4 w-full'>
-								<div className='relative w-full flex items-center gap-1 border border-zinc-700 rounded-lg py-2 px-4'>
-									<p className='text-base text-zinc-700 font-bold truncate absolute w-5/6'>
-										{link}
-									</p>
-
-									<CopyButton link={link} />
-								</div>
-
-								<BaseLink size='fit' href={link}>
-									<Button
-										types='icon'
-										aria-label='access-page'
-										className='bg-blue-600 text-zinc-100 hover:text-zinc-100 hover:bg-blue-500'>
-										<ExternalLink />
-									</Button>
-								</BaseLink>
-							</div>
-						</div>
-					))}
+					{links.map(renderLinksUI)}
 				</div>
 			</Modal>
 		</div>

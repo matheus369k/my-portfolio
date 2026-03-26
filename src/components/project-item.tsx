@@ -1,10 +1,11 @@
 import { Title } from '@/components/ui/title';
-import { BaseLink } from './ui/base-link';
 import type { ProjectType } from '@/@types';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
 import { ul as MotionList } from 'motion/react-client';
 import { ProjectLinksModal } from './project-links-modal';
+import { ProjectViews } from './project-views';
+import { Button } from './ui/button';
+import { BaseLink } from './ui/base-link';
 
 interface ProjectItemProps {
 	project: ProjectType;
@@ -64,6 +65,8 @@ export function ProjectItem({ project }: ProjectItemProps) {
 						fetchPriority='high'
 						alt={project.description}
 					/>
+
+					<ProjectViews accessTotal={project.access_total} />
 				</div>
 			</div>
 		</MotionList>
