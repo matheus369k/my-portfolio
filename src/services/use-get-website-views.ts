@@ -10,7 +10,7 @@ export type WebsiteViewsResponse = {
   createAt: string
 }
 
-const refreshInFiveMinutes = 1000 * 60 * 5
+const refreshInFiveMinutes = 1000 * 60 * 60
 export const queryKeyOfViewsProjects = ['views-website']
 export function useGetWebsiteViews() {
   return useQuery({
