@@ -7,7 +7,7 @@ import CountUp from 'react-countup';
 
 export function ViewsOfWebsite() {
 	const { data } = useGetWebsiteViews();
-	const websiteViews = data?.views || 0;
+	const websiteViews = data?.accessTotal || 0;
 	const countDuration = websiteViews < 1000 ? 2.5 : 5;
 
 	return (

@@ -5,8 +5,8 @@ import axios from 'axios'
 import dotenv from 'dotenv'
 dotenv.config()
 
-export type WebsiteViewsResponse = {
-  views: number
+type WebsiteViewsResponse = {
+  accessTotal: number
   createAt: string
 }
 
@@ -19,7 +19,7 @@ export function useGetWebsiteViews() {
       const response = await axios.get(
         `${process.env.NEXT_PUBLIC_BACK_END_URL}/website-views`,
       )
-      return response.data[0] as WebsiteViewsResponse
+      return response.data as WebsiteViewsResponse
     },
     refetchInterval: refreshInOneHour,
   })

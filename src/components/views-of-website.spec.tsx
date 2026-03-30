@@ -14,7 +14,10 @@ const wrapper = ({ children }: { children: ReactNode }) => (
 );
 
 describe('ViewsOfWebsite component', () => {
-	const response = { views: 10, createAt: faker.date.anytime().toISOString() };
+	const response = {
+		accessTotal: 10,
+		createAt: faker.date.anytime().toISOString(),
+	};
 	const requestUrl = `${process.env.NEXT_PUBLIC_BACK_END_URL}/website-views`;
 	const MockAxios = new AxiosMockAdapter(axios);
 
@@ -32,7 +35,7 @@ describe('ViewsOfWebsite component', () => {
 				method: /GET/,
 				url: requestUrl,
 			});
-			expect(MockAxios.history[2]).toBeUndefined();
+			expect(MockAxios.history[1]).toBeUndefined();
 		});
 
 		await screen.findByText(/10/, {}, { timeout: 2000 });
