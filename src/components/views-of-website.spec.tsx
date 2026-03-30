@@ -23,63 +23,18 @@ describe('ViewsOfWebsite component', () => {
 		MockAxios.reset();
 	});
 
-	it('update views request when first rendered and get views is accept', async () => {
-		MockAxios.onPatch(requestUrl).reply(201, { status: 'ok' });
-		MockAxios.onPost(requestUrl).reply(201, { status: 'ok' });
+	it('rendered count when finished request ', async () => {
 		MockAxios.onGet(requestUrl).reply(200, [response]);
-		render(<ViewsOfWebsite isNotHomePage />, { wrapper });
+		render(<ViewsOfWebsite />, { wrapper });
 
 		await waitFor(() => {
 			expect(MockAxios.history[0]).toMatchObject({
 				method: /GET/,
 				url: requestUrl,
 			});
-			expect(MockAxios.history[1]).toMatchObject({
-				method: /PATCH/,
-				url: requestUrl,
-			});
-			expect(MockAxios.history[2]).toMatchObject({
-				method: /GET/,
-				url: requestUrl,
-			});
-			expect(MockAxios.history[3]).toBeUndefined();
+			expect(MockAxios.history[2]).toBeUndefined();
 		});
-	});
 
-	it('create views when is first rendered and get views is rejected ', async () => {
-		MockAxios.onPatch(requestUrl).reply(201, { status: 'ok' });
-		MockAxios.onPost(requestUrl).reply(201, { status: 'ok' });
-		MockAxios.onGet(requestUrl).replyOnce(401);
-		MockAxios.onGet(requestUrl).reply(200, [response]);
-		render(<ViewsOfWebsite isNotHomePage />, { wrapper });
-
-		await waitFor(() => {
-			expect(MockAxios.history[0]).toMatchObject({
-				method: /GET/,
-				url: requestUrl,
-			});
-
-			expect(MockAxios.history[1]).toMatchObject({
-				method: /POST/,
-				url: requestUrl,
-			});
-
-			expect(MockAxios.history[2]).toMatchObject({
-				method: /GET/,
-				url: requestUrl,
-			});
-
-			expect(MockAxios.history[3]).toMatchObject({
-				method: /PATCH/,
-				url: requestUrl,
-			});
-
-			expect(MockAxios.history[4]).toMatchObject({
-				method: /GET/,
-				url: requestUrl,
-			});
-
-			expect(MockAxios.history[5]).toBeUndefined();
-		});
+		await screen.findByText(/10/, {}, { timeout: 2000 });
 	});
 });

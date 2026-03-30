@@ -4,10 +4,12 @@ import { faker } from '@faker-js/faker/locale/pt_BR'
 import { renderHook } from '@testing-library/react'
 import { fetchAPI } from '@/lib/axios'
 
-describe('getProjects()', () => {
+describe('getProjects request', () => {
   const fetchApi = new axiosMockAdapter(fetchAPI)
+  const requestUrl = '/projects?type=all'
   const fakerDatas = Array.from({ length: 4 }).map(() => {
     return {
+      access_total: faker.number.int(),
       _id: faker.database.mongodbObjectId(),
       name: faker.company.name(),
       slug: faker.company.name().replace(' ', '-').toLocaleLowerCase(),
@@ -23,17 +25,17 @@ describe('getProjects()', () => {
     }
   })
 
-  it('should return projects', async () => {
-    fetchApi.onGet('/projects').replyOnce(200, { projects: fakerDatas })
+  it('returned projects data', async () => {
+    fetchApi.onGet(requestUrl).replyOnce(200, { projects: fakerDatas })
     const { result } = renderHook(getProjects)
     const { projects } = await result.current
 
     expect(projects).toMatchObject(fakerDatas)
   })
 
-  it('should call fetchAPI and return undefine', async () => {
+  it('call fetchAPI and return array empty', async () => {
     const MockConsole = jest.spyOn(console, 'log')
-    fetchApi.onGet('/projects').replyOnce(200, undefined)
+    fetchApi.onGet(requestUrl).replyOnce(200, undefined)
     const { result } = renderHook(getProjects)
     const { projects } = await result.current
 

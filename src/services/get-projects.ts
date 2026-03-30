@@ -3,9 +3,12 @@
 import type { Projects } from '@/@types'
 import { fetchAPI } from '@/lib/axios'
 
-export async function getProjects() {
+export async function getProjects(type: 'all' | 'full-stack' | 'landing-page') {
   try {
-    const response = await fetchAPI.get('/projects')
+    const isValideType = /\b(all|full-stack|landing-page)\b/i.test(type)
+    const projectType = isValideType ? type : 'all'
+
+    const response = await fetchAPI.get(`/projects?type=${projectType}`)
     const data: Projects = await response.data
 
     if (!data) {

@@ -3,10 +3,15 @@ import { Suspense } from 'react';
 import { div as MotionDiv } from 'motion/react-client';
 import { getProjects } from '@/services/get-projects';
 
+type ProjectsPageProps = {
+	params: { type: 'all' | 'full-stack' | 'landing-page' };
+	searchParams: object;
+};
+
 export const revalidate = 1000 * 60 * 60;
 
-export default async function ProjectsPage() {
-	const { projects } = await getProjects();
+export default async function ProjectsPage({ params }: ProjectsPageProps) {
+	const { projects } = await getProjects(params.type);
 
 	return (
 		<MotionDiv

@@ -6,19 +6,22 @@ import { ViewsOfWebsite } from './views-of-website';
 import { usePathname } from 'next/navigation';
 import { BurgerMenu } from './burger-menu';
 import { useLayoutEffect, useState } from 'react';
-import { ul as MotionUl } from 'motion/react-client';
+import { ul as MotionUl, header as MotionHeader } from 'motion/react-client';
+import { SelectTypeProjects } from './select-project-type';
 
 const navbarFieldsData = [
 	{ name: 'apresentação', path: '/', borderBottom: true },
 	{ name: 'aprendizado', path: '/learn', borderBottom: true },
-	{ name: 'projetos', path: '/projects', borderBottom: true },
+	{ name: 'projetos', path: '/projects/all', borderBottom: true },
 	{ name: 'fale comigo', path: '/talk-me', borderBottom: true },
 	{ name: 'sobre mim', path: '/about-me', borderBottom: false },
 ];
 
 export function Header() {
-	const isNotHomePage = usePathname() !== '/';
+	const pathname = usePathname();
 	const [isDesktopMode, setIsDesktopMode] = useState(false);
+	const isProjectPage = pathname.includes('/projects');
+	const isHomePage = pathname === '/';
 
 	useLayoutEffect(() => {
 		handleDetectedScreenMode();
@@ -59,18 +62,21 @@ export function Header() {
 	}
 
 	return (
-		<header
-			data-is-not-home-page={isNotHomePage}
-			className='relative flex justify-between items-center px-4 border-b border-zinc-700 h-min bg-zinc-900 md:px-8 data-[is-not-home-page=false]:mb-6'>
-			<ViewsOfWebsite isNotHomePage={isNotHomePage} />
-
+		<MotionHeader
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			data-is-home-or-projects-page={isHomePage || isProjectPage}
+			className='relative flex justify-between items-center px-4 border-b border-zinc-700 h-min bg-zinc-900 md:px-8 data-[is-not-home-or-projects-page=true]:mb-6'>
 			<Link
 				href='/'
 				className='font-bold text-blue-600 text-3xl uppercase py-4'>
 				{'<'}M.G {'/>'}
 			</Link>
 
+			{isHomePage && <ViewsOfWebsite />}
+			{isProjectPage && <SelectTypeProjects />}
+
 			{renderNavBarUI()}
-		</header>
+		</MotionHeader>
 	);
 }

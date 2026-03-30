@@ -10,7 +10,7 @@ export type WebsiteViewsResponse = {
   createAt: string
 }
 
-const refreshInFiveMinutes = 1000 * 60 * 60
+const refreshInOneHour = 1000 * 60 * 60
 export const queryKeyOfViewsProjects = ['views-website']
 export function useGetWebsiteViews() {
   return useQuery({
@@ -21,6 +21,6 @@ export function useGetWebsiteViews() {
       )
       return response.data[0] as WebsiteViewsResponse
     },
-    refetchInterval: refreshInFiveMinutes,
+    refetchInterval: refreshInOneHour,
   })
 }

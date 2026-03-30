@@ -15,7 +15,10 @@ export function NavbarRow({
 	href,
 	...props
 }: NavbarRowProps) {
-	const selected = usePathname() === href;
+	const pathname = usePathname();
+	const selected = href.includes('/projects')
+		? pathname.includes(href.split('/')[1])
+		: pathname === href;
 
 	if (isBurgerMenu) {
 		return (
