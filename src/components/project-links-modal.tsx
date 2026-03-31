@@ -24,7 +24,7 @@ export function ProjectLinksModal({
 	function renderLinksUI(props: { name: string; link: string }) {
 		return (
 			<div key={props.name} className='flex flex-col gap-1'>
-				<span className='text-base font-bold capitalize'>{name}</span>
+				<span className='text-base font-bold capitalize'>{props.name}</span>
 
 				<div className='flex gap-4 w-full'>
 					<div className='relative w-full flex items-center gap-1 border border-zinc-700 rounded-lg py-2 px-4'>
