@@ -37,7 +37,7 @@ describe('Header component', () => {
 	});
 
 	it('render navbar normal when width is largest than 768px', () => {
-		MockAxios.onGet(requestUrl).reply(200, [response]);
+		MockAxios.onGet(requestUrl).reply(200, response);
 		global.window.innerWidth = 769;
 		render(<Header />, { wrapper });
 
@@ -46,7 +46,7 @@ describe('Header component', () => {
 	});
 
 	it('render navbar burger when width is less than 768px', () => {
-		MockAxios.onGet(requestUrl).reply(200, [response]);
+		MockAxios.onGet(requestUrl).reply(200, response);
 		render(<Header />, { wrapper });
 
 		expect(screen.queryByLabelText(/desktop-navbar-menu/i)).toBeNull();
@@ -54,7 +54,7 @@ describe('Header component', () => {
 	});
 
 	it('open and close burger menu when clicked in toggle menu', async () => {
-		MockAxios.onGet(requestUrl).reply(200, [response]);
+		MockAxios.onGet(requestUrl).reply(200, response);
 		MockUserPathnameValue.mockReturnValue('/');
 		render(<Header />, { wrapper });
 
@@ -69,7 +69,7 @@ describe('Header component', () => {
 	});
 
 	it('showing website views layout when is home page', async () => {
-		MockAxios.onGet(requestUrl).reply(200, [response]);
+		MockAxios.onGet(requestUrl).reply(200, response);
 		render(<Header />, { wrapper });
 
 		await screen.findByText(/10/, {}, { timeout: 2000 });
@@ -89,14 +89,14 @@ describe('Header component', () => {
 
 	it('showing selected project layout when is project page', () => {
 		MockUserPathnameValue.mockReturnValue('/projects/all');
-		MockAxios.onGet(requestUrl).reply(200, [response]);
+		MockAxios.onGet(requestUrl).reply(200, response);
 		render(<Header />, { wrapper });
 
 		screen.getByText(/Todos/i);
 	});
 
 	it("hidden selected project layout when isn't project page", () => {
-		MockAxios.onGet(requestUrl).reply(200, [response]);
+		MockAxios.onGet(requestUrl).reply(200, response);
 		MockUserPathnameValue.mockReturnValue('/');
 		render(<Header />, { wrapper });
 
@@ -105,7 +105,7 @@ describe('Header component', () => {
 
 	it('open dropdown selected projects type when clicked in hir', async () => {
 		MockUserPathnameValue.mockReturnValue('/projects/all');
-		MockAxios.onGet(requestUrl).reply(200, [response]);
+		MockAxios.onGet(requestUrl).reply(200, response);
 		render(<Header />, { wrapper });
 
 		await waitFor(

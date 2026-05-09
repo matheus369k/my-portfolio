@@ -8,6 +8,7 @@ jest.mock('@/lib/env.ts', () => ({
     NEXT_PUBLIC_GITHUB_LINK: 'https://github.com/username',
     NEXT_PUBLIC_LINKEDIN_LINK: 'https://www.linkedin.com/in/username-id',
     NEXT_PUBLIC_MAIL_LINK: 'https://gmailto:useremail@gmail.com',
+    NEXT_PUBLIC_GA_ID: "G-XXXXXXX"
   },
 }))
 

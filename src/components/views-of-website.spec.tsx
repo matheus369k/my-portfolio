@@ -27,7 +27,7 @@ describe('ViewsOfWebsite component', () => {
 	});
 
 	it('rendered count when finished request ', async () => {
-		MockAxios.onGet(requestUrl).reply(200, [response]);
+		MockAxios.onGet(requestUrl).reply(200, response);
 		render(<ViewsOfWebsite />, { wrapper });
 
 		await waitFor(() => {

@@ -20,7 +20,7 @@ describe('useGetWebsiteViews request', () => {
 	};
 
 	it('request returned data corrected formatter', async () => {
-		MockAxios.onGet(requestUrl).reply(200, [response]);
+		MockAxios.onGet(requestUrl).reply(200, response);
 		const { result } = renderHook(useGetWebsiteViews, { wrapper });
 
 		await waitFor(() => {
