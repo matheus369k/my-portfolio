@@ -10,7 +10,7 @@ export const schemaEnv = z.object({
 
   NEXT_PUBLIC_BACK_END_URL: z.string().url(),
 
-  NEXT_PUBLIC_GA_ID: z.string(),
+  NEXT_PUBLIC_GA_ID: z.string().optional(),
 })
 
 export const env = schemaEnv.parse(process.env)
