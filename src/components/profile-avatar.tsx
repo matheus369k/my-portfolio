@@ -30,6 +30,8 @@ export function ProfileAvatar() {
 					<Image
 						width={300}
 						height={300}
+						fetchPriority='high'
+						loading='lazy'
 						className='size-[220px] lg:size-[300px]'
 						src='./avatar.svg'
 						alt=''
