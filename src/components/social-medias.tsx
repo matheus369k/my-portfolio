@@ -11,19 +11,19 @@ export function SocialMedias() {
 			</BaseLink>
 
 			<BaseLink href={env.NEXT_PUBLIC_LINKEDIN_LINK}>
-				<Button types='icon'>
+				<Button aria-label='LinkedIn' types='icon'>
 					<Linkedin className='size-6 text-blue-600' />
 				</Button>
 			</BaseLink>
 
 			<BaseLink href={env.NEXT_PUBLIC_GITHUB_LINK}>
-				<Button types='icon'>
+				<Button aria-label='Github' types='icon'>
 					<Github className='size-6 text-blue-600' />
 				</Button>
 			</BaseLink>
 
 			<BaseLink href={env.NEXT_PUBLIC_MAIL_LINK}>
-				<Button types='icon'>
+				<Button aria-label='E-Mail' types='icon'>
 					<Mail className='size-6 text-blue-600' />
 				</Button>
 			</BaseLink>
