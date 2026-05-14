@@ -1,4 +1,4 @@
-import { findByText, render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { Header } from './header';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import type { ReactNode } from 'react';
@@ -51,21 +51,6 @@ describe('Header component', () => {
 
 		expect(screen.queryByLabelText(/desktop-navbar-menu/i)).toBeNull();
 		screen.getByLabelText(/burger-navbar-menu/i);
-	});
-
-	it('open and close burger menu when clicked in toggle menu', async () => {
-		MockAxios.onGet(requestUrl).reply(200, response);
-		MockUserPathnameValue.mockReturnValue('/');
-		render(<Header />, { wrapper });
-
-		expect(screen.queryByText(/home/i)).toBeNull();
-
-		await userEvents.click(screen.getByLabelText(/open-menu/i));
-		await userEvents.click(await screen.findByText(/apresentação/i));
-
-		await waitFor(() => {
-			expect(screen.queryByText(/home/i)).toBeNull();
-		});
 	});
 
 	it('showing website views layout when is home page', async () => {

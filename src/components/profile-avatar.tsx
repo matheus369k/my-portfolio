@@ -1,11 +1,10 @@
 import Image from 'next/image';
 import { AvatarBorder } from './ui/avatar-border';
+import { Suspense } from 'react';
 
 export function ProfileAvatar() {
 	return (
-		<div
-			data-testid='ProfileAvatar'
-			className='flex-1 overflow-hidden row-start-1 lg:col-start-2'>
+		<div className='flex-1 overflow-hidden row-start-1 lg:col-start-2'>
 			<div className='relative size-[354px] lg:size-[454px] mx-auto flex justify-center items-center rounded-full'>
 				<AvatarBorder
 					className='size-full'
@@ -27,15 +26,17 @@ export function ProfileAvatar() {
 				/>
 
 				<div className='bg-gradient-to-t from-zinc-700/20 to-zinc-900/20 rounded-full flex justify-center items-center size-[300px] lg:size-[400px]'>
-					<Image
-						width={300}
-						height={300}
-						fetchPriority='high'
-						loading='lazy'
-						className='size-[220px] lg:size-[300px]'
-						src='./avatar.svg'
-						alt=''
-					/>
+					<Suspense fallback={<div className='size-[220px] lg:size-[300px]' />}>
+						<Image
+							width={300}
+							height={300}
+							fetchPriority='high'
+							loading='lazy'
+							className='size-[220px] lg:size-[300px]'
+							src='/avatar.png'
+							alt=''
+						/>
+					</Suspense>
 				</div>
 			</div>
 		</div>
