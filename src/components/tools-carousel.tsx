@@ -24,15 +24,16 @@ export function ToolsCarousel({
 	return (
 		<div
 			{...props}
+			style={{ width: 'calc(100dvw * 2)' }}
 			className={twMerge(
-				'w-screen flex justify-between items-center',
+				'min-w-max flex gap-4 justify-between items-center',
 				className,
 			)}>
-			{toolsWithoutCategory.map((tool) => {
+			{[...toolsWithoutCategory, ...toolsWithoutCategory].map((tool) => {
 				return (
 					<Image
 						key={tool._id}
-						className='tracking-normal'
+						className='tracking-normal h-6'
 						src={tool.svg_url}
 						title={tool.name}
 						height={30}
