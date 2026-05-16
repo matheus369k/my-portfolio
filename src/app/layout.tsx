@@ -59,16 +59,16 @@ export default async function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<RootContainer>
-			<html lang='pt-BR'>
-				<body
-					id='__next'
-					className={`${TomorrowFont.className}
+		<html lang='pt-BR'>
+			<body
+				id='__next'
+				className={`${TomorrowFont.className}
 				bg-zinc-900 text-zinc-100 antialiased min-h-dvh grid grid-cols-1 grid-rows-[min-content_1fr_min-content] place-content-start overflow-x-hidden scroll-smooth`}>
+				<RootContainer>
 					<Header />
 
 					<main className='max-w-7xl w-full mx-auto py-6 px-2 overflow-x-hidden md:px-8 z-10'>
-						<Suspense>{children}</Suspense>
+						{children}
 					</main>
 
 					<Footer />
@@ -80,8 +80,8 @@ export default async function RootLayout({
 							<GoogleAnalytics gaId={env.NEXT_PUBLIC_GA_ID} />
 						)}
 					</Suspense>
-				</body>
-			</html>
-		</RootContainer>
+				</RootContainer>
+			</body>
+		</html>
 	);
 }
