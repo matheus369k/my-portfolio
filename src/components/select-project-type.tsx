@@ -47,20 +47,20 @@ export function SelectTypeProjects() {
 
 	return (
 		<Box
-			className='flex items-center font-bold absolute bottom-[1px] z-50 left-1/2 -translate-x-1/2 translate-y-full border-zinc-700 border rounded-md border-t-zinc-900 rounded-t-none bg-zinc-900 overflow-hidden'
+			className='flex items-center font-bold absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full border-zinc-700 border rounded-md border-t-zinc-900 rounded-t-none overflow-hidden bg-zinc-900 z-50'
 			sx={{ width: 208 }}>
 			<FormControl
 				variant='standard'
 				fullWidth
-				className='bg-zinc-900 border-none hover:border-none hover:before:border-none'>
+				className='bg-zinc-900 z-50 border-none hover:border-none hover:before:border-none'>
 				<Select
 					fullWidth
 					classes={{
-						root: 'bg-zinc-900 font-bold',
+						root: 'z-50 font-bold',
 						icon: 'text-blue-500 mr-4',
 						select: 'w-52 pl-4 py-2 text-blue-500',
 					}}
-					className='bg-zinc-900 border-none focus:border-none after:hidden before:hidden'
+					className=' border-none focus:border-none after:hidden before:hidden'
 					labelId='demo-simple-select-label'
 					id='demo-simple-select'
 					MenuProps={{
