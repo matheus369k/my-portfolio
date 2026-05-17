@@ -1,11 +1,11 @@
 import { Title } from '@/components/ui/title';
 import type { ProjectType } from '@/@types';
 import Image from 'next/image';
-import { ul as MotionList } from 'motion/react-client';
 import { ProjectLinksModal } from './project-links-modal';
 import { ProjectViews } from './project-views';
 import { Button } from './ui/button';
 import { BaseLink } from './ui/base-link';
+import * as Motion from 'motion/react-client';
 
 interface ProjectItemProps {
 	project: ProjectType;
@@ -13,9 +13,7 @@ interface ProjectItemProps {
 
 export function ProjectItem({ project }: ProjectItemProps) {
 	return (
-		<MotionList
-			initial={{ opacity: 0 }}
-			whileInView={{ opacity: 1 }}
+		<div
 			data-slug={project.slug}
 			className='cursor-default flex flex-col justify-between gap-y-6 border-b border-zinc-700 py-12 first-of-type:pt-8 last-of-type:border-none md:gap-y-12'>
 			<div className='col-span-full flex flex-col gap-6 items-center justify-between sm:flex-row'>
@@ -62,13 +60,12 @@ export function ProjectItem({ project }: ProjectItemProps) {
 						src={project.image_url}
 						className='rounded-lg border border-zinc-700/20 transition-opacity object-cover h-full w-full'
 						loading='lazy'
-						fetchPriority='high'
 						alt={project.description}
 					/>
 
 					<ProjectViews accessTotal={project.access_total} />
 				</div>
 			</div>
-		</MotionList>
+		</div>
 	);
 }
