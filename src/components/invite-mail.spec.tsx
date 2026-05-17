@@ -4,7 +4,7 @@ import axiosMockAdapter from 'axios-mock-adapter';
 import { fetchAPI } from '@/lib/axios';
 import userEvent from '@testing-library/user-event';
 
-describe('<InviteMail />', () => {
+describe('InviteMail Component', () => {
 	const fetchApi = new axiosMockAdapter(fetchAPI, { delayResponse: 1000 });
 	const user = userEvent.setup();
 

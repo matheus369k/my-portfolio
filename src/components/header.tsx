@@ -15,7 +15,7 @@ export function Header() {
 	return (
 		<header
 			data-is-home-or-projects-page={isHomePage || isProjectPage}
-			className='bg-zinc-900 z-50 relative flex justify-between items-center px-4 border-b border-zinc-700 h-min md:px-8 data-[is-not-home-or-projects-page=true]:mb-6'>
+			className='bg-zinc-900 z-20 relative flex justify-between items-center px-4 border-b border-zinc-700 h-min md:px-8 data-[is-not-home-or-projects-page=true]:mb-6'>
 			<Link
 				href='/'
 				className='font-bold text-blue-600 text-3xl uppercase py-4'>

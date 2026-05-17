@@ -6,7 +6,6 @@ import { Label } from './ui/label';
 import { FormProvider, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { type FormData, FormSchema } from '@/@types';
-import { AlertMessage } from './alert-message';
 import { useInviteMail } from '@/hooks/use-invite-mail';
 
 export function TalkMeForm() {
@@ -84,8 +83,6 @@ export function TalkMeForm() {
 					{isSubmitting ? 'Enviando...' : 'Enviar'}
 				</button>
 			</form>
-
-			<AlertMessage />
 		</FormProvider>
 	);
 }

@@ -4,7 +4,7 @@ import { tsParticles } from '@tsparticles/engine';
 import { loadLinksPreset } from '@tsparticles/preset-links';
 import { useEffect } from 'react';
 
-export function ParticlesCanvas() {
+export default function ParticlesCanvas() {
 	useEffect(() => {
 		const initParticles = async () => {
 			await loadLinksPreset(tsParticles);

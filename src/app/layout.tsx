@@ -2,8 +2,6 @@ import { Tomorrow } from 'next/font/google';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import type { Metadata } from 'next';
-import { lazy, Suspense } from 'react';
-import { ParticlesCanvas } from '@/components/ui/particles';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { RootContainer } from '@/layout/root';
 import '@/styles/globals.css';
@@ -73,13 +71,9 @@ export default async function RootLayout({
 
 					<Footer />
 
-					<Suspense>
-						<ParticlesCanvas />
-
-						{env.NEXT_PUBLIC_GA_ID && (
-							<GoogleAnalytics gaId={env.NEXT_PUBLIC_GA_ID} />
-						)}
-					</Suspense>
+					{env.NEXT_PUBLIC_GA_ID && (
+						<GoogleAnalytics gaId={env.NEXT_PUBLIC_GA_ID} />
+					)}
 				</RootContainer>
 			</body>
 		</html>

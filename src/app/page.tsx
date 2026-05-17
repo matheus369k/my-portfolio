@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { AutoWriteJob } from '@/components/auto-write-job';
+import { AutoWriteJob } from '@/components/ui/auto-write-job';
 import { SocialMedias } from '@/components/social-medias';
 import { ProfileAvatar } from '@/components/profile-avatar';
 import { div as MotionDiv } from 'motion/react-client';
