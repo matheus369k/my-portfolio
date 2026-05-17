@@ -4,7 +4,6 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import Fade from '@mui/material/Fade';
-import { i as MotionI } from 'motion/react-client';
 import { AlignJustify, X } from 'lucide-react';
 import { NavbarRow } from './ui/navbar-row';
 
@@ -31,21 +30,23 @@ export function BurgerMenu({ navbarFields }: BurgerMenuProps) {
 	function renderMenuIconUI() {
 		if (open) {
 			return (
-				<MotionI initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+				<i>
 					<X className='size-10 text-blue-600' />
-				</MotionI>
+				</i>
 			);
 		}
 
 		return (
-			<MotionI initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+			<i>
 				<AlignJustify className='size-10 text-blue-600' />
-			</MotionI>
+			</i>
 		);
 	}
 
 	return (
-		<div aria-label='burger-navbar-menu' className='flex flex-col z-10'>
+		<div
+			aria-label='burger-navbar-menu'
+			className='flex flex-col z-10 md:hidden'>
 			<Button
 				id='fade-button'
 				aria-label={open ? 'close-menu' : 'open-menu'}

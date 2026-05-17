@@ -33,24 +33,6 @@ describe('Header component', () => {
 	afterEach(() => {
 		queryClient.clear();
 		MockAxios.reset();
-		global.window.innerWidth = 767;
-	});
-
-	it('render navbar normal when width is largest than 768px', () => {
-		MockAxios.onGet(requestUrl).reply(200, response);
-		global.window.innerWidth = 769;
-		render(<Header />, { wrapper });
-
-		expect(screen.queryByLabelText(/burger-navbar-menu/i)).toBeNull();
-		screen.getByLabelText(/desktop-navbar-menu/i);
-	});
-
-	it('render navbar burger when width is less than 768px', () => {
-		MockAxios.onGet(requestUrl).reply(200, response);
-		render(<Header />, { wrapper });
-
-		expect(screen.queryByLabelText(/desktop-navbar-menu/i)).toBeNull();
-		screen.getByLabelText(/burger-navbar-menu/i);
 	});
 
 	it('showing website views layout when is home page', async () => {

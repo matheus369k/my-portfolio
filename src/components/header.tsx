@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { ViewsOfWebsite } from './views-of-website';
 import { usePathname } from 'next/navigation';
 import { Suspense } from 'react';
-import { header as MotionHeader } from 'motion/react-client';
 import { SelectTypeProjects } from './select-project-type';
 import { Menu } from './menu';
 
@@ -14,9 +13,7 @@ export function Header() {
 	const isHomePage = pathname === '/';
 
 	return (
-		<MotionHeader
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
+		<header
 			data-is-home-or-projects-page={isHomePage || isProjectPage}
 			className='bg-zinc-900 z-50 relative flex justify-between items-center px-4 border-b border-zinc-700 h-min md:px-8 data-[is-not-home-or-projects-page=true]:mb-6'>
 			<Link
@@ -25,20 +22,12 @@ export function Header() {
 				{'<'}M.G {'/>'}
 			</Link>
 
-			{isHomePage && (
-				<Suspense>
-					<ViewsOfWebsite />
-				</Suspense>
-			)}
-			{isProjectPage && (
-				<Suspense>
-					<SelectTypeProjects />
-				</Suspense>
-			)}
+			{isHomePage && <ViewsOfWebsite />}
+			{isProjectPage && <SelectTypeProjects />}
 
 			<Suspense>
 				<Menu />
 			</Suspense>
-		</MotionHeader>
+		</header>
 	);
 }

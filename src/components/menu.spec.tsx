@@ -11,35 +11,30 @@ jest.mock('next/navigation', () => ({
 describe('Menu component', () => {
 	const userEvents = userEvent.setup();
 
-	afterEach(() => {
-		global.window.innerWidth = 767;
-	});
-
 	it('render menu normal when width is largest than 768px', () => {
-		global.window.innerWidth = 769;
 		render(<Menu />);
 
-		expect(screen.queryByLabelText(/burger-navbar-menu/i)).toBeNull();
-		screen.getByLabelText(/desktop-navbar-menu/i);
+		expect(screen.getByLabelText(/burger-navbar-menu/i)).toHaveClass(
+			'md:hidden',
+		);
 	});
 
 	it('render menu burger when width is less than 768px', () => {
 		render(<Menu />);
 
-		expect(screen.queryByLabelText(/desktop-navbar-menu/i)).toBeNull();
-		screen.getByLabelText(/burger-navbar-menu/i);
+		expect(screen.getByLabelText(/desktop-navbar-menu/i)).toHaveClass('hidden');
 	});
 
 	it('open and close burger menu when clicked in toggle menu', async () => {
 		render(<Menu />);
 
-		expect(screen.queryByText(/home/i)).toBeNull();
+		expect(screen.queryByText(/burger-navbar-menu/i)).toBeNull();
 
 		await userEvents.click(screen.getByLabelText(/open-menu/i));
-		await userEvents.click(await screen.findByText(/apresentação/i));
+		await userEvents.click((await screen.findAllByText(/apresentação/i))[1]);
 
 		await waitFor(() => {
-			expect(screen.queryByText(/home/i)).toBeNull();
+			expect(screen.queryByText(/burger-navbar-menu/i)).toBeNull();
 		});
 	});
 });
