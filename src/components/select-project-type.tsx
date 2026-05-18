@@ -33,10 +33,10 @@ export function SelectTypeProjects() {
 				key={type}
 				divider={hasDivision}
 				classes={{
-					divider: 'border border-zinc-700 focus:border-b-zinc-700',
-					root: 'font-bold h-12 p-0 hover:bg-zinc-900 outline-none focus:outline-none',
+					divider: 'border-b border-b-zinc-700 focus:border-b-zinc-700',
+					root: 'font-bold h-12 p-0 focus:text-zinc-100 hover:bg-zinc-900 outline-none focus:outline-none',
 					selected:
-						'bg-zinc-900 focus:bg-zinc-900 hover:bg-zinc-900 text-zinc-100 outline-none focus:outline-none',
+						'bg-zinc-900 focus:bg-zinc-900 hover:bg-zinc-700 text-zinc-100 outline-none focus:outline-none',
 				}}
 				style={{ backgroundColor: '#18181b' }}
 				value={type}>
@@ -56,16 +56,16 @@ export function SelectTypeProjects() {
 				<Select
 					fullWidth
 					classes={{
-						root: 'z-50 font-bold',
+						root: 'z-50 font-bold border-none',
 						icon: 'text-blue-500 mr-4',
 						select: 'w-52 pl-4 py-2 text-blue-500',
 					}}
-					className=' border-none focus:border-none after:hidden before:hidden'
+					className='border-none focus:border-none after:hidden before:hidden'
 					labelId='demo-simple-select-label'
 					id='demo-simple-select'
 					MenuProps={{
 						classes: {
-							list: 'bg-zinc-900 text-zinc-400 font-bold focus:border-zinc-700 px-4 py-0 ',
+							list: 'bg-zinc-900 text-zinc-400 font-bold focus:border-none px-4 py-0 ',
 							paper: 'mt-5 bg-zinc-900 outline-none focus:outline-none',
 						},
 					}}

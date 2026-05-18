@@ -22,15 +22,16 @@ export function NavbarRow({
 
 	if (isBurgerMenu) {
 		return (
-			<Link style={{ all: 'unset' }} href={href}>
+			<Link autoFocus={selected} style={{ all: 'unset' }} href={href}>
 				<MenuItem
 					{...props}
 					selected={selected}
 					divider={hasBorderBottom}
+					autoFocus={selected}
 					classes={{
 						selected: 'text-zinc-50 bg-zinc-900 focus:border-zinc-700',
-						root: 'bg-zinc-900 px-0 font-semibold capitalize tracking-wide py-3 text-zinc-400 focus:outline-none',
-						divider: 'border border-zinc-700 focus:border-zinc-700',
+						root: 'bg-zinc-900 px-0 focus:text-zinc-100 font-semibold capitalize tracking-wide py-3 text-zinc-400 focus:outline-none',
+						divider: 'border-b border-b-zinc-700 focus:border-b-zinc-700',
 					}}
 					style={{ backgroundColor: '#18181b' }}
 				/>
