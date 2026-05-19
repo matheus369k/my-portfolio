@@ -21,6 +21,24 @@ export function ToolsCarousel({
 		...tools.back_end,
 		...tools.another,
 	];
+
+	function RenderToolImageUI({ step }: { step: number }) {
+		return toolsWithoutCategory.map((tool) => {
+			return (
+				<Image
+					height={24}
+					width={24}
+					title={tool.name}
+					src={tool.svg_url}
+					key={`${tool._id}-step=${step}`}
+					className='tracking-normal h-6 w-auto'
+					alt={`${tool.name}: svg from developer tools`}
+					fetchPriority='low'
+				/>
+			);
+		});
+	}
+
 	return (
 		<div
 			{...props}
@@ -29,19 +47,8 @@ export function ToolsCarousel({
 				'min-w-max flex gap-4 justify-between items-center',
 				className,
 			)}>
-			{[...toolsWithoutCategory, ...toolsWithoutCategory].map((tool) => {
-				return (
-					<Image
-						key={tool._id}
-						className='tracking-normal h-6'
-						src={tool.svg_url}
-						title={tool.name}
-						height={30}
-						width={30}
-						alt={`${tool.name}: svg from developer tools`}
-					/>
-				);
-			})}
+			{RenderToolImageUI({ step: 1 })}
+			{RenderToolImageUI({ step: 2 })}
 		</div>
 	);
 }
