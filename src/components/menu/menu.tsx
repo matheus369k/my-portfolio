@@ -1,6 +1,6 @@
 'use client';
 
-import { NavbarRow } from './ui/navbar-row';
+import { NavbarRow } from '../ui/navbar-row';
 import { BurgerMenu } from './burger-menu';
 
 const navbarFieldsData = [
@@ -14,7 +14,7 @@ const navbarFieldsData = [
 export function Menu() {
 	return (
 		<>
-			<ul
+			<div
 				aria-label='desktop-navbar-menu'
 				className='md:flex items-center gap-6 hidden'>
 				{navbarFieldsData.map(({ name, borderBottom, path }) => (
@@ -22,7 +22,7 @@ export function Menu() {
 						{name}
 					</NavbarRow>
 				))}
-			</ul>
+			</div>
 
 			<BurgerMenu navbarFields={navbarFieldsData} />
 		</>

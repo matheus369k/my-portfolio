@@ -1,8 +1,6 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { BurgerMenu } from './burger-menu';
 import userEvent from '@testing-library/user-event';
-import React, { act } from 'react';
-import {} from '@mui/material';
 
 describe('BurgerMenu component', () => {
 	const userEvents = userEvent.setup();

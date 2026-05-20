@@ -4,7 +4,7 @@ import { FormatterNumber } from '@/util/formatter-number';
 import { Eye } from 'lucide-react';
 import CountUp from 'react-countup';
 
-export function ProjectViews({ accessTotal }: { accessTotal: number }) {
+export default function ProjectViews({ accessTotal }: { accessTotal: number }) {
 	const countDuration = accessTotal < 1000 ? 2.5 : 5;
 
 	return (

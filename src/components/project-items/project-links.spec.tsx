@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import { ProjectLinksModal } from './project-links-modal';
+import { ProjectLinks } from './project-links';
 import { faker } from '@faker-js/faker/locale/pt_BR';
 import userEvent from '@testing-library/user-event';
 
-describe('ProjectLinksModal component', () => {
+describe('ProjectLinks component', () => {
 	const userEvents = userEvent.setup();
 	const props = {
 		links: Array.from({ length: 3 }).map(() => ({
@@ -14,7 +14,7 @@ describe('ProjectLinksModal component', () => {
 	};
 
 	it('open modal when clicked in links toggle', async () => {
-		render(<ProjectLinksModal {...props} />);
+		render(<ProjectLinks {...props} />);
 
 		expect(screen.queryByLabelText(/modal-menu-container/i)).toBeNull();
 
@@ -24,7 +24,7 @@ describe('ProjectLinksModal component', () => {
 	});
 
 	it('close modal when clicked in X inside of modal', async () => {
-		render(<ProjectLinksModal {...props} />);
+		render(<ProjectLinks {...props} />);
 
 		await userEvents.click(screen.getByLabelText(/modal-toggle-button/i));
 
@@ -37,7 +37,7 @@ describe('ProjectLinksModal component', () => {
 
 	it('copy link when clicked in copy button', async () => {
 		const SpyClipBoard = jest.spyOn(navigator.clipboard, 'writeText');
-		render(<ProjectLinksModal {...props} />);
+		render(<ProjectLinks {...props} />);
 
 		await userEvents.click(screen.getByLabelText(/modal-toggle-button/i));
 		await userEvents.click(screen.getAllByLabelText(/copy-button/i)[0]);

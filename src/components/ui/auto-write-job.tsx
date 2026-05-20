@@ -2,7 +2,7 @@
 
 import TypeIt from 'typeit-react';
 
-export function AutoWriteJob() {
+export default function AutoWriteJob() {
 	return (
 		<p className='text-left w-full font-semibold text-xl flex gap-2'>
 			Eu sou um desenvolvedor

@@ -11,18 +11,20 @@ jest.mock('next/navigation', () => ({
 describe('Menu component', () => {
 	const userEvents = userEvent.setup();
 
-	it('render menu normal when width is largest than 768px', () => {
+	it('render menu normal when width is largest than 768px', async () => {
 		render(<Menu />);
 
-		expect(screen.getByLabelText(/burger-navbar-menu/i)).toHaveClass(
+		expect(await screen.findByLabelText(/burger-navbar-menu/i)).toHaveClass(
 			'md:hidden',
 		);
 	});
 
-	it('render menu burger when width is less than 768px', () => {
+	it('render menu burger when width is less than 768px', async () => {
 		render(<Menu />);
 
-		expect(screen.getByLabelText(/desktop-navbar-menu/i)).toHaveClass('hidden');
+		expect(await screen.findByLabelText(/desktop-navbar-menu/i)).toHaveClass(
+			'hidden',
+		);
 	});
 
 	it('open and close burger menu when clicked in toggle menu', async () => {
@@ -30,7 +32,7 @@ describe('Menu component', () => {
 
 		expect(screen.queryByText(/burger-navbar-menu/i)).toBeNull();
 
-		await userEvents.click(screen.getByLabelText(/open-menu/i));
+		await userEvents.click(await screen.findByLabelText(/open-menu/i));
 		await userEvents.click((await screen.findAllByText(/apresentação/i))[1]);
 
 		await waitFor(() => {

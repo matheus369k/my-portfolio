@@ -1,6 +1,6 @@
 import { Title } from '@/components/ui/title';
 
-export function ProjectItemLoading() {
+export function ProjectLoading() {
 	return (
 		<div className='animate-pulse cursor-default flex flex-col justify-between gap-y-6 border-b border-zinc-700 py-12 first-of-type:pt-8 last-of-type:border-none md:gap-y-12 w-full'>
 			<div className='flex flex-col gap-6 items-center justify-between sm:flex-row w-full'>

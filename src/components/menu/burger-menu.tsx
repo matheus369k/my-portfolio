@@ -2,10 +2,8 @@
 
 import * as React from 'react';
 import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import Fade from '@mui/material/Fade';
 import { AlignJustify, X } from 'lucide-react';
-import { NavbarRow } from './ui/navbar-row';
+import dynamic from 'next/dynamic';
 
 type BurgerMenuProps = {
 	navbarFields: {
@@ -15,6 +13,10 @@ type BurgerMenuProps = {
 	}[];
 };
 
+const BurgerMenuModelDynamic = dynamic(() => import('./burger-menu-model'), {
+	ssr: false,
+});
+
 export function BurgerMenu({ navbarFields }: BurgerMenuProps) {
 	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 	const open = Boolean(anchorEl);
@@ -23,9 +25,9 @@ export function BurgerMenu({ navbarFields }: BurgerMenuProps) {
 		setAnchorEl(event.currentTarget);
 	}
 
-	function handleCloseDropdown() {
+	const handleCloseDropdown = React.useCallback(() => {
 		setAnchorEl(null);
-	}
+	}, []);
 
 	function renderMenuIconUI() {
 		if (open) {
@@ -58,35 +60,12 @@ export function BurgerMenu({ navbarFields }: BurgerMenuProps) {
 				{renderMenuIconUI()}
 			</Button>
 
-			<Menu
-				variant='menu'
-				id='fade-menu'
-				slotProps={{
-					list: {
-						'aria-labelledby': 'fade-button',
-					},
-				}}
-				slots={{ transition: Fade }}
+			<BurgerMenuModelDynamic
 				anchorEl={anchorEl}
+				navbarFields={navbarFields}
+				onCloseDropdown={handleCloseDropdown}
 				open={open}
-				data-open={open}
-				onClose={handleCloseDropdown}
-				aria-label='burger-menu-content'
-				classes={{
-					paper: 'bg-transparent z-50',
-					list: 'bg-zinc-900 text-zinc-100 rounded-md px-4',
-				}}>
-				{navbarFields.map(({ borderBottom, name, path }) => (
-					<NavbarRow
-						onClick={handleCloseDropdown}
-						hasBorderBottom={borderBottom}
-						isBurgerMenu
-						href={path}
-						key={path}>
-						{name}
-					</NavbarRow>
-				))}
-			</Menu>
+			/>
 		</div>
 	);
 }

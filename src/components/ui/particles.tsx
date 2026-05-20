@@ -57,5 +57,11 @@ export default function ParticlesCanvas() {
 		initParticles();
 	}, []);
 
-	return <div id='tsparticles' style={{ position: 'fixed' }} />;
+	return (
+		<div
+			className='hidden md:flex'
+			id='tsparticles'
+			style={{ position: 'fixed' }}
+		/>
+	);
 }

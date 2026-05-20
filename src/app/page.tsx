@@ -1,8 +1,13 @@
 import Link from 'next/link';
-import { AutoWriteJob } from '@/components/ui/auto-write-job';
 import { SocialMedias } from '@/components/social-medias';
 import { ProfileAvatar } from '@/components/profile-avatar';
 import { div as MotionDiv } from 'motion/react-client';
+import dynamic from 'next/dynamic';
+
+const AutoWriteJobDynamic = dynamic(
+	() => import('@/components/ui/auto-write-job'),
+	{ ssr: false },
+);
 
 export default function HomePage() {
 	return (
@@ -15,7 +20,7 @@ export default function HomePage() {
 					<h1 className='font-semibold text-4xl'>
 						Olá, me chamo <span className='text-blue-600'>Matheus</span>
 					</h1>
-					<AutoWriteJob />
+					<AutoWriteJobDynamic />
 				</div>
 
 				<p className='max-w-lg'>

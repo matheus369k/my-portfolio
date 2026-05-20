@@ -1,22 +1,26 @@
 import { Title } from '@/components/ui/title';
 import type { ProjectType } from '@/@types';
 import Image from 'next/image';
-import { ProjectLinksModal } from './project-links-modal';
-import { ProjectViews } from './project-views';
-import { Button } from './ui/button';
-import { BaseLink } from './ui/base-link';
-import * as Motion from 'motion/react-client';
+import { Button } from '../ui/button';
+import { BaseLink } from '../ui/base-link';
+import dynamic from 'next/dynamic';
+import { ProjectLinks } from './project-links';
 
 interface ProjectItemProps {
 	project: ProjectType;
+	isFetchPriority?: boolean;
 }
 
-export function ProjectItem({ project }: ProjectItemProps) {
+const ProjectViewsDynamic = dynamic(() => import('./project-views'), {
+	ssr: false,
+});
+
+export function ProjectItem({ project, isFetchPriority }: ProjectItemProps) {
 	return (
 		<div
 			data-slug={project.slug}
 			className='cursor-default flex flex-col justify-between gap-y-6 border-b border-zinc-700 py-12 first-of-type:pt-8 last-of-type:border-none md:gap-y-12'>
-			<div className='flex flex-col gap-6 items-center justify-between sm:flex-row'>
+			<div className='flex flex-col gap-6 items-center justify-between sm:flex-row w-full'>
 				<Title className='relative self-start max-w-full truncate'>
 					{project.name}
 				</Title>
@@ -27,11 +31,11 @@ export function ProjectItem({ project }: ProjectItemProps) {
 						</Button>
 					</BaseLink>
 
-					<ProjectLinksModal name={project.name} links={project.links} />
+					<ProjectLinks name={project.name} links={project.links} />
 				</div>
 			</div>
 
-			<div className='flex flex-col-reverse mx-auto lg:mx-0 xl:mx-auto gap-y-6 xl:flex-row'>
+			<div className='flex flex-col-reverse mx-auto lg:mx-0 xl:mx-auto gap-y-6 xl:flex-row w-full'>
 				<div className='max-w-5xl flex flex-col gap-8 flex-1'>
 					<div className='flex flex-col gap-2'>
 						<h3 className='font-bold text-xl'>Descrição</h3>
@@ -57,13 +61,14 @@ export function ProjectItem({ project }: ProjectItemProps) {
 					<Image
 						width={672}
 						height={350}
-						src={project.image_url}
-						className='rounded-lg border border-zinc-700/20 object-cover w-full h-full'
 						loading='lazy'
+						src={project.image_url}
+						{...(isFetchPriority && { fetchPriority: 'high' })}
+						className='rounded-lg border border-zinc-700/20 object-cover w-full h-full'
 						alt={project.description}
 					/>
 
-					<ProjectViews accessTotal={project.access_total} />
+					<ProjectViewsDynamic accessTotal={project.access_total} />
 				</div>
 			</div>
 		</div>
