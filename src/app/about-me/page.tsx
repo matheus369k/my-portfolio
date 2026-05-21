@@ -1,14 +1,10 @@
 import { SocialMedias } from '@/components/social-medias';
 import { ProfileAvatar } from '@/components/profile-avatar';
 import { Title } from '@/components/ui/title';
-import { div as MotionDiv } from 'motion/react-client';
 
 export default function AboutMePage() {
 	return (
-		<MotionDiv
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			className='flex flex-col gap-12'>
+		<div className='flex flex-col gap-12'>
 			<div className='flex flex-col gap-6'>
 				<Title>Apresentação inicial</Title>
 				<p className='text-zinc-400 pl-4'>
@@ -68,6 +64,6 @@ export default function AboutMePage() {
 					<SocialMedias />
 				</div>
 			</div>
-		</MotionDiv>
+		</div>
 	);
 }

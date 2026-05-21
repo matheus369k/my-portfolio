@@ -2,14 +2,10 @@ import { Title } from '@/components/ui/title';
 import { CertificatesList } from '@/components/certificates-list';
 import { ToolsList } from '@/components/tools-list';
 import { Suspense } from 'react';
-import { div as MotionDiv } from 'motion/react-client';
 
 export default function LearnPage() {
 	return (
-		<MotionDiv
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			className='min-h-dvh flex flex-col gap-12'>
+		<div className='min-h-dvh flex flex-col gap-12'>
 			<section className='flex flex-col gap-8'>
 				<Title>Ferramentas</Title>
 
@@ -27,6 +23,6 @@ export default function LearnPage() {
 					</Suspense>
 				</div>
 			</section>
-		</MotionDiv>
+		</div>
 	);
 }

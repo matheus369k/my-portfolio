@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { SocialMedias } from '@/components/social-medias';
 import { ProfileAvatar } from '@/components/profile-avatar';
-import { div as MotionDiv } from 'motion/react-client';
 import dynamic from 'next/dynamic';
 
 const AutoWriteJobDynamic = dynamic(
@@ -11,10 +10,7 @@ const AutoWriteJobDynamic = dynamic(
 
 export default function HomePage() {
 	return (
-		<MotionDiv
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			className='grid grid-cols-1 place-content-center place-items-center h-full grid-rows-[repeat(2,_auto)] gap-y-8 lg:place-content-between lg:grid-cols-[repeat(2,_auto)] lg:grid-rows-1'>
+		<div className='grid grid-cols-1 place-content-center place-items-center h-full grid-rows-[repeat(2,_auto)] gap-y-8 lg:place-content-between lg:grid-cols-[repeat(2,_auto)] lg:grid-rows-1'>
 			<div className='flex flex-col items-center gap-4 col-start-1'>
 				<div className='w-full'>
 					<h1 className='font-semibold text-4xl'>
@@ -36,6 +32,6 @@ export default function HomePage() {
 			</div>
 
 			<ProfileAvatar />
-		</MotionDiv>
+		</div>
 	);
 }

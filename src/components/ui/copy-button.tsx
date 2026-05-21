@@ -1,5 +1,5 @@
 import { Check, Copy } from 'lucide-react';
-import { i as MotionI } from 'motion/react-client';
+import * as Motion from 'motion/react-client';
 import { useState, type InputHTMLAttributes } from 'react';
 import { twMerge } from 'tailwind-merge';
 
@@ -30,15 +30,15 @@ export function CopyButton({ link, className, ...props }: CopyButtonProps) {
 			className={twMerge('group ml-auto', className)}
 			aria-label='copy-button'>
 			{!isSuccessCopy && (
-				<MotionI initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+				<Motion.i initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 					<Copy className='size-6 text-blue-600 ' />
-				</MotionI>
+				</Motion.i>
 			)}
 
 			{isSuccessCopy && (
-				<MotionI initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+				<Motion.i initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 					<Check className='size-6 text-blue-600' />
-				</MotionI>
+				</Motion.i>
 			)}
 		</button>
 	);
