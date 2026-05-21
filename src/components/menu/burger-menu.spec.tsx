@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { BurgerMenu } from './burger-menu';
 import userEvent from '@testing-library/user-event';
 
@@ -31,5 +31,15 @@ describe('BurgerMenu component', () => {
 		await waitFor(() => {
 			expect(screen.queryByText(/home/i)).toBeNull();
 		});
+	});
+
+	it('close burger menu when resize menu', async () => {
+		render(<BurgerMenu navbarFields={props} />);
+
+		expect(screen.queryByText(/home/i)).toBeNull();
+
+		fireEvent.resize(window);
+
+		expect(screen.queryByText(/home/i)).toBeNull();
 	});
 });

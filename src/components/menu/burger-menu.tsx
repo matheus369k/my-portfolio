@@ -29,6 +29,11 @@ export function BurgerMenu({ navbarFields }: BurgerMenuProps) {
 		setAnchorEl(null);
 	}, []);
 
+	React.useEffect(() => {
+		window.addEventListener('resize', handleCloseDropdown);
+		return () => window.removeEventListener('resize', handleCloseDropdown);
+	}, [handleCloseDropdown]);
+
 	function renderMenuIconUI() {
 		if (open) {
 			return (
