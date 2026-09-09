@@ -2,8 +2,6 @@
 
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
-import dotenv from 'dotenv'
-dotenv.config()
 
 type WebsiteViewsResponse = {
   accessTotal: number

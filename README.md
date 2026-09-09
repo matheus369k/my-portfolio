@@ -51,6 +51,14 @@ Agora você pode iniciar o projetos
 ```bash
 pnpm dev
 ```
+agora acesse http://localhost3000
+
+Para acessar a documentação dos componentes
+```bash
+pnpm storybook
+```
+agora acesse http://localhost6006
+
 
 ## Licença
 

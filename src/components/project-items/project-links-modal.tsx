@@ -50,7 +50,7 @@ export default function ProjectLinksModal(props: ProjectLinksModalProps) {
 			onClose={onCloseModal}
 			aria-labelledby='modal-modal-title'
 			aria-describedby='modal-modal-description'>
-			<div className=' max-w-xl flex flex-col gap-y-6 w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-zinc-900 outline-none outline px-5 py-8 rounded-lg focus:outline-none'>
+			<div className='text-zinc-100 max-w-xl flex flex-col gap-y-6 w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-zinc-900 outline-none outline px-5 py-8 rounded-lg focus:outline-none'>
 				<button
 					className='absolute right-4 top-4 size-fit'
 					type='button'

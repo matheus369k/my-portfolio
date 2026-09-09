@@ -1,6 +1,4 @@
-import dotenv from 'dotenv'
 import { z } from 'zod'
-dotenv.config()
 
 export const schemaEnv = z.object({
   NEXT_PUBLIC_CV_LINK: z.string().url(),
