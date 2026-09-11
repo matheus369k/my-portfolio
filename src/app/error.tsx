@@ -8,6 +8,11 @@ export default function ErrorBoundary({ error, reset }: ErrorBoundaryProps) {
 		console.log(error);
 	}, [error]);
 
+	function reloadPage() {
+		reset();
+		window.location.reload();
+	}
+
 	return (
 		<div className='flex flex-col gap-2 items-center justify-center h-full'>
 			<p className='font-bold max-w-96 text-center'>
@@ -16,7 +21,7 @@ export default function ErrorBoundary({ error, reset }: ErrorBoundaryProps) {
 			</p>
 			<button
 				title='recarregar'
-				onClick={reset}
+				onClick={reloadPage}
 				type='button'
 				className='inline font-bold rounded-lg px-8 py-2 bg-blue-600'>
 				recarregar
